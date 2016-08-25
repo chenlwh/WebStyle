@@ -60,8 +60,8 @@
 {
     if(self = [super init])
     {
-//        self.urlString = KGWHostURL;
-//        self.cacheUrlString = KGWHostURL;
+        self.urlString = KGWHostURL;
+        self.cacheUrlString = KGWHostURL;
         self.interfaceName = @"";//@"rest?";
         self.httpMethod = HttpMethodPost;
         _needHttps = NO;
@@ -617,5 +617,10 @@
 - (void)logWithError:(NSError*)error
 {
 
+}
+
+-(NSString*)requestMethod
+{
+    return @"";
 }
 @end

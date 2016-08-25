@@ -497,4 +497,7 @@ typedef enum : NSUInteger {
 - (NSString*)thumbDescription;
 
 - (void)logWithError:(NSError*)error;
+
+//add by liudan
+-(NSString*)requestMethod;
 @end

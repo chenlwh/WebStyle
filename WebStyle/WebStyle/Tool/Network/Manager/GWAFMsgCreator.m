@@ -242,108 +242,110 @@ static char kGWStoreResponseObjectKey;
 }
 
 - (NSURLSessionDataTask*)Get:(NSString*)urlStr parameters:(NSDictionary*)params provider:(GWBaseProvider*)provider{
-
-    WeakObjectDef(self);
-    WeakObjectDef(provider);
-    NSURLSessionDataTask* request = [_manager GET:urlStr
-                                      parameters:params
-                                        progress:^(NSProgress * _Nonnull downloadProgress) {
-                                            
-                                            if (weakprovider.operation) {
-                                                 [weakself request:(id)weakprovider.operation didReceiveBytes:downloadProgress];
-                                            }
-                                            
-                                        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                                            task.responseObject = responseObject;
-                                            [weakself requestFinished:task];
-                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                            [weakself requestFailed:task withError:error];
-                                        }];
-    
-    [self configureRequest:request withProvider:provider];
-
-    return request;
+    return nil;
+//    WeakObjectDef(self);
+//    WeakObjectDef(provider);
+//    NSURLSessionDataTask* request = [_manager GET:urlStr
+//                                      parameters:params
+//                                        progress:^(NSProgress * _Nonnull downloadProgress) {
+//                                            
+//                                            if (weakprovider.operation) {
+//                                                 [weakself request:(id)weakprovider.operation didReceiveBytes:downloadProgress];
+//                                            }
+//                                            
+//                                        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                                            task.responseObject = responseObject;
+//                                            [weakself requestFinished:task];
+//                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                                            [weakself requestFailed:task withError:error];
+//                                        }];
+//    
+//    [self configureRequest:request withProvider:provider];
+//
+//    return request;
     
     
 }
 
 - (NSURLSessionDataTask*)Post:(NSString*)urlStr formDatas:(NSMutableArray*)fromDatas parameters:(NSDictionary*)params provider:(GWBaseProvider*)provider{
     
-    WeakObjectDef(self);
-    WeakObjectDef(provider);
-    
-    NSMutableDictionary *pars = [NSMutableDictionary dictionaryWithDictionary:params];
-    [pars removeObjectsForKeys:fromDatas];
-    
-    
-    NSURLSessionDataTask  *sessionTask = [_manager POST:urlStr
-                     parameters:pars
-      constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                    for(NSString* key in fromDatas)
-                    {
-                        NSError* error = nil;
-                        [formData appendPartWithFileURL:[NSURL fileURLWithPath:[params objectForKey:key]]
-                                                   name:key
-                                               fileName:[weakprovider fileNameWithFileProperty:key]
-                                               mimeType:[weakprovider contentTypeWithFileProperty:key]
-                                                  error:&error];
-                    }
-        }
-                       progress:^(NSProgress * _Nonnull uploadProgress) {
-                           
-                           if (weakprovider.operation) {
-                                [weakself request:(id)weakprovider.operation didReceiveBytes:uploadProgress];
-                           }
-                           
-                       }
-                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                            
-                            task.responseObject = responseObject;
-                            [weakself requestFinished:task];
-                            
-                        }
-                        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                            
-                            [weakself requestFailed:task withError:error];
-                            
-                        }];
-    
-    [self configureRequest:sessionTask withProvider:provider];
-    
-    return sessionTask;
+//    WeakObjectDef(self);
+//    WeakObjectDef(provider);
+//    
+//    NSMutableDictionary *pars = [NSMutableDictionary dictionaryWithDictionary:params];
+//    [pars removeObjectsForKeys:fromDatas];
+//    
+//    
+//    NSURLSessionDataTask  *sessionTask = [_manager POST:urlStr
+//                     parameters:pars
+//      constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//                    for(NSString* key in fromDatas)
+//                    {
+//                        NSError* error = nil;
+//                        [formData appendPartWithFileURL:[NSURL fileURLWithPath:[params objectForKey:key]]
+//                                                   name:key
+//                                               fileName:[weakprovider fileNameWithFileProperty:key]
+//                                               mimeType:[weakprovider contentTypeWithFileProperty:key]
+//                                                  error:&error];
+//                    }
+//        }
+//                       progress:^(NSProgress * _Nonnull uploadProgress) {
+//                           
+//                           if (weakprovider.operation) {
+//                                [weakself request:(id)weakprovider.operation didReceiveBytes:uploadProgress];
+//                           }
+//                           
+//                       }
+//                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                            
+//                            task.responseObject = responseObject;
+//                            [weakself requestFinished:task];
+//                            
+//                        }
+//                        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                            
+//                            [weakself requestFailed:task withError:error];
+//                            
+//                        }];
+//    
+//    [self configureRequest:sessionTask withProvider:provider];
+//    
+//    return sessionTask;
+    return nil;
     
 }
 
 - (NSURLSessionDataTask*)Post:(NSString*)urlStr parameters:(NSDictionary*)params provider:(GWBaseProvider*)provider{
     
-    WeakObjectDef(self);
-    WeakObjectDef(provider);
-    
-    NSURLSessionDataTask  *sessionTask = [_manager POST:urlStr
-                     parameters:params
-                       progress:^(NSProgress * _Nonnull uploadProgress) {
-                           
-                           if (weakprovider.operation) {
-                                 [weakself request:(id)weakprovider.operation didReceiveBytes:uploadProgress];
-                           }
-                          
-                           
-                       }
-                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                            
-                            task.responseObject = responseObject;
-                            [weakself requestFinished:task];
-                            
-                        }
-                        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                            
-                            [weakself requestFailed:task withError:error];
-                            
-                        }];
-    
-    [self configureRequest:sessionTask withProvider:provider];
-    
-    return sessionTask;
+//    WeakObjectDef(self);
+//    WeakObjectDef(provider);
+//    
+//    NSURLSessionDataTask  *sessionTask = [_manager POST:urlStr
+//                     parameters:params
+//                       progress:^(NSProgress * _Nonnull uploadProgress) {
+//                           
+//                           if (weakprovider.operation) {
+//                                 [weakself request:(id)weakprovider.operation didReceiveBytes:uploadProgress];
+//                           }
+//                          
+//                           
+//                       }
+//                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                            
+//                            task.responseObject = responseObject;
+//                            [weakself requestFinished:task];
+//                            
+//                        }
+//                        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//                            
+//                            [weakself requestFailed:task withError:error];
+//                            
+//                        }];
+//    
+//    [self configureRequest:sessionTask withProvider:provider];
+//    
+//    return sessionTask;
+    return nil;
 
 }
 

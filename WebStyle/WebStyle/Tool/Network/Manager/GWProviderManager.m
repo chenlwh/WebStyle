@@ -18,14 +18,15 @@
 #import "MsgDefine.h"
 #import "NSDate+SFAddition.h"
 
-
-#if __has_include(<AFNetworking.h>)
 #import "GWAFMsgCreator.h"
-#undef  __use_ASIHTTPRequest__
-#else
-#import "GWASIMsgCreator.h"
-#define __use_ASIHTTPRequest__
-#endif
+
+//#if __has_include(<AFNetworking.h>)
+//#import "GWAFMsgCreator.h"
+//#undef  __use_ASIHTTPRequest__
+//#else
+//#import "GWASIMsgCreator.h"
+//#define __use_ASIHTTPRequest__
+//#endif
 
 
 NSString *const GWBaseHTTPRequestSeverDate      = @"GWBaseHTTPRequestSeverDate";
@@ -84,12 +85,13 @@ static GWProviderManager* providermanager = nil;
         if(!_msgCreator)
         {
             
-            
-#ifdef __use_ASIHTTPRequest__
+//            
+//#ifdef __use_ASIHTTPRequest__
 //            _msgCreator = [[GWASIMsgCreator alloc] init];
-#else
+//#else
+//            _msgCreator = [[GWAFMsgCreator alloc] init];
+//#endif
             _msgCreator = [[GWAFMsgCreator alloc] init];
-#endif
             _msgCreator.responseDelegate = self;
             _msgCreator.progressDelegate = self;
         }

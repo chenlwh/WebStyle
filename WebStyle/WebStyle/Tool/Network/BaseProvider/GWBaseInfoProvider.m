@@ -67,7 +67,7 @@ NSString *const GWFlag1 = @"1";
 
         self.mobileType = [[UIDevice currentDevice] model];
         self.osVersion = [[UIDevice currentDevice] systemVersion];
-        self.format = GWFormatXML;
+        self.format = GWFormatJASON;
         self.v = @"1.0";
         
         self.needMemberEncode = NO;
@@ -93,6 +93,11 @@ NSString *const GWFlag1 = @"1";
     return self;
 }
 
+-(NSString*)requestMethod
+{
+    return self.method;
+}
+
 - (void)resetUrlWithDynamicIPInfo:(GWDynamicIPInfo*)info
                            config:(id<GWAppConfigDelegate>)config
 {
@@ -107,13 +112,13 @@ NSString *const GWFlag1 = @"1";
     NSString* menberEncode = [config memberEncode];
     self.memberEncode = [menberEncode length] > 0 ? menberEncode : nil;
     
-    GWDynamicIPInfo* info = [config dynamicIpInfoWithMethod:self.method];
-    [self resetUrlWithDynamicIPInfo:info config:config];
-    
-    if(![self.urlString isEqualToString:self.cacheUrlString])
-    {
-        [self.requestHeaders setValue:info.domain forKey:@"Host"];
-    }
+//    GWDynamicIPInfo* info = [config dynamicIpInfoWithMethod:self.method];
+//    [self resetUrlWithDynamicIPInfo:info config:config];
+//    
+//    if(![self.urlString isEqualToString:self.cacheUrlString])
+//    {
+//        [self.requestHeaders setValue:info.domain forKey:@"Host"];
+//    }
     
     if([config respondsToSelector:@selector(httpHeaderAddition)])
     {

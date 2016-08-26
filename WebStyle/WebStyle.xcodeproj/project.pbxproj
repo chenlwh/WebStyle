@@ -141,7 +141,6 @@
 		C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F8FF1D6ED38200346164 /* SDCollectionViewCell.m */; };
 		C145F9091D6ED38200346164 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9011D6ED38200346164 /* SDCycleScrollView.m */; };
 		C145F90A1D6ED38200346164 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9031D6ED38200346164 /* UIView+SDExtension.m */; };
-		C145F90D1D6ED3CD00346164 /* HomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F90C1D6ED3CD00346164 /* HomepageHeaderView.m */; };
 		C145F9301D6ED93800346164 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9101D6ED93800346164 /* MKAnnotationView+WebCache.m */; };
 		C145F9311D6ED93800346164 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9121D6ED93800346164 /* NSData+ImageContentType.m */; };
 		C145F9321D6ED93800346164 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9141D6ED93800346164 /* SDImageCache.m */; };
@@ -159,11 +158,19 @@
 		C145F93E1D6ED93800346164 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F92D1D6ED93800346164 /* UIImageView+WebCache.m */; };
 		C145F93F1D6ED93800346164 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F92F1D6ED93800346164 /* UIView+WebCacheOperation.m */; };
 		C145F9481D6EE67E00346164 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9471D6EE67E00346164 /* UINavigationBar+Awesome.m */; };
-		C145F94B1D6EEEC500346164 /* HomepageNaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F94A1D6EEEC500346164 /* HomepageNaviBarView.m */; };
-		C145F9501D6EEF0900346164 /* GWDramaHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F94D1D6EEF0900346164 /* GWDramaHomeSearchView.m */; };
-		C145F9511D6EEF0900346164 /* GWDramaSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F94F1D6EEF0900346164 /* GWDramaSearchHeaderView.m */; };
 		C145F9541D6EEF5400346164 /* UIView+GWCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F9531D6EEF5400346164 /* UIView+GWCorner.m */; };
 		C145F9601D6F05D000346164 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F95F1D6F05D000346164 /* SearchViewController.m */; };
+		C1611ED01D6FE9A100A73FCB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611ECE1D6FE9A100A73FCB /* TestViewController.m */; };
+		C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */; };
+		C1611EDF1D70274B00A73FCB /* GWDramaHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611ED61D70274B00A73FCB /* GWDramaHomeSearchView.m */; };
+		C1611EE01D70274B00A73FCB /* GWDramaSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611ED81D70274B00A73FCB /* GWDramaSearchHeaderView.m */; };
+		C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EDA1D70274B00A73FCB /* HomepageHeaderView.m */; };
+		C1611EE21D70274B00A73FCB /* HomepageNaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EDC1D70274B00A73FCB /* HomepageNaviBarView.m */; };
+		C1611EE31D70274B00A73FCB /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EDE1D70274B00A73FCB /* HomepageViewController.m */; };
+		C1611EE81D702E5E00A73FCB /* PreferPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EE71D702E5E00A73FCB /* PreferPlayer.m */; };
+		C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEB1D70326A00A73FCB /* SwipeView.m */; };
+		C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */; };
+		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
 		C1A2FA781D6C2A65000D09DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA771D6C2A65000D09DE /* main.m */; };
 		C1A2FA7B1D6C2A65000D09DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA7A1D6C2A65000D09DE /* AppDelegate.m */; };
 		C1A2FA7E1D6C2A65000D09DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA7D1D6C2A65000D09DE /* ViewController.m */; };
@@ -172,7 +179,6 @@
 		C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1A2FA841D6C2A65000D09DE /* LaunchScreen.storyboard */; };
 		C1A2FA961D6C2CF3000D09DE /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA951D6C2CF3000D09DE /* MainTabBarController.m */; };
 		C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA981D6C2E75000D09DE /* BasicViewController.m */; };
-		C1A2FA9C1D6C2ED7000D09DE /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA9B1D6C2ED7000D09DE /* HomepageViewController.m */; };
 		C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */; };
 		C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */; };
 /* End PBXBuildFile section */
@@ -451,8 +457,6 @@
 		C145F9011D6ED38200346164 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		C145F9021D6ED38200346164 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		C145F9031D6ED38200346164 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
-		C145F90B1D6ED3CD00346164 /* HomepageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageHeaderView.h; sourceTree = "<group>"; };
-		C145F90C1D6ED3CD00346164 /* HomepageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageHeaderView.m; sourceTree = "<group>"; };
 		C145F90F1D6ED93800346164 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		C145F9101D6ED93800346164 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		C145F9111D6ED93800346164 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -488,16 +492,31 @@
 		C145F92F1D6ED93800346164 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		C145F9461D6EE67E00346164 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		C145F9471D6EE67E00346164 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
-		C145F9491D6EEEC500346164 /* HomepageNaviBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageNaviBarView.h; sourceTree = "<group>"; };
-		C145F94A1D6EEEC500346164 /* HomepageNaviBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageNaviBarView.m; sourceTree = "<group>"; };
-		C145F94C1D6EEF0900346164 /* GWDramaHomeSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDramaHomeSearchView.h; sourceTree = "<group>"; };
-		C145F94D1D6EEF0900346164 /* GWDramaHomeSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDramaHomeSearchView.m; sourceTree = "<group>"; };
-		C145F94E1D6EEF0900346164 /* GWDramaSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDramaSearchHeaderView.h; sourceTree = "<group>"; };
-		C145F94F1D6EEF0900346164 /* GWDramaSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDramaSearchHeaderView.m; sourceTree = "<group>"; };
 		C145F9521D6EEF5400346164 /* UIView+GWCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GWCorner.h"; sourceTree = "<group>"; };
 		C145F9531D6EEF5400346164 /* UIView+GWCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GWCorner.m"; sourceTree = "<group>"; };
 		C145F95E1D6F05D000346164 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		C145F95F1D6F05D000346164 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		C1611ECD1D6FE9A100A73FCB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		C1611ECE1D6FE9A100A73FCB /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		C1611ED51D70274B00A73FCB /* GWDramaHomeSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDramaHomeSearchView.h; sourceTree = "<group>"; };
+		C1611ED61D70274B00A73FCB /* GWDramaHomeSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDramaHomeSearchView.m; sourceTree = "<group>"; };
+		C1611ED71D70274B00A73FCB /* GWDramaSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDramaSearchHeaderView.h; sourceTree = "<group>"; };
+		C1611ED81D70274B00A73FCB /* GWDramaSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDramaSearchHeaderView.m; sourceTree = "<group>"; };
+		C1611ED91D70274B00A73FCB /* HomepageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageHeaderView.h; sourceTree = "<group>"; };
+		C1611EDA1D70274B00A73FCB /* HomepageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageHeaderView.m; sourceTree = "<group>"; };
+		C1611EDB1D70274B00A73FCB /* HomepageNaviBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageNaviBarView.h; sourceTree = "<group>"; };
+		C1611EDC1D70274B00A73FCB /* HomepageNaviBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageNaviBarView.m; sourceTree = "<group>"; };
+		C1611EDD1D70274B00A73FCB /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
+		C1611EDE1D70274B00A73FCB /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
+		C1611EE61D702E5E00A73FCB /* PreferPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferPlayer.h; sourceTree = "<group>"; };
+		C1611EE71D702E5E00A73FCB /* PreferPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferPlayer.m; sourceTree = "<group>"; };
+		C1611EEA1D70326A00A73FCB /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		C1611EEB1D70326A00A73FCB /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		C1611EED1D70329F00A73FCB /* PlayerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScrollView.h; sourceTree = "<group>"; };
+		C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScrollView.m; sourceTree = "<group>"; };
+		C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GWWebDragBackAnimation.h"; sourceTree = "<group>"; };
+		C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GWWebDragBackAnimation.m"; sourceTree = "<group>"; };
 		C1A2FA731D6C2A65000D09DE /* WebStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A2FA771D6C2A65000D09DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C1A2FA791D6C2A65000D09DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -512,8 +531,6 @@
 		C1A2FA951D6C2CF3000D09DE /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		C1A2FA971D6C2E75000D09DE /* BasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicViewController.h; sourceTree = "<group>"; };
 		C1A2FA981D6C2E75000D09DE /* BasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicViewController.m; sourceTree = "<group>"; };
-		C1A2FA9A1D6C2ED7000D09DE /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
-		C1A2FA9B1D6C2ED7000D09DE /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
 		C1A2FA9D1D6C33F2000D09DE /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfieViewController.h; sourceTree = "<group>"; };
@@ -537,6 +554,7 @@
 		C140451B1D6D4F740067D66F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				C1611EE91D70326A00A73FCB /* SwipeView */,
 				C145F90E1D6ED93800346164 /* SDWebImage */,
 				C145F8F41D6ED38200346164 /* SDCycleScrollView */,
 				C145F8ED1D6ECBC500346164 /* XYString */,
@@ -701,6 +719,8 @@
 		C140456F1D6D82E10067D66F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */,
+				C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */,
 				C145F9521D6EEF5400346164 /* UIView+GWCorner.h */,
 				C145F9531D6EEF5400346164 /* UIView+GWCorner.m */,
 				C145F9461D6EE67E00346164 /* UINavigationBar+Awesome.h */,
@@ -1241,6 +1261,50 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		C1611ED41D70274B00A73FCB /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				C1611EE51D70279200A73FCB /* PlayerScroller */,
+				C1611EE41D70275100A73FCB /* NaviBar */,
+				C1611ED91D70274B00A73FCB /* HomepageHeaderView.h */,
+				C1611EDA1D70274B00A73FCB /* HomepageHeaderView.m */,
+				C1611EDD1D70274B00A73FCB /* HomepageViewController.h */,
+				C1611EDE1D70274B00A73FCB /* HomepageViewController.m */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		C1611EE41D70275100A73FCB /* NaviBar */ = {
+			isa = PBXGroup;
+			children = (
+				C1611ED51D70274B00A73FCB /* GWDramaHomeSearchView.h */,
+				C1611ED61D70274B00A73FCB /* GWDramaHomeSearchView.m */,
+				C1611ED71D70274B00A73FCB /* GWDramaSearchHeaderView.h */,
+				C1611ED81D70274B00A73FCB /* GWDramaSearchHeaderView.m */,
+				C1611EDB1D70274B00A73FCB /* HomepageNaviBarView.h */,
+				C1611EDC1D70274B00A73FCB /* HomepageNaviBarView.m */,
+			);
+			name = NaviBar;
+			sourceTree = "<group>";
+		};
+		C1611EE51D70279200A73FCB /* PlayerScroller */ = {
+			isa = PBXGroup;
+			children = (
+				C1611EED1D70329F00A73FCB /* PlayerScrollView.h */,
+				C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */,
+			);
+			path = PlayerScroller;
+			sourceTree = "<group>";
+		};
+		C1611EE91D70326A00A73FCB /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				C1611EEA1D70326A00A73FCB /* SwipeView.h */,
+				C1611EEB1D70326A00A73FCB /* SwipeView.m */,
+			);
+			path = SwipeView;
+			sourceTree = "<group>";
+		};
 		C1A2FA6A1D6C2A65000D09DE = {
 			isa = PBXGroup;
 			children = (
@@ -1294,6 +1358,8 @@
 				C14045E31D6D90800067D66F /* BaseModel */,
 				C145F8F11D6ECE5100346164 /* PreferVideo.h */,
 				C145F8F21D6ECE5100346164 /* PreferVideo.m */,
+				C1611EE61D702E5E00A73FCB /* PreferPlayer.h */,
+				C1611EE71D702E5E00A73FCB /* PreferPlayer.m */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -1313,31 +1379,16 @@
 		C1A2FA8F1D6C2CC1000D09DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C1611ED41D70274B00A73FCB /* Homepage */,
 				C145F9551D6F02BA00346164 /* Search */,
-				C1A2FA901D6C2CC1000D09DE /* Homepage（首页） */,
 				C1A2FA911D6C2CC1000D09DE /* Main */,
 				C1A2FA921D6C2CC1000D09DE /* MyProfile（我的） */,
 				C1A2FA931D6C2CC1000D09DE /* Video（视频） */,
+				C1611ECD1D6FE9A100A73FCB /* TestViewController.h */,
+				C1611ECE1D6FE9A100A73FCB /* TestViewController.m */,
+				C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		C1A2FA901D6C2CC1000D09DE /* Homepage（首页） */ = {
-			isa = PBXGroup;
-			children = (
-				C145F94C1D6EEF0900346164 /* GWDramaHomeSearchView.h */,
-				C145F94D1D6EEF0900346164 /* GWDramaHomeSearchView.m */,
-				C145F94E1D6EEF0900346164 /* GWDramaSearchHeaderView.h */,
-				C145F94F1D6EEF0900346164 /* GWDramaSearchHeaderView.m */,
-				C1A2FA9A1D6C2ED7000D09DE /* HomepageViewController.h */,
-				C1A2FA9B1D6C2ED7000D09DE /* HomepageViewController.m */,
-				C145F90B1D6ED3CD00346164 /* HomepageHeaderView.h */,
-				C145F90C1D6ED3CD00346164 /* HomepageHeaderView.m */,
-				C145F9491D6EEEC500346164 /* HomepageNaviBarView.h */,
-				C145F94A1D6EEEC500346164 /* HomepageNaviBarView.m */,
-			);
-			name = "Homepage（首页）";
-			path = Homepage;
 			sourceTree = "<group>";
 		};
 		C1A2FA911D6C2CC1000D09DE /* Main */ = {
@@ -1432,6 +1483,7 @@
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1A2FA811D6C2A65000D09DE /* Main.storyboard in Resources */,
+				C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */,
 				C140463C1D6D91190067D66F /* emotions.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1445,30 +1497,32 @@
 			files = (
 				C145F8E51D6EBF1F00346164 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
+				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
 				C14046361D6D91190067D66F /* GWNonMemberEncodeCache.m in Sources */,
 				C14045D51D6D8FFA0067D66F /* GWProviderResultPackage.m in Sources */,
 				C14046A91D6D9A060067D66F /* MANotificationCenterAdditions.m in Sources */,
-				C145F9511D6EEF0900346164 /* GWDramaSearchHeaderView.m in Sources */,
+				C1611EE01D70274B00A73FCB /* GWDramaSearchHeaderView.m in Sources */,
 				C145F9071D6ED38200346164 /* TAPageControl.m in Sources */,
 				C14045671D6D52980067D66F /* MJRefreshNormalHeader.m in Sources */,
+				C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */,
 				C140466F1D6D91E80067D66F /* MBProgressHUD.m in Sources */,
 				C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */,
 				C145F8981D6E8B8B00346164 /* NSDataAdditions.m in Sources */,
 				C140455D1D6D52980067D66F /* MJRefreshComponent.m in Sources */,
 				C140452B1D6D4F740067D66F /* FTAnimationManager.m in Sources */,
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
+				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
 				C14046511D6D91190067D66F /* GWXMLDeserializerParserDelegates.m in Sources */,
 				C145F8E21D6EBF1F00346164 /* AFURLRequestSerialization.m in Sources */,
 				C140463B1D6D91190067D66F /* YDate.m in Sources */,
 				C14046481D6D91190067D66F /* MBProgressHUD+GWHud.m in Sources */,
+				C1611EE31D70274B00A73FCB /* HomepageViewController.m in Sources */,
 				C14046AD1D6D9A060067D66F /* MAZeroingWeakRef.m in Sources */,
 				C140456C1D6D52980067D66F /* UIScrollView+MJRefresh.m in Sources */,
 				C14045721D6D82E10067D66F /* UIView+Gewara.m in Sources */,
-				C145F94B1D6EEEC500346164 /* HomepageNaviBarView.m in Sources */,
 				C140463E1D6D91190067D66F /* GWEmotionSelectView.m in Sources */,
 				C145F8DF1D6EBF1F00346164 /* AFNetworkReachabilityManager.m in Sources */,
 				C145F93B1D6ED93800346164 /* UIImage+MultiFormat.m in Sources */,
-				C1A2FA9C1D6C2ED7000D09DE /* HomepageViewController.m in Sources */,
 				C1A2FA7E1D6C2A65000D09DE /* ViewController.m in Sources */,
 				C14046421D6D91190067D66F /* SVChatEmotionItemView.m in Sources */,
 				C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */,
@@ -1485,6 +1539,7 @@
 				C14045D41D6D8FFA0067D66F /* GWPagingProvider.m in Sources */,
 				C14046491D6D91190067D66F /* BasicAnnotation.m in Sources */,
 				C145F9301D6ED93800346164 /* MKAnnotationView+WebCache.m in Sources */,
+				C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */,
 				C14045681D6D52980067D66F /* MJRefreshStateHeader.m in Sources */,
 				C14045601D6D52980067D66F /* MJRefreshAutoGifFooter.m in Sources */,
 				C145F9371D6ED93800346164 /* SDWebImageManager.m in Sources */,
@@ -1495,7 +1550,6 @@
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
 				C14046751D6D91E80067D66F /* NSObject+MJClass.m in Sources */,
 				C140463A1D6D91190067D66F /* NSDateFormatter+Gewara.m in Sources */,
-				C145F90D1D6ED3CD00346164 /* HomepageHeaderView.m in Sources */,
 				C145F9041D6ED38200346164 /* TAAbstractDotView.m in Sources */,
 				C14046501D6D91190067D66F /* GWXMLDeserializer.m in Sources */,
 				C14046711D6D91E80067D66F /* MJFoundation.m in Sources */,
@@ -1520,6 +1574,7 @@
 				C14046411D6D91190067D66F /* SVChatEmotion.m in Sources */,
 				C14045661D6D52980067D66F /* MJRefreshGifHeader.m in Sources */,
 				C14046981D6D993A0067D66F /* FBKVOController.m in Sources */,
+				C1611EE81D702E5E00A73FCB /* PreferPlayer.m in Sources */,
 				C140468E1D6D963C0067D66F /* NSDictionary+FormatString.m in Sources */,
 				C14045DA1D6D8FFA0067D66F /* GWErrorInfo.m in Sources */,
 				C1A2FA7B1D6C2A65000D09DE /* AppDelegate.m in Sources */,
@@ -1529,6 +1584,7 @@
 				C14046451D6D91190067D66F /* SVPageIndicator.m in Sources */,
 				C14046461D6D91190067D66F /* GWErrorDomain.m in Sources */,
 				C14046441D6D91190067D66F /* SVEmotionView.m in Sources */,
+				C1611EE21D70274B00A73FCB /* HomepageNaviBarView.m in Sources */,
 				C145F89A1D6E8B8B00346164 /* TBXML.m in Sources */,
 				C145F8E11D6EBF1F00346164 /* AFURLConnectionOperation.m in Sources */,
 				C14046771D6D91E80067D66F /* NSObject+MJKeyValue.m in Sources */,
@@ -1557,6 +1613,7 @@
 				C14046391D6D91190067D66F /* NSDateAdditions.m in Sources */,
 				C145F9341D6ED93800346164 /* SDWebImageDecoder.m in Sources */,
 				C14045631D6D52980067D66F /* MJRefreshBackGifFooter.m in Sources */,
+				C1611ED01D6FE9A100A73FCB /* TestViewController.m in Sources */,
 				C140463D1D6D91190067D66F /* GWEmotionManager.m in Sources */,
 				C145F8EB1D6EBF1F00346164 /* UIRefreshControl+AFNetworking.m in Sources */,
 				C140452A1D6D4F740067D66F /* FTAnimation+UIView.m in Sources */,
@@ -1601,7 +1658,7 @@
 				C145F9361D6ED93800346164 /* SDWebImageDownloaderOperation.m in Sources */,
 				C1A2FA781D6C2A65000D09DE /* main.m in Sources */,
 				C145F9321D6ED93800346164 /* SDImageCache.m in Sources */,
-				C145F9501D6EEF0900346164 /* GWDramaHomeSearchView.m in Sources */,
+				C1611EDF1D70274B00A73FCB /* GWDramaHomeSearchView.m in Sources */,
 				C145F9091D6ED38200346164 /* SDCycleScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

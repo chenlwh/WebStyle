@@ -38,7 +38,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    [self setStatusBarDefault];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 //    if (self.showSelectedMode) {
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

@@ -28,11 +28,12 @@
     if (self) {
 //        self.backgroundColor = [UIColor greenColor];
         
-        UIImage *fixedImage = [[UIImage imageNamed:@"search_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 50, 0, 50)];
+        UIImage *fixedImage = 
+        [UIImage imageNamed:@"search_bg"];
+//        [[UIImage imageNamed:@"search_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 50, 0, 50)];
         self.image = fixedImage;
         
         self.userInteractionEnabled = YES;
-//        self.backgroundColor = [UIColor colorWithHexString:@"#f1f1f1"];
         self.textFieldEnable = YES;
         
         [self createUserInterface];
@@ -63,7 +64,7 @@
     [self addSubview:pImageView];
     
     
-    NSString *placeHolder = @"搜索最热门的演出";
+    NSString *placeHolder = @"搜索最热门的主播、视频";
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:placeHolder];
     [attributedString addAttribute:NSForegroundColorAttributeName value:RGBACOLORFromRGBHex(0xa0a0a0) range:NSMakeRange(0, [placeHolder length])];
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:NSMakeRange(0, [placeHolder length])];
@@ -76,7 +77,6 @@
     _searchTF.attributedPlaceholder = attributedString;
 //    [_searchTF addTarget:self action:@selector(searchTrigger:) forControlEvents:UIControlEventEditingDidEndOnExit];
     _searchTF.returnKeyType = UIReturnKeySearch;
-    _searchTF.textColor = [UIColor whiteColor];
     _searchTF.backgroundColor = [UIColor clearColor];
     _searchTF.font = [UIFont systemFontOfSize:12];
     _searchTF.clearButtonMode = UITextFieldViewModeNever;

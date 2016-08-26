@@ -42,7 +42,7 @@
 
 +(UIColor*) SDBackgroundColor
 {
-    return [UIColor whiteColor];
+    return RGBCOLOR(238, 238, 238);
 }
 
 +(UIColor*) TableViewBackColor

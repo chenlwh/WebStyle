@@ -13,10 +13,13 @@
 
 -(void) naviBarsearchBtnClick;
 
+-(void) AppNameBtnClick;
+
 @end
 
 @interface HomepageNaviBarView : UIView
 @property (nonatomic, strong) GWDramaHomeSearchView *dramaHomeSearchView;
+@property (nonatomic, strong) UIButton *leftButton;
 @property (nonatomic, weak) id <CustomNaviBarDelegate> delegate;
 
 -(void)reloadView;

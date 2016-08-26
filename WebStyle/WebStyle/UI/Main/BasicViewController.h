@@ -14,4 +14,8 @@
 
 @interface BasicViewController : UIViewController
 @property (nonatomic,strong) UIColor *navBarColor;
+
+//- (void)setStatusBarBackgroundColor:(UIColor *)color;
+-(void)setStatusBarLight;
+-(void)setStatusBarDefault;
 @end

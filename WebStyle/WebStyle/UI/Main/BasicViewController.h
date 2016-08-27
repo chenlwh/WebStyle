@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FTUtils.h"
+#import "MJRefresh.h"
+#import "UIView+Gewara.h"
+#import "MsgDefine.h"
 
 @interface BasicViewController : UIViewController
+@property (nonatomic,strong) UIColor *navBarColor;
 
+//- (void)setStatusBarBackgroundColor:(UIColor *)color;
+-(void)setStatusBarLight;
+-(void)setStatusBarDefault;
 @end

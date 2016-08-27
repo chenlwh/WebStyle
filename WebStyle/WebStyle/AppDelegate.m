@@ -48,9 +48,10 @@
      @{NSForegroundColorAttributeName:[UIColor grayColor], NSFontAttributeName:[UIFont systemFontOfSize:12]}
                                              forState:UIControlStateNormal];
     
-    UINavigationBar *naviBarAppearance = [UINavigationBar appearance];
-    naviBarAppearance.translucent = false;
-    naviBarAppearance.titleTextAttributes = @{NSFontAttributeName:[Constants SDNavTitleFont], NSForegroundColorAttributeName:[UIColor blackColor]};
+//    UINavigationBar *naviBarAppearance = [UINavigationBar appearance];
+//    naviBarAppearance.translucent = false;
+//    naviBarAppearance.titleTextAttributes = @{NSFontAttributeName:[Constants SDNavTitleFont], NSForegroundColorAttributeName:[UIColor blackColor]};
+//    naviBarAppearance.backgroundColor = [UIColor blueColor];
     
     id item = [UIBarButtonItem appearance];
     [item setTitleTextAttributes:@{NSFontAttributeName: [Constants SDNavItemFont], NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateNormal];

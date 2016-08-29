@@ -171,6 +171,10 @@
 		C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEB1D70326A00A73FCB /* SwipeView.m */; };
 		C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */; };
 		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
+		C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */; };
+		C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */; };
+		C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401A1D741C6500CF09A0 /* VideoCard.m */; };
+		C180401E1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401D1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m */; };
 		C1A2FA781D6C2A65000D09DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA771D6C2A65000D09DE /* main.m */; };
 		C1A2FA7B1D6C2A65000D09DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA7A1D6C2A65000D09DE /* AppDelegate.m */; };
 		C1A2FA7E1D6C2A65000D09DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA7D1D6C2A65000D09DE /* ViewController.m */; };
@@ -517,6 +521,14 @@
 		C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScrollView.m; sourceTree = "<group>"; };
 		C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GWWebDragBackAnimation.h"; sourceTree = "<group>"; };
 		C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GWWebDragBackAnimation.m"; sourceTree = "<group>"; };
+		C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
+		C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
+		C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBaseCollectionViewController.h; sourceTree = "<group>"; };
+		C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeBaseCollectionViewController.m; sourceTree = "<group>"; };
+		C18040191D741C6500CF09A0 /* VideoCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCard.h; sourceTree = "<group>"; };
+		C180401A1D741C6500CF09A0 /* VideoCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCard.m; sourceTree = "<group>"; };
+		C180401C1D74336500CF09A0 /* HomeNewPlayerVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNewPlayerVideoViewController.h; sourceTree = "<group>"; };
+		C180401D1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNewPlayerVideoViewController.m; sourceTree = "<group>"; };
 		C1A2FA731D6C2A65000D09DE /* WebStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A2FA771D6C2A65000D09DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C1A2FA791D6C2A65000D09DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1252,25 +1264,30 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		C145F9551D6F02BA00346164 /* Search */ = {
+		C145F9551D6F02BA00346164 /* Search（搜索） */ = {
 			isa = PBXGroup;
 			children = (
 				C145F95E1D6F05D000346164 /* SearchViewController.h */,
 				C145F95F1D6F05D000346164 /* SearchViewController.m */,
 			);
+			name = "Search（搜索）";
 			path = Search;
 			sourceTree = "<group>";
 		};
-		C1611ED41D70274B00A73FCB /* Homepage */ = {
+		C1611ED41D70274B00A73FCB /* Homepage（首页） */ = {
 			isa = PBXGroup;
 			children = (
+				C18040151D7417B500CF09A0 /* HomeCollection */,
 				C1611EE51D70279200A73FCB /* PlayerScroller */,
 				C1611EE41D70275100A73FCB /* NaviBar */,
 				C1611ED91D70274B00A73FCB /* HomepageHeaderView.h */,
 				C1611EDA1D70274B00A73FCB /* HomepageHeaderView.m */,
 				C1611EDD1D70274B00A73FCB /* HomepageViewController.h */,
 				C1611EDE1D70274B00A73FCB /* HomepageViewController.m */,
+				C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */,
+				C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */,
 			);
+			name = "Homepage（首页）";
 			path = Homepage;
 			sourceTree = "<group>";
 		};
@@ -1303,6 +1320,19 @@
 				C1611EEB1D70326A00A73FCB /* SwipeView.m */,
 			);
 			path = SwipeView;
+			sourceTree = "<group>";
+		};
+		C18040151D7417B500CF09A0 /* HomeCollection */ = {
+			isa = PBXGroup;
+			children = (
+				C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */,
+				C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */,
+				C18040191D741C6500CF09A0 /* VideoCard.h */,
+				C180401A1D741C6500CF09A0 /* VideoCard.m */,
+				C180401C1D74336500CF09A0 /* HomeNewPlayerVideoViewController.h */,
+				C180401D1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m */,
+			);
+			path = HomeCollection;
 			sourceTree = "<group>";
 		};
 		C1A2FA6A1D6C2A65000D09DE = {
@@ -1379,8 +1409,8 @@
 		C1A2FA8F1D6C2CC1000D09DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C1611ED41D70274B00A73FCB /* Homepage */,
-				C145F9551D6F02BA00346164 /* Search */,
+				C1611ED41D70274B00A73FCB /* Homepage（首页） */,
+				C145F9551D6F02BA00346164 /* Search（搜索） */,
 				C1A2FA911D6C2CC1000D09DE /* Main */,
 				C1A2FA921D6C2CC1000D09DE /* MyProfile（我的） */,
 				C1A2FA931D6C2CC1000D09DE /* Video（视频） */,
@@ -1564,6 +1594,7 @@
 				C14046C41D6DAD310067D66F /* EGOCache.m in Sources */,
 				C140455C1D6D52980067D66F /* MJRefreshBackFooter.m in Sources */,
 				C140463F1D6D91190067D66F /* NSString+JavaLikeStringHandle.m in Sources */,
+				C180401E1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m in Sources */,
 				C14046381D6D91190067D66F /* NSDate+Gewara.m in Sources */,
 				C14046991D6D993A0067D66F /* NSObject+FBKVOController.m in Sources */,
 				C14045651D6D52980067D66F /* MJRefreshBackStateFooter.m in Sources */,
@@ -1574,11 +1605,13 @@
 				C14046411D6D91190067D66F /* SVChatEmotion.m in Sources */,
 				C14045661D6D52980067D66F /* MJRefreshGifHeader.m in Sources */,
 				C14046981D6D993A0067D66F /* FBKVOController.m in Sources */,
+				C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */,
 				C1611EE81D702E5E00A73FCB /* PreferPlayer.m in Sources */,
 				C140468E1D6D963C0067D66F /* NSDictionary+FormatString.m in Sources */,
 				C14045DA1D6D8FFA0067D66F /* GWErrorInfo.m in Sources */,
 				C1A2FA7B1D6C2A65000D09DE /* AppDelegate.m in Sources */,
 				C14046AB1D6D9A060067D66F /* MAWeakDictionary.m in Sources */,
+				C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */,
 				C14045DF1D6D8FFA0067D66F /* GWASIMsgCreator.m in Sources */,
 				C14046B81D6D9B7A0067D66F /* GWAppGroupsForMovie.m in Sources */,
 				C14046451D6D91190067D66F /* SVPageIndicator.m in Sources */,
@@ -1654,6 +1687,7 @@
 				C145F8E61D6EBF1F00346164 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				C145F9381D6ED93800346164 /* SDWebImagePrefetcher.m in Sources */,
 				C145F9481D6EE67E00346164 /* UINavigationBar+Awesome.m in Sources */,
+				C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */,
 				C14046351D6D91190067D66F /* GWDownloadCache.m in Sources */,
 				C145F9361D6ED93800346164 /* SDWebImageDownloaderOperation.m in Sources */,
 				C1A2FA781D6C2A65000D09DE /* main.m in Sources */,

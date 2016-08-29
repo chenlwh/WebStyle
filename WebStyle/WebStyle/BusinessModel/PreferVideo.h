@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString* tag;
 @property (nonatomic, strong) NSString* vedioID;
 @property (nonatomic, strong) NSString* browsers;
+@property (nonatomic, strong) NSString* userID;
 
 //+(NSMutableArray*)arrayWithArray:(NSArray*)array;
 @end

@@ -20,8 +20,9 @@
 #import "UINavigationBar+Awesome.h"
 #import "HomepageNaviBarView.h"
 #import "SearchViewController.h"
-
+#import "HomeTableHeaderView.h"
 #import "PlayerScrollView.h"
+#import "HomeNewPlayerVideoViewController.h"
 
 @interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate>
 
@@ -30,13 +31,17 @@
 @property (nonatomic, strong) HomepageScrollProvider *topScrollProvider;
 @property (nonatomic, strong) NSMutableArray *preferVideoArr;
 @property (nonatomic, strong) NSMutableArray *preferPlayerArr;
+
+//@property (nonatomic, strong) NSMutableArray *pNewPlayerVideoArr; //新主播视频
 @property (nonatomic, strong) HomepageNaviBarView *customNaviView;
 
 @property (nonatomic, strong) NSMutableArray *sectionArray;
 
+@property (nonatomic, strong) HomeNewPlayerVideoViewController *pNewPlayerVideoVC;
 @end
 
 const NSString *playerList = @"主播列表";
+const NSString *newPlayerVideo = @"新主播视频";
 
 @implementation HomepageViewController
 
@@ -52,6 +57,7 @@ const NSString *playerList = @"主播列表";
     
     [self createTopScrollRequest];
     [self createPreferPlayerRequest];
+    [self createNewPlayerVideoRequest];
     
 //    [self.tableView.header beginRefreshing];
 }
@@ -65,6 +71,7 @@ const NSString *playerList = @"主播列表";
 -(void)createSectionArrayData
 {
     [self.sectionArray addObject:playerList];
+    [self.sectionArray addObject:newPlayerVideo];
 }
 
 -(void)createTopScrollRequest
@@ -76,6 +83,7 @@ const NSString *playerList = @"主播列表";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
          NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
@@ -104,7 +112,29 @@ const NSString *playerList = @"主播列表";
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:temArray]];
         weakself.preferPlayerArr = arrayM;
         [weakself.tableView reloadData];
-//        [weakself.headView setDataArray:weakself.preferVideoArr];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"请求失败");
+        //        [_myRefreshView endRefreshing];
+    }];
+}
+
+-(void)createNewPlayerVideoRequest
+{
+    WeakObjectDef(self);
+    NSString * urlString = kNewPlayerVideo;
+    NSLog(@"______%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+//        weakself.pNewPlayerVideoArr = arrayM;
+        weakself.pNewPlayerVideoVC.dataArray = arrayM;
+        [weakself.pNewPlayerVideoVC.collectionView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -141,7 +171,7 @@ const NSString *playerList = @"主播列表";
 }
 
 
-#pragma setter & getter
+#pragma mark setter & getter
 
 -(HomepageHeaderView*)headView
 {
@@ -163,6 +193,16 @@ const NSString *playerList = @"主播列表";
     return _sectionArray;
 }
 
+-(HomeNewPlayerVideoViewController*)pNewPlayerVideoVC
+{
+    if(!_pNewPlayerVideoVC)
+    {
+        _pNewPlayerVideoVC = [[HomeNewPlayerVideoViewController alloc] init];
+        
+    }
+    
+    return _pNewPlayerVideoVC;
+}
 
 #pragma mark UITableViewDelegate
 
@@ -182,6 +222,7 @@ const NSString *playerList = @"主播列表";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *playerListIndentifier = @"playerListIndentifier";
+    static NSString *newPlayerVideoIndentifier = @"newPlayerVideoIndentifier";
     NSString *sTmp = self.sectionArray[indexPath.section];
     if([playerList isEqualToString:sTmp])
     {
@@ -209,7 +250,17 @@ const NSString *playerList = @"主播列表";
         scrollView.tag = 100;
         [cell.contentView addSubview:scrollView];
         
-        
+        return cell;
+    }
+    else if([newPlayerVideo isEqualToString:self.sectionArray[indexPath.section]])
+    {
+        UITableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:newPlayerVideoIndentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:newPlayerVideoIndentifier];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell addSubview:self.pNewPlayerVideoVC.view];
+        }
         return cell;
     }
     return nil;
@@ -227,8 +278,17 @@ const NSString *playerList = @"主播列表";
 //        {
 //            return 5;
 //        }
-        return 10;
+        return 40;
     }
+    else if([newPlayerVideo isEqualToString:self.sectionArray[section]])
+    {
+        return 40;
+    }
+    return 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
     return 0.1;
 }
 
@@ -247,8 +307,36 @@ const NSString *playerList = @"主播列表";
 //        }
         return kPeopleViewHeight + 10;
     }
+    else if([newPlayerVideo isEqualToString:sTmp])
+    {
+        return 300;
+    }
+        
     return 0.1;
 }
+
+
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    static NSString* headerIndentifier = @"HomeHeaderIndentifier";
+    HomeTableHeaderView *headView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIndentifier];
+    if (headView == nil)
+    {
+        headView = [[HomeTableHeaderView alloc] initWithReuseIdentifier:headerIndentifier withViewWidth:self.tableView.width];
+        [headView.allButton addTarget:self action:@selector(pushToDetailViewController) forControlEvents:UIControlEventTouchUpInside];
+
+        headView.contentView.backgroundColor = [UIColor redColor];
+    }
+    [headView.titleLabel setText:self.sectionArray[section]];
+    [headView.titleLabel sizeToFit];
+    [headView.titleLabel setCenter:CGPointMake(0, headView.orangeView.center.y)];
+    headView.titleLabel.left = headView.orangeView.right + 15;
+    headView.allButton.centerY = headView.titleLabel.centerY;
+    return headView;
+}
+
+
 #pragma mark CustomNaviDelegate
 -(void)naviBarsearchBtnClick
 {
@@ -267,5 +355,12 @@ const NSString *playerList = @"主播列表";
 -(void) AppNameBtnClick
 {
      D_Log(@"AppNameBtnClick");
+}
+
+
+#pragma mark 点击事件
+-(void)pushToDetailViewController
+{
+    D_Log(@"pushToDetailViewController");
 }
 @end

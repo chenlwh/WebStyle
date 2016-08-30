@@ -10,6 +10,14 @@
 #import "MsgDefine.h"
 #import "UIView+Gewara.h"
 #import "UIView+GWCorner.h"
+#import "FTUtils.h"
+
+@interface HomepageNaviBarView()
+
+@property (nonatomic, strong) UIView *graidentView; //渐变的视图
+@property (nonatomic, strong) UIView *transparentView; //透明的视图
+
+@end
 
 @implementation HomepageNaviBarView
 
@@ -55,6 +63,18 @@
         [self addSubview:self.dramaHomeSearchView];
     }
     
+}
+
+-(void) setNaviBarAlpha:(CGFloat)alpha
+{
+    if(alpha == fThreshold)
+    {
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    }
+    else
+    {
+        self.backgroundColor = RGBACOLOR(0xeb, 0x61, 0x1f, alpha);
+    }
 }
 
 -(void)leftBtnClick

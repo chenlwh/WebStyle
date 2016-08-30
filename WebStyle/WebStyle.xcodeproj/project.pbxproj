@@ -110,6 +110,9 @@
 		C14046C41D6DAD310067D66F /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C14046C31D6DAD310067D66F /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C14046C61D6DB3040067D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14046C51D6DB3040067D66F /* Foundation.framework */; };
 		C14046C81D6DB3240067D66F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14046C71D6DB3240067D66F /* CoreData.framework */; };
+		C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14559FD1D75C5630021C453 /* HomeHotPlayerVideoViewController.m */; };
+		C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1455A011D75C9370021C453 /* HomeTopVideoViewController.m */; };
+		C1455A051D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C1455A041D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m */; };
 		C145F8981D6E8B8B00346164 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F8931D6E8B8B00346164 /* NSDataAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C145F8991D6E8B8B00346164 /* TBXML+TBXMLAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F8951D6E8B8B00346164 /* TBXML+TBXMLAddition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C145F89A1D6E8B8B00346164 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F8971D6E8B8B00346164 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -398,6 +401,13 @@
 		C14046C31D6DAD310067D66F /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		C14046C51D6DB3040067D66F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C14046C71D6DB3240067D66F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C14559FC1D75C5630021C453 /* HomeHotPlayerVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHotPlayerVideoViewController.h; sourceTree = "<group>"; };
+		C14559FD1D75C5630021C453 /* HomeHotPlayerVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHotPlayerVideoViewController.m; sourceTree = "<group>"; };
+		C14559FF1D75C6680021C453 /* UrlDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlDefine.h; sourceTree = "<group>"; };
+		C1455A001D75C9370021C453 /* HomeTopVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTopVideoViewController.h; sourceTree = "<group>"; };
+		C1455A011D75C9370021C453 /* HomeTopVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTopVideoViewController.m; sourceTree = "<group>"; };
+		C1455A031D75D40D0021C453 /* HomepageViewController+GradientNaviBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HomepageViewController+GradientNaviBar.h"; sourceTree = "<group>"; };
+		C1455A041D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HomepageViewController+GradientNaviBar.m"; sourceTree = "<group>"; };
 		C145F8921D6E8B8B00346164 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		C145F8931D6E8B8B00346164 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		C145F8941D6E8B8B00346164 /* TBXML+TBXMLAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+TBXMLAddition.h"; sourceTree = "<group>"; };
@@ -1284,6 +1294,8 @@
 				C1611EDA1D70274B00A73FCB /* HomepageHeaderView.m */,
 				C1611EDD1D70274B00A73FCB /* HomepageViewController.h */,
 				C1611EDE1D70274B00A73FCB /* HomepageViewController.m */,
+				C1455A031D75D40D0021C453 /* HomepageViewController+GradientNaviBar.h */,
+				C1455A041D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m */,
 				C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */,
 				C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */,
 			);
@@ -1331,6 +1343,10 @@
 				C180401A1D741C6500CF09A0 /* VideoCard.m */,
 				C180401C1D74336500CF09A0 /* HomeNewPlayerVideoViewController.h */,
 				C180401D1D74336500CF09A0 /* HomeNewPlayerVideoViewController.m */,
+				C14559FC1D75C5630021C453 /* HomeHotPlayerVideoViewController.h */,
+				C14559FD1D75C5630021C453 /* HomeHotPlayerVideoViewController.m */,
+				C1455A001D75C9370021C453 /* HomeTopVideoViewController.h */,
+				C1455A011D75C9370021C453 /* HomeTopVideoViewController.m */,
 			);
 			path = HomeCollection;
 			sourceTree = "<group>";
@@ -1430,6 +1446,7 @@
 				C1A2FA981D6C2E75000D09DE /* BasicViewController.m */,
 				C1A2FA9D1D6C33F2000D09DE /* MainNavigationController.h */,
 				C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */,
+				C14559FF1D75C6680021C453 /* UrlDefine.h */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1527,6 +1544,7 @@
 			files = (
 				C145F8E51D6EBF1F00346164 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
+				C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */,
 				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
 				C14046361D6D91190067D66F /* GWNonMemberEncodeCache.m in Sources */,
 				C14045D51D6D8FFA0067D66F /* GWProviderResultPackage.m in Sources */,
@@ -1568,6 +1586,7 @@
 				C145F9051D6ED38200346164 /* TAAnimatedDotView.m in Sources */,
 				C14045D41D6D8FFA0067D66F /* GWPagingProvider.m in Sources */,
 				C14046491D6D91190067D66F /* BasicAnnotation.m in Sources */,
+				C1455A051D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m in Sources */,
 				C145F9301D6ED93800346164 /* MKAnnotationView+WebCache.m in Sources */,
 				C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */,
 				C14045681D6D52980067D66F /* MJRefreshStateHeader.m in Sources */,
@@ -1633,6 +1652,7 @@
 				C14046761D6D91E80067D66F /* NSObject+MJCoding.m in Sources */,
 				C14046731D6D91E80067D66F /* MJPropertyKey.m in Sources */,
 				C14046C11D6DAD240067D66F /* GWLocalCache.m in Sources */,
+				C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */,
 				C140455B1D6D52980067D66F /* MJRefreshAutoFooter.m in Sources */,
 				C145F9601D6F05D000346164 /* SearchViewController.m in Sources */,
 				C140456A1D6D52980067D66F /* MJRefreshConst.m in Sources */,

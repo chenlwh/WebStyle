@@ -45,7 +45,8 @@
     
     _anchorLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 0, self.width * 0.7, self.height*0.125)];
     _anchorLabel.bottom = _videoImageView.bottom - 2;
-    _anchorLabel.textColor = RGBACOLORFromRGBHex(0xa0a0a0);
+    _anchorLabel.textColor = [UIColor whiteColor];
+//    RGBACOLORFromRGBHex(0xa0a0a0);
     _anchorLabel.font = [UIFont systemFontOfSize:10.0f];
     [self addSubview:_anchorLabel];
     

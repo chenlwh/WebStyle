@@ -10,17 +10,7 @@
 #ifndef MsgDefine_h
 #define MsgDefine_h
 
-#define KGWHostURL @"http://114.55.224.29/blacksheepservice/prefervideo?"
 
-#define KPreferPlayer @"http://114.55.224.29/blacksheepservice/preferplayer"
-
-//#define KGWHostURL @"http://openapi.gewara.com/router/"
-
-//顶部推荐的视频
-#define KPreferVideoURL @"http://114.55.224.29/blacksheepservice/prefervideo"
-
-//首页新主播视频
-#define kNewPlayerVideo @"http://114.55.224.29/blacksheepservice/newplayervideo"
 
 #define kNaviHeight 44
 #define kStatusHegiht 20

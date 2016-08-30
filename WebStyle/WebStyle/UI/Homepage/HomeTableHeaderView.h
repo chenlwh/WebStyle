@@ -24,5 +24,5 @@
 -(id)initWithReuseIdentifier:(NSString *)reuseIdentifier withViewWidth:(CGFloat)viewWidth;
 
 
--(void)updateHeaderTitle:(NSString*)title;
+//-(void)updateHeaderTitle:(NSString*)title;
 @end

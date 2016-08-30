@@ -19,6 +19,8 @@
 
 @interface HomeBaseCollectionViewController ()
 
+@property (nonatomic, assign) CGFloat fCardWidth;
+@property (nonatomic, assign) CGFloat fCardHeight;
 @end
 
 @implementation HomeBaseCollectionViewController
@@ -43,6 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _fCardWidth = (self.view.width - 3 * viewMargin)/2;
+    _fCardHeight = _fCardWidth * 0.7;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +68,7 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = RGBACOLORFromRGBHex(0xe9e8e8);
+//    cell.backgroundColor = RGBACOLORFromRGBHex(0xe9e8e8);
     
 //    GWMovieCard *_cellCard = (id)[cell.contentView viewWithTag:cardTag];
 //    
@@ -85,7 +89,7 @@
     VideoCard *card = [cell.contentView viewWithTag:cardTag];
     if(card == nil)
     {
-        card = [[VideoCard alloc] initWithFrame:CGRectMake(0, 0, movieCardWidth, movieCardHeight)];
+        card = [[VideoCard alloc] initWithFrame:CGRectMake(0, 0, self.fCardWidth, self.fCardHeight)];
         card.userInteractionEnabled = NO;
         card.tag = cardTag;
         [cell.contentView addSubview:card];
@@ -111,7 +115,8 @@
 #pragma mark collectionViewFlowLayout
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(movieCardWidth, movieCardHeight);
+//    D_Log(@"size %@", NSStringFromCGSize(CGSizeMake(self.fCardWidth, movieCardHeight)));
+    return CGSizeMake(self.fCardWidth, self.fCardHeight);
 }
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -125,8 +130,9 @@
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    float space = (self.collectionView.width - viewMargin*2 - movieCardWidth*movieCardLineCount)/(movieCardLineCount-1);
-    return space;
+//    float space = (self.collectionView.width - viewMargin*2 - movieCardWidth*movieCardLineCount);
+//    D_Log(@"space %f", space);
+    return viewMargin;
 }
 
 #pragma mark  setter && getter

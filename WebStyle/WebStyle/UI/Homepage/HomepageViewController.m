@@ -326,7 +326,7 @@ const NSString *newPlayerVideo = @"新主播视频";
         headView = [[HomeTableHeaderView alloc] initWithReuseIdentifier:headerIndentifier withViewWidth:self.tableView.width];
         [headView.allButton addTarget:self action:@selector(pushToDetailViewController) forControlEvents:UIControlEventTouchUpInside];
 
-        headView.contentView.backgroundColor = [UIColor redColor];
+//        headView.contentView.backgroundColor = [UIColor redColor];
     }
     [headView.titleLabel setText:self.sectionArray[section]];
     [headView.titleLabel sizeToFit];

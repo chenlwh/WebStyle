@@ -10,9 +10,9 @@
 #import "PreferVideo.h"
 #import "MsgDefine.h"
 
-#define movieCardHeight GWTranslateWidthBase4P7ScreenValue(102 + 20)
-#define movieCardWidth GWTranslateWidthBase4P7ScreenValue(170)
-#define movieCardImgHeight GWTranslateWidthBase4P7ScreenValue(102)
+//#define movieCardHeight GWTranslateWidthBase4P7ScreenValue(102 + 20)
+//#define movieCardWidth GWTranslateWidthBase4P7ScreenValue(170)
+//#define movieCardImgHeight GWTranslateWidthBase4P7ScreenValue(102)
 
 @interface VideoCard : UIControl
 

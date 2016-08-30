@@ -179,53 +179,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WebStyle/UI/Homepage/HomeCollection/HomeBaseCollectionViewController.m"
-            timestampString = "494158960.189812"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-collectionView:layout:minimumInteritemSpacingForSectionAtIndex:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeBaseCollectionViewController collectionView:layout:minimumInteritemSpacingForSectionAtIndex:]"
-                  moduleName = "WebStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/Homepage/HomeCollection/HomeBaseCollectionViewController.m"
-                  timestampString = "494159055.782649"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "97">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeBaseCollectionViewController collectionView:layout:minimumInteritemSpacingForSectionAtIndex:]"
-                  moduleName = "WebStyle"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/Homepage/HomeCollection/HomeBaseCollectionViewController.m"
-                  timestampString = "494159055.782793"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "161">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

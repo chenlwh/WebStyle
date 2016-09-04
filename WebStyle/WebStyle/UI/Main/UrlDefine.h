@@ -25,4 +25,6 @@
 //首页视频排行
 #define kTopVideo @"http://114.55.224.29/blacksheepservice/topvideo"
 
+#define kQueryInfo  @"http://114.55.224.29/blacksheepservice/search?query="
+
 #endif /* UrlDefine_h */

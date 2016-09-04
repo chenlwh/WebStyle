@@ -7,12 +7,29 @@
 //
 
 #import "SearchViewController.h"
+#import "UrlDefine.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "XYString.h"
+#import "PreferVideo.h"
+#import "PreferPlayer.h"
+#import "MJExtension.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
 
-@interface SearchViewController ()
+
+enum {
+    searchWord = 0,
+    searchInfo = 1,
+    searchButton
+};
+
+
+@interface SearchViewController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (nonatomic, strong) UITableView       *historyTableView;
 @property (nonatomic, strong) NSMutableArray    *historyList;
+@property (nonatomic, strong) NSMutableArray    *searchedVideoList;
+@property (nonatomic, strong) NSMutableArray    *searchedPlayerList;
 
 @property (nonatomic, strong) UITableView       *mainTableView;
 
@@ -162,14 +179,17 @@
     _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
     _mainTableView.height = self.view.height -64;
     _mainTableView.top = 64;
+    _mainTableView.hidden = YES;
     [self.view addSubview:_mainTableView];
     
     _historyTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [_historyTableView setBackgroundColor:RGBACOLORFromRGBHex(0xf0efef)];
-//    _historyTableView.delegate = self;
-//    _historyTableView.dataSource = self;
+    _historyTableView.delegate = self;
+    _historyTableView.dataSource = self;
+    _historyTableView.height = self.view.height -64;
+    _historyTableView.top = 64;
     [_historyTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-    _historyTableView.hidden = YES;
+//    _historyTableView.hidden = YES;
     [self.view addSubview:_historyTableView];
     [self.historyTableView reloadData];
     
@@ -202,6 +222,26 @@
     
 }
 
+#pragma mark get
+-(NSMutableArray *)searchedVideoList
+{
+    if(!_searchedVideoList)
+    {
+        _searchedVideoList = [NSMutableArray new];
+    }
+    return _searchedVideoList;
+}
+
+
+-(NSMutableArray *)searchedPlayerList
+{
+    if(!_searchedPlayerList)
+    {
+        _searchedPlayerList = [NSMutableArray new];
+    }
+    return _searchedPlayerList;
+}
+
 - (void)cancelButtonClicked:(UIButton*)sender
 {
     [_searchTF resignFirstResponder];
@@ -210,14 +250,17 @@
 
 - (void)searchTrigger:(UITextField *)pTextField
 {
+    D_Log(@"%@ %@", self, NSStringFromSelector(_cmd));
     NSString *pText = pTextField.text;
     [pTextField resignFirstResponder];
     
+    [self requestSearchWithParams:pText];
 //    [self requestSearchDrams:pText isClean:YES];
 }
 
 -(void)dismiss
 {
+    D_Log(@"%@ %@", self, NSStringFromSelector(_cmd));
     _searchTF.text = @"";
     
     [self.navigationController dismissViewControllerAnimated:true completion:nil];
@@ -226,6 +269,294 @@
 
 - (void)clearAction
 {
+    D_Log(@"%@ %@", self, NSStringFromSelector(_cmd));
     _searchTF.text = @"";
+}
+
+
+-(void)requestSearchWithParams:(NSString*)searchName
+{
+    [self showSearchMode:NO];
+    
+    [self addTextToHistory:searchName];
+    
+    WeakObjectDef(self);
+    NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+//    NSString *transString = [NSString stringWithString:[urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    D_Log(@"______%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        D_Log(@"%@", operation.responseString);
+        id obj = [XYString getObjectFromJsonString:operation.responseString];
+         D_Log(@"%@", obj);
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            for(id o in obj)
+            {
+                id tag = o[@"tag"];
+                id data = o[@"data"];
+                if([tag isKindOfClass:[NSString class]]
+                   && [data isKindOfClass:[NSArray class]])
+                {
+                    if([tag isEqualToString:@"player"])
+                    {
+                        weakself.searchedPlayerList = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:data]];
+                    }
+                    else if([tag isEqualToString:@"video"])
+                    {
+                         weakself.searchedVideoList = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:data]];
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        D_Log(@"请求失败");
+    }];
+
+}
+
+- (void)showSearchMode:(BOOL)searchMode
+{
+    if (searchMode) {
+        self.historyTableView.hidden = NO;
+        
+//        [GWMessageView hideMSGForView:self.view animated:YES];
+//        [GWProgressHUD hideHUDForView:self.view animated:YES];
+    }else{
+        self.historyTableView.hidden = YES;
+    }
+//    [self.refreshFooter endRefreshing];
+//    [self.refreshHeader endRefreshing];
+    [self.mainTableView reloadData];
+    [self.historyTableView reloadData];
+}
+
+- (void)addTextToHistory:(NSString *)pRecordString
+{
+    if ([self.historyList containsObject:pRecordString]){
+        [self.historyList removeObject:pRecordString];
+    }
+    [self.historyList insertObject:pRecordString atIndex:0];
+    if (self.historyList.count>5) {
+        self.historyList = [NSMutableArray arrayWithArray:[self.historyList subarrayWithRange:NSMakeRange(0, 5)]];
+    }
+}
+
+-(void)cleanHistoryText
+{
+    [self.historyList removeAllObjects];
+    [self.historyTableView reloadData];
+}
+
+
+#pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _mainTableView)
+    {
+        return 10;
+    }
+    else
+    {
+        return 48;
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (tableView == self.mainTableView){
+        return 1;
+//        self.mainList.count;
+    }else if (tableView == self.historyTableView){
+        if (self.historyList.count>0) {
+            return 3;
+        }else{
+            return 0;
+        }
+    }else{
+        return 1;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1.0f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.historyTableView) {
+        return .1f;
+    }
+//    GWSearch *tmpSearch = self.mainList[section];
+//    if (tmpSearch.itemList.count >0) {
+//        if ([tmpSearch.type isEqualToString:GWItemType_Member]) {
+//            return tableViewHeadHeight;
+//        }
+//        return tableViewHeadHeight-10;
+//    }
+    return .1f;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == _mainTableView){
+//        GWSearch *tmpSearch = self.mainList[section];
+//        return tmpSearch.itemList.count;
+        return 0;
+    }else{
+        if (section == searchInfo) {
+            return self.historyList.count;
+        }else if (section == searchWord){
+            return 1;
+        }else if (section == searchButton){
+            return 1;
+        }
+        return 0;
+    }
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (tableView == self.historyTableView) {
+        return nil;
+    }
+    
+    return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifierDefault = @"CellIdentifierDefault";
+    if (tableView == self.historyTableView)
+    {
+        static NSString *cellIdentifierWord = @"CellIdentifierWord";
+        static NSString *CellIdentifierClean = @"CellIdentifierClean";
+        if (indexPath.section == searchWord) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifierWord];
+            if (cell == nil){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifierWord];
+                cell.backgroundColor = self.view.backgroundColor;
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+                [cell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
+                cell.textLabel.left = 25;
+                [cell.textLabel setText:@"搜索历史"];
+                [cell.textLabel setTextColor:RGBACOLORFromRGBHex(0xa0a0a0)];
+                [cell.textLabel setFont:[UIFont systemFontOfSize:12.0f]];
+                
+            }
+            
+            return cell;
+        }else if (indexPath.section == searchInfo) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDefault];
+            if (cell == nil){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDefault];
+                cell.backgroundColor = self.view.backgroundColor;
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+                [cell.textLabel setFont:[UIFont systemFontOfSize:15.0f]];
+            }
+            
+            if (indexPath.row < [self.historyList count]){
+                NSString *text = self.historyList[indexPath.row];
+                
+                cell.textLabel.text = [NSString stringWithFormat:@"  %@", text];
+            }
+            return cell;
+        }else if (indexPath.section == searchButton){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierClean];
+            if (cell == nil){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierClean];
+                cell.backgroundColor = self.view.backgroundColor;
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+                
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cell.width, cell.height)];
+                [label setTextAlignment:NSTextAlignmentCenter];
+                [label setFont:[UIFont systemFontOfSize:15.0f]];
+                [label setTextColor:RGBACOLORFromRGBHex(0xac9169)];
+                [label setText:@"清除历史数据"];
+                label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+                [cell addSubview:label];
+            }
+            
+            return cell;
+        }else{
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierDefault];
+            if (cell == nil){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierDefault];
+                cell.backgroundColor = self.view.backgroundColor;
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            }
+            return cell;
+        }
+
+    }
+    return nil;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _historyTableView){
+        return @"删除";
+    }else{
+        return nil;
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _historyTableView){
+        return NO;
+    }else{
+        return NO;
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _historyTableView){
+        return UITableViewCellEditingStyleDelete;
+    }else{
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView == _historyTableView && editingStyle == UITableViewCellEditingStyleDelete){
+        if (indexPath.row < [self.historyList count]){
+            [self.historyList removeObjectAtIndex:indexPath.row];
+            [tableView reloadData];
+        }
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (tableView == _historyTableView)
+    {
+        
+        if (indexPath.section == searchInfo) {
+            if (indexPath.row < [self.historyList count]){
+                [_searchTF resignFirstResponder];
+                _searchTF.text = self.historyList[indexPath.row];
+//                [self requestSearchDrams:self.historyList[indexPath.row] isClean:YES];
+                [self requestSearchWithParams:self.historyList[indexPath.row]];
+            }
+        }else if(indexPath.section == searchButton) {
+            [self cleanHistoryText];
+        }
+    }
 }
 @end

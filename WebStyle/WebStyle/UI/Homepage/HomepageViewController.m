@@ -16,9 +16,7 @@
 #import "PreferVideo.h"
 #import "PreferPlayer.h"
 #import "NSObject+MJKeyValue.h"
-//#import "HomepageHeaderView.h"
 #import "UINavigationBar+Awesome.h"
-//#import "HomepageNaviBarView.h"
 #import "SearchViewController.h"
 #import "HomeTableHeaderView.h"
 #import "PlayerScrollView.h"
@@ -61,7 +59,6 @@ const NSString *topVideo = @"视频排行";
 {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = [UIColor greenColor];
     [self createSectionArrayData];
     
     [self setNav];
@@ -80,7 +77,8 @@ const NSString *topVideo = @"视频排行";
 {
     [super viewWillAppear:animated];
 //    [self setStatusBarLight];
-    [self setGradientColorBarLight:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+//    [self setGradientColorBarLight:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2]];
+    [self scrollViewDidScroll:self.tableView];
 }
 
 -(void)createSectionArrayData
@@ -218,7 +216,7 @@ const NSString *topVideo = @"视频排行";
 
 -(void)createTableView
 {
-    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0 , self.view.width, self.view.height ) style:UITableViewStyleGrouped];
+    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, -20 , self.view.width, self.view.height+20 ) style:UITableViewStyleGrouped];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 //    [self.tableView setBackgroundColor: RGBACOLORFromRGBHex(0xf6f6f6)];
@@ -240,7 +238,6 @@ const NSString *topVideo = @"视频排行";
     if(!_headView)
     {
         _headView = [[HomepageHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 125+kNaviHeight)];
-        _headView.backgroundColor = [UIColor greenColor];
     }
     return _headView;
 }

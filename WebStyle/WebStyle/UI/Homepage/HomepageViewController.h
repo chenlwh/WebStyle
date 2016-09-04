@@ -10,7 +10,6 @@
 #import "HomepageHeaderView.h"
 #import "HomepageNaviBarView.h"
 @interface HomepageViewController : BasicViewController
-//@property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) HomepageHeaderView *headView;
 @property (nonatomic, strong) HomepageNaviBarView *customNaviView;
 @end

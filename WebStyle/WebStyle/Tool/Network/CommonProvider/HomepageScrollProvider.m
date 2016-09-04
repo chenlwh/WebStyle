@@ -7,7 +7,7 @@
 //
 
 #import "HomepageScrollProvider.h"
-#import "MsgDefine.h"
+#import "UrlDefine.h"
 @implementation HomepageScrollProvider
 
 -(id)init

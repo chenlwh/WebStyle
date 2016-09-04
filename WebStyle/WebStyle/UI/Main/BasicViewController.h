@@ -17,5 +17,8 @@
 
 //- (void)setStatusBarBackgroundColor:(UIColor *)color;
 -(void)setStatusBarLight;
+
+-(void)setGradientColorBarLight:(UIColor*)color;
+
 -(void)setStatusBarDefault;
 @end

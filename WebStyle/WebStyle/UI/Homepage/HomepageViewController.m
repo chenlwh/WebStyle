@@ -16,32 +16,44 @@
 #import "PreferVideo.h"
 #import "PreferPlayer.h"
 #import "NSObject+MJKeyValue.h"
-#import "HomepageHeaderView.h"
+//#import "HomepageHeaderView.h"
 #import "UINavigationBar+Awesome.h"
-#import "HomepageNaviBarView.h"
+//#import "HomepageNaviBarView.h"
 #import "SearchViewController.h"
 #import "HomeTableHeaderView.h"
 #import "PlayerScrollView.h"
 #import "HomeNewPlayerVideoViewController.h"
+#import "HomeHotPlayerVideoViewController.h"
+#import "HomeTopVideoViewController.h"
+#import "UrlDefine.h"
+
+#import "HomepageViewController+GradientNaviBar.h"
+
 
 @interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) HomepageHeaderView *headView;
+
 @property (nonatomic, strong) HomepageScrollProvider *topScrollProvider;
 @property (nonatomic, strong) NSMutableArray *preferVideoArr;
 @property (nonatomic, strong) NSMutableArray *preferPlayerArr;
 
 //@property (nonatomic, strong) NSMutableArray *pNewPlayerVideoArr; //新主播视频
-@property (nonatomic, strong) HomepageNaviBarView *customNaviView;
+//@property (nonatomic, strong) HomepageNaviBarView *customNaviView;
 
 @property (nonatomic, strong) NSMutableArray *sectionArray;
 
 @property (nonatomic, strong) HomeNewPlayerVideoViewController *pNewPlayerVideoVC;
+@property (nonatomic, strong) HomeHotPlayerVideoViewController *pHotPlayerVideoVC;
+@property (nonatomic, strong) HomeTopVideoViewController *pTopVideoVC;
+
 @end
 
 const NSString *playerList = @"主播列表";
 const NSString *newPlayerVideo = @"新主播视频";
+const NSString *hotPlayerVideo = @"大主播视频";
+const NSString *topVideo = @"视频排行";
+
 
 @implementation HomepageViewController
 
@@ -58,6 +70,8 @@ const NSString *newPlayerVideo = @"新主播视频";
     [self createTopScrollRequest];
     [self createPreferPlayerRequest];
     [self createNewPlayerVideoRequest];
+    [self createHotPlayerVideoRequest];
+    [self createTopVideoRequest];
     
 //    [self.tableView.header beginRefreshing];
 }
@@ -65,13 +79,16 @@ const NSString *newPlayerVideo = @"新主播视频";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self setStatusBarLight];
+//    [self setStatusBarLight];
+    [self setGradientColorBarLight:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
 }
 
 -(void)createSectionArrayData
 {
     [self.sectionArray addObject:playerList];
     [self.sectionArray addObject:newPlayerVideo];
+    [self.sectionArray addObject:hotPlayerVideo];
+    [self.sectionArray addObject:topVideo];
 }
 
 -(void)createTopScrollRequest
@@ -79,7 +96,7 @@ const NSString *newPlayerVideo = @"新主播视频";
     
     WeakObjectDef(self);
     NSString * urlString = KPreferVideoURL;
-    NSLog(@"______%@",urlString);
+    D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -93,8 +110,7 @@ const NSString *newPlayerVideo = @"新主播视频";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"请求失败");
-//        [_myRefreshView endRefreshing];
+        D_Log(@"请求失败");
     }];
 }
 
@@ -102,21 +118,18 @@ const NSString *newPlayerVideo = @"新主播视频";
 {
     WeakObjectDef(self);
     NSString * urlString = KPreferPlayer;
-    NSLog(@"______%@",urlString);
+    D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:temArray]];
         weakself.preferPlayerArr = arrayM;
         [weakself.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"请求失败");
-        //        [_myRefreshView endRefreshing];
+        D_Log(@"请求失败");
     }];
 }
 
@@ -124,7 +137,7 @@ const NSString *newPlayerVideo = @"新主播视频";
 {
     WeakObjectDef(self);
     NSString * urlString = kNewPlayerVideo;
-    NSLog(@"______%@",urlString);
+    D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -132,32 +145,80 @@ const NSString *newPlayerVideo = @"新主播视频";
         
         NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
-//        weakself.pNewPlayerVideoArr = arrayM;
+        D_Log(@"kNewPlayerVideo count %lu", (unsigned long)arrayM.count);
         weakself.pNewPlayerVideoVC.dataArray = arrayM;
         [weakself.pNewPlayerVideoVC.collectionView reloadData];
+        [weakself.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"请求失败");
+        D_Log(@"请求失败");
         //        [_myRefreshView endRefreshing];
     }];
 }
+
+-(void)createHotPlayerVideoRequest
+{
+    WeakObjectDef(self);
+    NSString * urlString = kHotPlayerVideo;
+    D_Log(@"______%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+        D_Log(@"kHotPlayerVideo count %lu", (unsigned long)arrayM.count);
+        weakself.pHotPlayerVideoVC.dataArray = arrayM;
+        [weakself.pHotPlayerVideoVC.collectionView reloadData];
+        [weakself.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        D_Log(@"请求失败");
+        //        [_myRefreshView endRefreshing];
+    }];
+}
+
+-(void)createTopVideoRequest
+{
+    WeakObjectDef(self);
+    NSString * urlString = kTopVideo;
+    D_Log(@"______%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+        D_Log(@"kTopVideo count %lu", (unsigned long)arrayM.count);
+        weakself.pTopVideoVC.dataArray = arrayM;
+        [weakself.pTopVideoVC.collectionView reloadData];
+        [weakself.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        D_Log(@"请求失败");
+        //        [_myRefreshView endRefreshing];
+    }];
+}
+
 -(void)setNav
 {
     self.navigationController.navigationBar.hidden = true;
     
     self.customNaviView = [[HomepageNaviBarView alloc] initWithFrame:CGRectMake(0, kStatusHegiht, self.view.width, kNaviHeight)];
     self.customNaviView.backgroundColor = AppMainColor;
+    [self.customNaviView setNaviBarAlpha:fThreshold];
 //    [UIColor blueColor];
     self.customNaviView.delegate = self;
     [self.customNaviView reloadView];
     [self.view addSubview:self.customNaviView];
-    
 }
 
 -(void)createTableView
 {
-    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 20 + kNaviHeight, self.view.width, self.view.height - 20 - kNaviHeight) style:UITableViewStyleGrouped];
+    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0 , self.view.width, self.view.height ) style:UITableViewStyleGrouped];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
 //    [self.tableView setBackgroundColor: RGBACOLORFromRGBHex(0xf6f6f6)];
@@ -165,7 +226,8 @@ const NSString *newPlayerVideo = @"新主播视频";
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth| UIViewAutoresizingFlexibleHeight;
     self.tableView.scrollsToTop = true;
-    [self.view addSubview:self.tableView];
+//    [self.view addSubview:self.tableView];
+    [self.view insertSubview:self.tableView belowSubview:self.customNaviView];
     
     [self.tableView setTableHeaderView:self.headView];
 }
@@ -177,7 +239,7 @@ const NSString *newPlayerVideo = @"新主播视频";
 {
     if(!_headView)
     {
-        _headView = [[HomepageHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 125)];
+        _headView = [[HomepageHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 125+kNaviHeight)];
         _headView.backgroundColor = [UIColor greenColor];
     }
     return _headView;
@@ -202,6 +264,31 @@ const NSString *newPlayerVideo = @"新主播视频";
     }
     
     return _pNewPlayerVideoVC;
+}
+
+
+
+-(HomeHotPlayerVideoViewController*)pHotPlayerVideoVC
+{
+    if(!_pHotPlayerVideoVC)
+    {
+        _pHotPlayerVideoVC = [[HomeHotPlayerVideoViewController alloc] init];
+        
+    }
+    
+    return _pHotPlayerVideoVC;
+}
+
+
+-(HomeTopVideoViewController*)pTopVideoVC
+{
+    if(!_pTopVideoVC)
+    {
+        _pTopVideoVC = [[HomeTopVideoViewController alloc] init];
+        
+    }
+    
+    return _pTopVideoVC;
 }
 
 #pragma mark UITableViewDelegate
@@ -263,6 +350,28 @@ const NSString *newPlayerVideo = @"新主播视频";
         }
         return cell;
     }
+    else if([hotPlayerVideo isEqualToString:self.sectionArray[indexPath.section]])
+    {
+        UITableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:newPlayerVideoIndentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:newPlayerVideoIndentifier];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell addSubview:self.pHotPlayerVideoVC.view];
+        }
+        return cell;
+    }
+    else if([topVideo isEqualToString:self.sectionArray[indexPath.section]])
+    {
+        UITableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:newPlayerVideoIndentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:newPlayerVideoIndentifier];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell addSubview:self.pTopVideoVC.view];
+        }
+        return cell;
+    }
     return nil;
 }
 
@@ -284,7 +393,19 @@ const NSString *newPlayerVideo = @"新主播视频";
     {
         return 40;
     }
-    return 0.1;
+    else if([hotPlayerVideo isEqualToString:self.sectionArray[section]])
+    {
+        return 40;
+    }
+    else if([topVideo isEqualToString:self.sectionArray[section]])
+    {
+        return 40;
+    }
+    else
+    {
+        return 0.1;
+    }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -309,7 +430,18 @@ const NSString *newPlayerVideo = @"新主播视频";
     }
     else if([newPlayerVideo isEqualToString:sTmp])
     {
-        return 300;
+        CGFloat linenumber = self.pNewPlayerVideoVC.dataArray.count%2 == 0 ? self.pNewPlayerVideoVC.dataArray.count/2 : self.pNewPlayerVideoVC.dataArray.count/2 + 1;
+        return [self.pNewPlayerVideoVC updateViewHeightWithLineCount:linenumber];
+    }
+    else if([hotPlayerVideo isEqualToString:sTmp])
+    {
+        CGFloat linenumber = self.pHotPlayerVideoVC.dataArray.count%2 == 0 ? self.pHotPlayerVideoVC.dataArray.count/2 : self.pHotPlayerVideoVC.dataArray.count/2 + 1;
+        return [self.pHotPlayerVideoVC updateViewHeightWithLineCount:linenumber];
+    }
+    else if([topVideo isEqualToString:sTmp])
+    {
+        CGFloat linenumber = self.pTopVideoVC.dataArray.count%2 == 0 ? self.pTopVideoVC.dataArray.count/2 : self.pTopVideoVC.dataArray.count/2 + 1;
+        return [self.pTopVideoVC updateViewHeightWithLineCount:linenumber];
     }
         
     return 0.1;
@@ -326,7 +458,7 @@ const NSString *newPlayerVideo = @"新主播视频";
         headView = [[HomeTableHeaderView alloc] initWithReuseIdentifier:headerIndentifier withViewWidth:self.tableView.width];
         [headView.allButton addTarget:self action:@selector(pushToDetailViewController) forControlEvents:UIControlEventTouchUpInside];
 
-//        headView.contentView.backgroundColor = [UIColor redColor];
+        headView.contentView.backgroundColor = [UIColor whiteColor];
     }
     [headView.titleLabel setText:self.sectionArray[section]];
     [headView.titleLabel sizeToFit];

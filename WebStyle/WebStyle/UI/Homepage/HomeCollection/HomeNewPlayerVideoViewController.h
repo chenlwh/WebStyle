@@ -8,6 +8,7 @@
 
 #import "HomeBaseCollectionViewController.h"
 
+//新主播视频
 @interface HomeNewPlayerVideoViewController : HomeBaseCollectionViewController
 
 @end

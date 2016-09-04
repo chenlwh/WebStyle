@@ -27,11 +27,12 @@
 
 -(CGFloat)cellHeightWithLineCount:(NSInteger)lineCount
 {
-    if (lineCount == 1 || lineCount == 0 ) {
-        return movieCardHeight;
-    }else{
-        return movieCardHeight*lineCount+(lineCount-1)*25;
-    }
+    return (self.fCardHeight + viewMargin) * lineCount;
+//    if (lineCount == 1 || lineCount == 0 ) {
+//        return self.fCardHeight + viewMargin;
+//    }else{
+//        return self.fCardHeight*lineCount + viewMargin;
+//    }
 }
 
 -(CGFloat)updateViewHeightWithLineCount:(NSInteger)lineCount
@@ -125,7 +126,7 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     //上下的间隔
-    return 12;
+    return viewMargin;
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section

@@ -32,6 +32,14 @@
     [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
 }
 
+-(void)setGradientColorBarLight:(UIColor*)color
+{
+    [self setStatusBarBackgroundColor:color];
+    if([UIApplication sharedApplication].statusBarStyle !=UIStatusBarStyleLightContent)
+    {
+        [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleLightContent;
+    }
+}
 -(void)setStatusBarDefault
 {
     [self setStatusBarBackgroundColor:[UIColor whiteColor]];

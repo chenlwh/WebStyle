@@ -16,6 +16,7 @@
 #import "GWLocalCache.h"
 #import "GWDownloadCache.h"
 #import "Msgdefine.h"
+#import "UrlDefine.h"
 
 #import "GWErrorDomain.h"
 

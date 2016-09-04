@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "GWDramaHomeSearchView.h"
 
+#define fThreshold 0.1
+
 @protocol CustomNaviBarDelegate <NSObject>
 
 -(void) naviBarsearchBtnClick;
@@ -23,4 +25,7 @@
 @property (nonatomic, weak) id <CustomNaviBarDelegate> delegate;
 
 -(void)reloadView;
+
+-(void) setNaviBarAlpha:(CGFloat)alpha;
+
 @end

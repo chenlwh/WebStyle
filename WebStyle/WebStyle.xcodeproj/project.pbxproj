@@ -188,6 +188,8 @@
 		C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA981D6C2E75000D09DE /* BasicViewController.m */; };
 		C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */; };
 		C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */; };
+		C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */; };
+		C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -557,6 +559,9 @@
 		C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfieViewController.h; sourceTree = "<group>"; };
 		C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfieViewController.m; sourceTree = "<group>"; };
+		C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedVideoCell.h; sourceTree = "<group>"; };
+		C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedVideoCell.m; sourceTree = "<group>"; };
+		C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedVideoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1279,6 +1284,9 @@
 			children = (
 				C145F95E1D6F05D000346164 /* SearchViewController.h */,
 				C145F95F1D6F05D000346164 /* SearchViewController.m */,
+				C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */,
+				C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */,
+				C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */,
 			);
 			name = "Search（搜索）";
 			path = Search;
@@ -1527,6 +1535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
+				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1A2FA811D6C2A65000D09DE /* Main.storyboard in Resources */,
@@ -1561,6 +1570,7 @@
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
 				C14046511D6D91190067D66F /* GWXMLDeserializerParserDelegates.m in Sources */,
+				C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */,
 				C145F8E21D6EBF1F00346164 /* AFURLRequestSerialization.m in Sources */,
 				C140463B1D6D91190067D66F /* YDate.m in Sources */,
 				C14046481D6D91190067D66F /* MBProgressHUD+GWHud.m in Sources */,

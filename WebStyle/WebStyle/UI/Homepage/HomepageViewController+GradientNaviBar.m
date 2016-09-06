@@ -40,6 +40,6 @@
     [self.customNaviView setNaviBarAlpha:fVal];
     
     
-    D_Log(@"scrollView %f fHeight %f", scrollView.contentOffset.y, fHeightDenominator);
+//    D_Log(@"scrollView %f fHeight %f", scrollView.contentOffset.y, fHeightDenominator);
 }
 @end

@@ -13,9 +13,10 @@
 #import "PreferVideo.h"
 #import "PreferPlayer.h"
 #import "MJExtension.h"
+#import "SearchedVideoCell.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
-
+#define tableViewHeadHeight 45
 
 enum {
     searchWord = 0,
@@ -171,16 +172,19 @@ enum {
     pCancleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [pTopBarView addSubview:pCancleBtn];
 
-    _mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-//    _mainTableView.delegate = self;
-//    _mainTableView.dataSource = self;
+    _mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _mainTableView.delegate = self;
+    _mainTableView.dataSource = self;
     _mainTableView.backgroundColor = RGBACOLORFromRGBHex(0xf0efef);
     _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
-    _mainTableView.height = self.view.height -64;
-    _mainTableView.top = 64;
+//    _mainTableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0);
+    _mainTableView.height = self.view.height;
+//    _mainTableView.top = 64;
     _mainTableView.hidden = YES;
     [self.view addSubview:_mainTableView];
+    
+    [_mainTableView registerNib:[UINib nibWithNibName:@"SearchedVideoCell" bundle:nil] forCellReuseIdentifier:SearchedVideoCellIndentifier];
+    
     
     _historyTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [_historyTableView setBackgroundColor:RGBACOLORFromRGBHex(0xf0efef)];
@@ -276,7 +280,8 @@ enum {
 
 -(void)requestSearchWithParams:(NSString*)searchName
 {
-    [self showSearchMode:NO];
+//    [self showSearchMode:NO];
+    self.historyTableView.hidden = YES;
     
     [self addTextToHistory:searchName];
     
@@ -295,6 +300,8 @@ enum {
          D_Log(@"%@", obj);
         if([obj isKindOfClass:[NSArray class]])
         {
+            [weakself.searchedPlayerList removeAllObjects];
+            [weakself.searchedVideoList removeAllObjects];
             for(id o in obj)
             {
                 id tag = o[@"tag"];
@@ -302,6 +309,7 @@ enum {
                 if([tag isKindOfClass:[NSString class]]
                    && [data isKindOfClass:[NSArray class]])
                 {
+                    
                     if([tag isEqualToString:@"player"])
                     {
                         weakself.searchedPlayerList = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:data]];
@@ -310,12 +318,17 @@ enum {
                     {
                          weakself.searchedVideoList = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:data]];
                     }
-                    
-                    
                 }
             }
         }
-        
+        if(weakself.searchedPlayerList.count || weakself.searchedVideoList.count)
+        {
+            [weakself showSearchMode:NO];
+        }
+        else
+        {
+            //show msg 未找到相关内容
+        }
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -329,11 +342,13 @@ enum {
 {
     if (searchMode) {
         self.historyTableView.hidden = NO;
+        self.mainTableView.hidden = YES;
         
 //        [GWMessageView hideMSGForView:self.view animated:YES];
 //        [GWProgressHUD hideHUDForView:self.view animated:YES];
     }else{
         self.historyTableView.hidden = YES;
+        self.mainTableView.hidden = NO;
     }
 //    [self.refreshFooter endRefreshing];
 //    [self.refreshHeader endRefreshing];
@@ -364,6 +379,11 @@ enum {
 {
     if (tableView == _mainTableView)
     {
+        if(indexPath.section == 0)
+        {
+            return [SearchedVideoCell SearchedVideoCellHeight];
+        }
+        
         return 10;
     }
     else
@@ -375,7 +395,8 @@ enum {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (tableView == self.mainTableView){
-        return 1;
+        //搜索到的 video 与 player, section 0 固定为 video, section 1固定为 player;
+        return 2;
 //        self.mainList.count;
     }else if (tableView == self.historyTableView){
         if (self.historyList.count>0) {
@@ -397,13 +418,31 @@ enum {
     if (tableView == self.historyTableView) {
         return .1f;
     }
-//    GWSearch *tmpSearch = self.mainList[section];
-//    if (tmpSearch.itemList.count >0) {
-//        if ([tmpSearch.type isEqualToString:GWItemType_Member]) {
-//            return tableViewHeadHeight;
-//        }
-//        return tableViewHeadHeight-10;
-//    }
+    else
+    {
+        if(section == 0) // 搜索到的视频
+        {
+            if(self.searchedVideoList.count > 0)
+            {
+                return tableViewHeadHeight;
+            }
+            else
+            {
+                return 0.1f;
+            }
+        }
+        else
+        {
+            if(self.searchedPlayerList.count > 0)
+            {
+                return tableViewHeadHeight;
+            }
+            else
+            {
+                return 0.1f;
+            }
+        }
+    }
     return .1f;
 }
 
@@ -412,6 +451,15 @@ enum {
     if (tableView == _mainTableView){
 //        GWSearch *tmpSearch = self.mainList[section];
 //        return tmpSearch.itemList.count;
+        
+        if(section == 0)
+        {
+            return self.searchedVideoList.count;
+        }
+        else
+        {
+            return self.searchedPlayerList.count;
+        }
         return 0;
     }else{
         if (section == searchInfo) {
@@ -429,6 +477,48 @@ enum {
 {
     if (tableView == self.historyTableView) {
         return nil;
+    }
+    else
+    {
+        NSMutableArray *tmpArray;
+        if(section == 0)
+        {
+            tmpArray = self.searchedVideoList;
+        }
+        else
+        {
+            tmpArray = self.searchedPlayerList;
+        }
+        
+        if(tmpArray.count == 0)
+        {
+            UIView *tmpView = [UIView new];
+            tmpView.backgroundColor = [UIColor clearColor];
+            return tmpView;
+        }
+        else
+        {
+            CGFloat height = tableViewHeadHeight;
+            
+            
+            UIView *tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, height)];
+            
+            tableHeadView.backgroundColor = [UIColor yellowColor];
+            UILabel*sectionInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+            NSString *totalString = [NSString stringWithFormat:@"%lu", (unsigned long)tmpArray.count];
+            NSString * labelString = [NSString stringWithFormat:@"%@%@", totalString, (section == 0 ? @"部相关视频" : @"名相关玩家")];
+            NSMutableAttributedString * attString = [[NSMutableAttributedString alloc] initWithString:labelString];
+            [attString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0] range:NSMakeRange(0, labelString.length)];
+            [attString addAttribute:NSForegroundColorAttributeName value:RGBACOLORFromRGBHex(0xa0a0a0) range:NSMakeRange(0, labelString.length)];
+            [attString addAttribute:NSForegroundColorAttributeName value:RGBACOLORFromRGBHex(0xef662f) range:NSMakeRange(0, totalString.length)];
+            sectionInfoLabel.attributedText = attString;
+            [sectionInfoLabel sizeToFit];
+            sectionInfoLabel.left = 30;
+            sectionInfoLabel.bottom= tableHeadView.height - 15;
+            [tableHeadView addSubview:sectionInfoLabel];
+//            [tableHeadView setBackgroundColor:[UIColor redColor]];
+            return tableHeadView;
+        }
     }
     
     return nil;
@@ -499,6 +589,13 @@ enum {
         }
 
     }
+    else if(tableView == _mainTableView)
+    {
+        SearchedVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchedVideoCellIndentifier];
+        
+        return cell;
+    }
+        
     return nil;
 }
 

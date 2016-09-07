@@ -176,6 +176,9 @@
 		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
 		C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */; };
 		C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */; };
+		C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F611D800D5E007EE026 /* GWMessageView.m */; };
+		C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F631D800D5E007EE026 /* GWProgressHUD.m */; };
+		C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1673F671D8012EB007EE026 /* loadingGIF.gif */; };
 		C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */; };
 		C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */; };
 		C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401A1D741C6500CF09A0 /* VideoCard.m */; };
@@ -538,6 +541,11 @@
 		C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedPlayerCell.h; sourceTree = "<group>"; };
 		C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedPlayerCell.m; sourceTree = "<group>"; };
 		C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedPlayerCell.xib; sourceTree = "<group>"; };
+		C1673F601D800D5E007EE026 /* GWMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMessageView.h; sourceTree = "<group>"; };
+		C1673F611D800D5E007EE026 /* GWMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMessageView.m; sourceTree = "<group>"; };
+		C1673F621D800D5E007EE026 /* GWProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressHUD.h; sourceTree = "<group>"; };
+		C1673F631D800D5E007EE026 /* GWProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressHUD.m; sourceTree = "<group>"; };
+		C1673F671D8012EB007EE026 /* loadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGIF.gif; sourceTree = "<group>"; };
 		C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
 		C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
 		C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -1350,6 +1358,25 @@
 			path = SwipeView;
 			sourceTree = "<group>";
 		};
+		C1673F5F1D800D5E007EE026 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				C1673F601D800D5E007EE026 /* GWMessageView.h */,
+				C1673F611D800D5E007EE026 /* GWMessageView.m */,
+				C1673F621D800D5E007EE026 /* GWProgressHUD.h */,
+				C1673F631D800D5E007EE026 /* GWProgressHUD.m */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		C1673F661D8012EB007EE026 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1673F671D8012EB007EE026 /* loadingGIF.gif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C18040151D7417B500CF09A0 /* HomeCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1409,6 +1436,7 @@
 		C1A2FA761D6C2A65000D09DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C1673F661D8012EB007EE026 /* Resources */,
 				C1A2FA771D6C2A65000D09DE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1441,6 +1469,7 @@
 		C1A2FA8F1D6C2CC1000D09DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C1673F5F1D800D5E007EE026 /* CommonUI */,
 				C1611ED41D70274B00A73FCB /* Homepage（首页） */,
 				C145F9551D6F02BA00346164 /* Search（搜索） */,
 				C1A2FA911D6C2CC1000D09DE /* Main */,
@@ -1542,6 +1571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */,
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
 				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
@@ -1562,6 +1592,7 @@
 			files = (
 				C145F8E51D6EBF1F00346164 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
+				C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */,
 				C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */,
 				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
 				C14046361D6D91190067D66F /* GWNonMemberEncodeCache.m in Sources */,
@@ -1637,6 +1668,7 @@
 				C14046381D6D91190067D66F /* NSDate+Gewara.m in Sources */,
 				C14046991D6D993A0067D66F /* NSObject+FBKVOController.m in Sources */,
 				C14045651D6D52980067D66F /* MJRefreshBackStateFooter.m in Sources */,
+				C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */,
 				C14045DB1D6D8FFA0067D66F /* GWErrorInterceptor.m in Sources */,
 				C140468B1D6D95630067D66F /* JSONKit.m in Sources */,
 				C140466E1D6D91E80067D66F /* iCarousel.m in Sources */,

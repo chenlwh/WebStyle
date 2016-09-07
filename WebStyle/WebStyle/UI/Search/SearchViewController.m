@@ -15,6 +15,8 @@
 #import "MJExtension.h"
 #import "SearchedVideoCell.h"
 #import "SearchedPlayerCell.h"
+#import "GWProgressHUD.h"
+#import "GWMessageView.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
 #define tableViewHeadHeight 45
@@ -286,6 +288,8 @@ enum {
     
     [self addTextToHistory:searchName];
     
+    [GWProgressHUD showHUDAddedTo:self.view  animated:NO];
+    
     WeakObjectDef(self);
     NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
 //    NSString *transString = [NSString stringWithString:[urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -295,6 +299,9 @@ enum {
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [GWProgressHUD hideHUDForView:weakself.view animated:YES];
+        [GWMessageView hideMSGForView:weakself.view animated:YES];
         
         D_Log(@"%@", operation.responseString);
         id obj = [XYString getObjectFromJsonString:operation.responseString];
@@ -329,6 +336,7 @@ enum {
         else
         {
             //show msg 未找到相关内容
+            [GWMessageView showMSGAddedTo:weakself.view text:@"未找到相关内容" animated:YES];
         }
         
         
@@ -344,8 +352,8 @@ enum {
         self.historyTableView.hidden = NO;
         self.mainTableView.hidden = YES;
         
-//        [GWMessageView hideMSGForView:self.view animated:YES];
-//        [GWProgressHUD hideHUDForView:self.view animated:YES];
+        [GWMessageView hideMSGForView:self.view animated:YES];
+        [GWProgressHUD hideHUDForView:self.view animated:YES];
     }else{
         self.historyTableView.hidden = YES;
         self.mainTableView.hidden = NO;

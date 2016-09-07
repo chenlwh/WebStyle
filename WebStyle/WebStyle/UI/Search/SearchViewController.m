@@ -14,6 +14,7 @@
 #import "PreferPlayer.h"
 #import "MJExtension.h"
 #import "SearchedVideoCell.h"
+#import "SearchedPlayerCell.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
 #define tableViewHeadHeight 45
@@ -25,7 +26,7 @@ enum {
 };
 
 
-@interface SearchViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) UITableView       *historyTableView;
 @property (nonatomic, strong) NSMutableArray    *historyList;
@@ -145,7 +146,7 @@ enum {
     _searchTF.attributedPlaceholder = attributedString;
     [_searchTF addTarget:self action:@selector(searchTrigger:) forControlEvents:UIControlEventEditingDidEndOnExit];
     _searchTF.returnKeyType = UIReturnKeySearch;
-//    _searchTF.delegate = self;
+    _searchTF.delegate = self;
     _searchTF.textColor = [UIColor whiteColor];
     _searchTF.backgroundColor = RGBACOLORFromRGBHex(0xeb611f);
     _searchTF.font = [UIFont systemFontOfSize:14];
@@ -184,7 +185,7 @@ enum {
     [self.view addSubview:_mainTableView];
     
     [_mainTableView registerNib:[UINib nibWithNibName:@"SearchedVideoCell" bundle:nil] forCellReuseIdentifier:SearchedVideoCellIndentifier];
-    
+    [_mainTableView registerNib:[UINib nibWithNibName:@"SearchedPlayerCell" bundle:nil] forCellReuseIdentifier:SearchedPlayerCellIndentifier];
     
     _historyTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [_historyTableView setBackgroundColor:RGBACOLORFromRGBHex(0xf0efef)];
@@ -335,7 +336,6 @@ enum {
         
         D_Log(@"请求失败");
     }];
-
 }
 
 - (void)showSearchMode:(BOOL)searchMode
@@ -381,9 +381,28 @@ enum {
     {
         if(indexPath.section == 0)
         {
-            return [SearchedVideoCell SearchedVideoCellHeight];
+            
+            if(indexPath.row == self.searchedVideoList.count - 1)
+            {
+                return [SearchedVideoCell SearchedVideoCellHeight] - 10;
+            }
+            else
+            {
+                return [SearchedVideoCell SearchedVideoCellHeight];
+            }
+            
         }
-        
+        else
+        {
+            if(indexPath.row == self.searchedPlayerList.count - 1)
+            {
+                return [SearchedPlayerCell SearchedPlayerCellHeight] - 10;
+            }
+            else
+            {
+                return [SearchedPlayerCell SearchedPlayerCellHeight];
+            }
+        }
         return 10;
     }
     else
@@ -503,7 +522,7 @@ enum {
             
             UIView *tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, height)];
             
-            tableHeadView.backgroundColor = [UIColor yellowColor];
+//            tableHeadView.backgroundColor = [UIColor yellowColor];
             UILabel*sectionInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
             NSString *totalString = [NSString stringWithFormat:@"%lu", (unsigned long)tmpArray.count];
             NSString * labelString = [NSString stringWithFormat:@"%@%@", totalString, (section == 0 ? @"部相关视频" : @"名相关玩家")];
@@ -591,9 +610,42 @@ enum {
     }
     else if(tableView == _mainTableView)
     {
-        SearchedVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchedVideoCellIndentifier];
-        
-        return cell;
+        if(indexPath.section == 0)
+        {
+            SearchedVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchedVideoCellIndentifier];
+            if(indexPath.row < self.searchedVideoList.count)
+            {
+                PreferVideo *video = self.searchedVideoList[indexPath.row];
+                [cell setVideoInfo:video];
+                if(indexPath.row == self.searchedVideoList.count - 1)
+                {
+                    cell.seprateView.hidden = YES;
+                }
+                else
+                {
+                    cell.seprateView.hidden = NO;
+                }
+            }
+            return cell;
+        }
+        else
+        {
+            SearchedPlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchedPlayerCellIndentifier];
+            if(indexPath.row < self.searchedPlayerList.count)
+            {
+                PreferPlayer *player = self.searchedPlayerList[indexPath.row];
+                [cell setPlayerInfo:player];
+                if(indexPath.row == self.searchedPlayerList.count - 1)
+                {
+                    cell.seprateView.hidden = YES;
+                }
+                else
+                {
+                    cell.seprateView.hidden = NO;
+                }
+            }
+            return cell;
+        }
     }
         
     return nil;
@@ -656,4 +708,18 @@ enum {
         }
     }
 }
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self showSearchMode:YES];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.text.length == 0){
+        return NO;
+    }
+    return YES;
+}
+
 @end

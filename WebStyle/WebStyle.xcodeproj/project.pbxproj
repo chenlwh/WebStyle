@@ -174,6 +174,8 @@
 		C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEB1D70326A00A73FCB /* SwipeView.m */; };
 		C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */; };
 		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
+		C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */; };
+		C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */; };
 		C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */; };
 		C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */; };
 		C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401A1D741C6500CF09A0 /* VideoCard.m */; };
@@ -533,6 +535,9 @@
 		C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScrollView.m; sourceTree = "<group>"; };
 		C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GWWebDragBackAnimation.h"; sourceTree = "<group>"; };
 		C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GWWebDragBackAnimation.m"; sourceTree = "<group>"; };
+		C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedPlayerCell.h; sourceTree = "<group>"; };
+		C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedPlayerCell.m; sourceTree = "<group>"; };
+		C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedPlayerCell.xib; sourceTree = "<group>"; };
 		C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
 		C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
 		C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -1287,6 +1292,9 @@
 				C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */,
 				C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */,
 				C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */,
+				C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */,
+				C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */,
+				C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */,
 			);
 			name = "Search（搜索）";
 			path = Search;
@@ -1537,6 +1545,7 @@
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
 				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
+				C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */,
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1A2FA811D6C2A65000D09DE /* Main.storyboard in Resources */,
 				C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */,
@@ -1606,6 +1615,7 @@
 				C140464B1D6D91190067D66F /* GWUserAnnotationView.m in Sources */,
 				C14046B31D6D9A660067D66F /* Constants.m in Sources */,
 				C145F8DC1D6EBF1F00346164 /* AFHTTPRequestOperation.m in Sources */,
+				C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */,
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
 				C14046751D6D91E80067D66F /* NSObject+MJClass.m in Sources */,
 				C140463A1D6D91190067D66F /* NSDateFormatter+Gewara.m in Sources */,

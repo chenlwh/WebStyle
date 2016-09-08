@@ -174,6 +174,11 @@
 		C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEB1D70326A00A73FCB /* SwipeView.m */; };
 		C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */; };
 		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
+		C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */; };
+		C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */; };
+		C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F611D800D5E007EE026 /* GWMessageView.m */; };
+		C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F631D800D5E007EE026 /* GWProgressHUD.m */; };
+		C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1673F671D8012EB007EE026 /* loadingGIF.gif */; };
 		C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */; };
 		C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */; };
 		C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401A1D741C6500CF09A0 /* VideoCard.m */; };
@@ -188,6 +193,9 @@
 		C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA981D6C2E75000D09DE /* BasicViewController.m */; };
 		C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */; };
 		C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */; };
+		C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */; };
+		C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */; };
+		C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B91D816AB20067F5E7 /* Member.m */; };
 		C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */; };
 		C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */; };
 /* End PBXBuildFile section */
@@ -533,6 +541,14 @@
 		C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScrollView.m; sourceTree = "<group>"; };
 		C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GWWebDragBackAnimation.h"; sourceTree = "<group>"; };
 		C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GWWebDragBackAnimation.m"; sourceTree = "<group>"; };
+		C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedPlayerCell.h; sourceTree = "<group>"; };
+		C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedPlayerCell.m; sourceTree = "<group>"; };
+		C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedPlayerCell.xib; sourceTree = "<group>"; };
+		C1673F601D800D5E007EE026 /* GWMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWMessageView.h; sourceTree = "<group>"; };
+		C1673F611D800D5E007EE026 /* GWMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWMessageView.m; sourceTree = "<group>"; };
+		C1673F621D800D5E007EE026 /* GWProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressHUD.h; sourceTree = "<group>"; };
+		C1673F631D800D5E007EE026 /* GWProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressHUD.m; sourceTree = "<group>"; };
+		C1673F671D8012EB007EE026 /* loadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGIF.gif; sourceTree = "<group>"; };
 		C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
 		C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
 		C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -559,6 +575,12 @@
 		C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfieViewController.h; sourceTree = "<group>"; };
 		C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfieViewController.m; sourceTree = "<group>"; };
+		C1A6C8B21D815F320067F5E7 /* UserCenterBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterBaseCell.h; sourceTree = "<group>"; };
+		C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterBaseCell.m; sourceTree = "<group>"; };
+		C1A6C8B51D816A280067F5E7 /* UserCenterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterHeader.h; sourceTree = "<group>"; };
+		C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterHeader.m; sourceTree = "<group>"; };
+		C1A6C8B81D816AB20067F5E7 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		C1A6C8B91D816AB20067F5E7 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedVideoCell.h; sourceTree = "<group>"; };
 		C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedVideoCell.m; sourceTree = "<group>"; };
 		C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedVideoCell.xib; sourceTree = "<group>"; };
@@ -1287,6 +1309,9 @@
 				C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */,
 				C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */,
 				C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */,
+				C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */,
+				C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */,
+				C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */,
 			);
 			name = "Search（搜索）";
 			path = Search;
@@ -1340,6 +1365,25 @@
 				C1611EEB1D70326A00A73FCB /* SwipeView.m */,
 			);
 			path = SwipeView;
+			sourceTree = "<group>";
+		};
+		C1673F5F1D800D5E007EE026 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				C1673F601D800D5E007EE026 /* GWMessageView.h */,
+				C1673F611D800D5E007EE026 /* GWMessageView.m */,
+				C1673F621D800D5E007EE026 /* GWProgressHUD.h */,
+				C1673F631D800D5E007EE026 /* GWProgressHUD.m */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		C1673F661D8012EB007EE026 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1673F671D8012EB007EE026 /* loadingGIF.gif */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C18040151D7417B500CF09A0 /* HomeCollection */ = {
@@ -1401,6 +1445,7 @@
 		C1A2FA761D6C2A65000D09DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C1673F661D8012EB007EE026 /* Resources */,
 				C1A2FA771D6C2A65000D09DE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1414,6 +1459,8 @@
 				C145F8F21D6ECE5100346164 /* PreferVideo.m */,
 				C1611EE61D702E5E00A73FCB /* PreferPlayer.h */,
 				C1611EE71D702E5E00A73FCB /* PreferPlayer.m */,
+				C1A6C8B81D816AB20067F5E7 /* Member.h */,
+				C1A6C8B91D816AB20067F5E7 /* Member.m */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -1433,6 +1480,7 @@
 		C1A2FA8F1D6C2CC1000D09DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C1673F5F1D800D5E007EE026 /* CommonUI */,
 				C1611ED41D70274B00A73FCB /* Homepage（首页） */,
 				C145F9551D6F02BA00346164 /* Search（搜索） */,
 				C1A2FA911D6C2CC1000D09DE /* Main */,
@@ -1464,6 +1512,10 @@
 			children = (
 				C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */,
 				C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */,
+				C1A6C8B21D815F320067F5E7 /* UserCenterBaseCell.h */,
+				C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */,
+				C1A6C8B51D816A280067F5E7 /* UserCenterHeader.h */,
+				C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */,
 			);
 			name = "MyProfile（我的）";
 			path = MyProfile;
@@ -1534,9 +1586,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */,
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
 				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
+				C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */,
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1A2FA811D6C2A65000D09DE /* Main.storyboard in Resources */,
 				C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */,
@@ -1553,6 +1607,7 @@
 			files = (
 				C145F8E51D6EBF1F00346164 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
+				C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */,
 				C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */,
 				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
 				C14046361D6D91190067D66F /* GWNonMemberEncodeCache.m in Sources */,
@@ -1566,6 +1621,7 @@
 				C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */,
 				C145F8981D6E8B8B00346164 /* NSDataAdditions.m in Sources */,
 				C140455D1D6D52980067D66F /* MJRefreshComponent.m in Sources */,
+				C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */,
 				C140452B1D6D4F740067D66F /* FTAnimationManager.m in Sources */,
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
@@ -1575,6 +1631,7 @@
 				C140463B1D6D91190067D66F /* YDate.m in Sources */,
 				C14046481D6D91190067D66F /* MBProgressHUD+GWHud.m in Sources */,
 				C1611EE31D70274B00A73FCB /* HomepageViewController.m in Sources */,
+				C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */,
 				C14046AD1D6D9A060067D66F /* MAZeroingWeakRef.m in Sources */,
 				C140456C1D6D52980067D66F /* UIScrollView+MJRefresh.m in Sources */,
 				C14045721D6D82E10067D66F /* UIView+Gewara.m in Sources */,
@@ -1606,6 +1663,7 @@
 				C140464B1D6D91190067D66F /* GWUserAnnotationView.m in Sources */,
 				C14046B31D6D9A660067D66F /* Constants.m in Sources */,
 				C145F8DC1D6EBF1F00346164 /* AFHTTPRequestOperation.m in Sources */,
+				C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */,
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
 				C14046751D6D91E80067D66F /* NSObject+MJClass.m in Sources */,
 				C140463A1D6D91190067D66F /* NSDateFormatter+Gewara.m in Sources */,
@@ -1627,6 +1685,7 @@
 				C14046381D6D91190067D66F /* NSDate+Gewara.m in Sources */,
 				C14046991D6D993A0067D66F /* NSObject+FBKVOController.m in Sources */,
 				C14045651D6D52980067D66F /* MJRefreshBackStateFooter.m in Sources */,
+				C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */,
 				C14045DB1D6D8FFA0067D66F /* GWErrorInterceptor.m in Sources */,
 				C140468B1D6D95630067D66F /* JSONKit.m in Sources */,
 				C140466E1D6D91E80067D66F /* iCarousel.m in Sources */,
@@ -1694,6 +1753,7 @@
 				C14045E11D6D8FFA0067D66F /* GWProgressObject.m in Sources */,
 				C14045E91D6D90800067D66F /* GWUserDefaults.m in Sources */,
 				C145F93A1D6ED93800346164 /* UIImage+GIF.m in Sources */,
+				C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */,
 				C145F93C1D6ED93800346164 /* UIImage+WebP.m in Sources */,
 				C145F8E01D6EBF1F00346164 /* AFSecurityPolicy.m in Sources */,
 				C14046401D6D91190067D66F /* SFImageLabel.m in Sources */,

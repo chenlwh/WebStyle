@@ -193,6 +193,9 @@
 		C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA981D6C2E75000D09DE /* BasicViewController.m */; };
 		C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */; };
 		C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */; };
+		C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */; };
+		C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */; };
+		C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B91D816AB20067F5E7 /* Member.m */; };
 		C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */; };
 		C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */; };
 /* End PBXBuildFile section */
@@ -572,6 +575,12 @@
 		C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfieViewController.h; sourceTree = "<group>"; };
 		C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfieViewController.m; sourceTree = "<group>"; };
+		C1A6C8B21D815F320067F5E7 /* UserCenterBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterBaseCell.h; sourceTree = "<group>"; };
+		C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterBaseCell.m; sourceTree = "<group>"; };
+		C1A6C8B51D816A280067F5E7 /* UserCenterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterHeader.h; sourceTree = "<group>"; };
+		C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterHeader.m; sourceTree = "<group>"; };
+		C1A6C8B81D816AB20067F5E7 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		C1A6C8B91D816AB20067F5E7 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedVideoCell.h; sourceTree = "<group>"; };
 		C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedVideoCell.m; sourceTree = "<group>"; };
 		C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedVideoCell.xib; sourceTree = "<group>"; };
@@ -1450,6 +1459,8 @@
 				C145F8F21D6ECE5100346164 /* PreferVideo.m */,
 				C1611EE61D702E5E00A73FCB /* PreferPlayer.h */,
 				C1611EE71D702E5E00A73FCB /* PreferPlayer.m */,
+				C1A6C8B81D816AB20067F5E7 /* Member.h */,
+				C1A6C8B91D816AB20067F5E7 /* Member.m */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -1501,6 +1512,10 @@
 			children = (
 				C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */,
 				C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */,
+				C1A6C8B21D815F320067F5E7 /* UserCenterBaseCell.h */,
+				C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */,
+				C1A6C8B51D816A280067F5E7 /* UserCenterHeader.h */,
+				C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */,
 			);
 			name = "MyProfile（我的）";
 			path = MyProfile;
@@ -1606,6 +1621,7 @@
 				C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */,
 				C145F8981D6E8B8B00346164 /* NSDataAdditions.m in Sources */,
 				C140455D1D6D52980067D66F /* MJRefreshComponent.m in Sources */,
+				C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */,
 				C140452B1D6D4F740067D66F /* FTAnimationManager.m in Sources */,
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
@@ -1615,6 +1631,7 @@
 				C140463B1D6D91190067D66F /* YDate.m in Sources */,
 				C14046481D6D91190067D66F /* MBProgressHUD+GWHud.m in Sources */,
 				C1611EE31D70274B00A73FCB /* HomepageViewController.m in Sources */,
+				C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */,
 				C14046AD1D6D9A060067D66F /* MAZeroingWeakRef.m in Sources */,
 				C140456C1D6D52980067D66F /* UIScrollView+MJRefresh.m in Sources */,
 				C14045721D6D82E10067D66F /* UIView+Gewara.m in Sources */,
@@ -1736,6 +1753,7 @@
 				C14045E11D6D8FFA0067D66F /* GWProgressObject.m in Sources */,
 				C14045E91D6D90800067D66F /* GWUserDefaults.m in Sources */,
 				C145F93A1D6ED93800346164 /* UIImage+GIF.m in Sources */,
+				C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */,
 				C145F93C1D6ED93800346164 /* UIImage+WebP.m in Sources */,
 				C145F8E01D6EBF1F00346164 /* AFSecurityPolicy.m in Sources */,
 				C14046401D6D91190067D66F /* SFImageLabel.m in Sources */,

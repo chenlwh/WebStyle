@@ -96,6 +96,11 @@
     pencilImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.pencilImageView = pencilImageView;
     [self addSubview:pencilImageView];
+    
+    UITapGestureRecognizer *pTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(touchAction)];
+    [self addGestureRecognizer:pTapGestureRecognizer];
+    
 }
 
 - (void)restUserCenterIfNotLogin
@@ -182,6 +187,14 @@
         self.nickName.centerX = self.width/2;
         
 //        self.userDescImageLabel.left = self.nickName.centerX + [self userNameLabelWidth:nickName]/2.0 + 1;
+    }
+}
+
+
+- (void)touchAction
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(editButtonClick:)]) {
+        [self.delegate editButtonClick:self];
     }
 }
 

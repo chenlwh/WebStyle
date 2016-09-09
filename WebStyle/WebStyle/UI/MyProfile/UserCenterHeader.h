@@ -9,9 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Member.h"
 
+@class UserCenterHeader;
+@protocol UserCenterHeaderDelegate <NSObject>
+@optional
+- (void)editButtonClick:(UserCenterHeader *)userCenterHeaderView;
+
+@end
+
 @interface UserCenterHeader : UIView
 
 @property (nonatomic, strong) Member *currentMember;
+@property (nonatomic, weak) id<UserCenterHeaderDelegate> delegate;
 
 /**
  *  设置未登录状态

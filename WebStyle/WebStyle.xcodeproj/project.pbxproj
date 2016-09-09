@@ -181,6 +181,13 @@
 		C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F611D800D5E007EE026 /* GWMessageView.m */; };
 		C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F631D800D5E007EE026 /* GWProgressHUD.m */; };
 		C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1673F671D8012EB007EE026 /* loadingGIF.gif */; };
+		C17F0FEC1D826D7400B89525 /* GWNewUserCenterTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FEB1D826D7400B89525 /* GWNewUserCenterTopCell.m */; };
+		C17F0FEF1D829F7E00B89525 /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FEE1D829F7E00B89525 /* WSUser.m */; };
+		C17F0FF21D82A43100B89525 /* WSAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FF11D82A43100B89525 /* WSAppContext.m */; };
+		C17F0FF51D82A58F00B89525 /* WSAppContext+WSLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FF41D82A58F00B89525 /* WSAppContext+WSLogin.m */; };
+		C17F0FF81D82A79300B89525 /* NSString+WSUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FF71D82A79300B89525 /* NSString+WSUpload.m */; };
+		C17F0FFE1D82A88200B89525 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FFB1D82A88200B89525 /* SSKeychain.m */; };
+		C17F0FFF1D82A88200B89525 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FFD1D82A88200B89525 /* SSKeychainQuery.m */; };
 		C18040141D73DD2E00CF09A0 /* HomeTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */; };
 		C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18040171D7417E700CF09A0 /* HomeBaseCollectionViewController.m */; };
 		C180401B1D741C6500CF09A0 /* VideoCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C180401A1D741C6500CF09A0 /* VideoCard.m */; };
@@ -553,6 +560,20 @@
 		C1673F621D800D5E007EE026 /* GWProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressHUD.h; sourceTree = "<group>"; };
 		C1673F631D800D5E007EE026 /* GWProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressHUD.m; sourceTree = "<group>"; };
 		C1673F671D8012EB007EE026 /* loadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGIF.gif; sourceTree = "<group>"; };
+		C17F0FEA1D826D7400B89525 /* GWNewUserCenterTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewUserCenterTopCell.h; sourceTree = "<group>"; };
+		C17F0FEB1D826D7400B89525 /* GWNewUserCenterTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewUserCenterTopCell.m; sourceTree = "<group>"; };
+		C17F0FED1D829F7E00B89525 /* WSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUser.h; sourceTree = "<group>"; };
+		C17F0FEE1D829F7E00B89525 /* WSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUser.m; sourceTree = "<group>"; };
+		C17F0FF01D82A43100B89525 /* WSAppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSAppContext.h; sourceTree = "<group>"; };
+		C17F0FF11D82A43100B89525 /* WSAppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSAppContext.m; sourceTree = "<group>"; };
+		C17F0FF31D82A58F00B89525 /* WSAppContext+WSLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSAppContext+WSLogin.h"; sourceTree = "<group>"; };
+		C17F0FF41D82A58F00B89525 /* WSAppContext+WSLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSAppContext+WSLogin.m"; sourceTree = "<group>"; };
+		C17F0FF61D82A79300B89525 /* NSString+WSUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WSUpload.h"; sourceTree = "<group>"; };
+		C17F0FF71D82A79300B89525 /* NSString+WSUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WSUpload.m"; sourceTree = "<group>"; };
+		C17F0FFA1D82A88200B89525 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		C17F0FFB1D82A88200B89525 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		C17F0FFC1D82A88200B89525 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		C17F0FFD1D82A88200B89525 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		C18040121D73DD2E00CF09A0 /* HomeTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableHeaderView.h; sourceTree = "<group>"; };
 		C18040131D73DD2E00CF09A0 /* HomeTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableHeaderView.m; sourceTree = "<group>"; };
 		C18040161D7417E700CF09A0 /* HomeBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeBaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -604,6 +625,7 @@
 		C140451B1D6D4F740067D66F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				C17F0FF91D82A88200B89525 /* SSKeychain */,
 				C1611EE91D70326A00A73FCB /* SwipeView */,
 				C145F90E1D6ED93800346164 /* SDWebImage */,
 				C145F8F41D6ED38200346164 /* SDCycleScrollView */,
@@ -1080,6 +1102,8 @@
 				C140468D1D6D963C0067D66F /* NSDictionary+FormatString.m */,
 				C14046851D6D94BD0067D66F /* NSObject+AutoPairKeyValue.h */,
 				C14046861D6D94BD0067D66F /* NSObject+AutoPairKeyValue.m */,
+				C17F0FF61D82A79300B89525 /* NSString+WSUpload.h */,
+				C17F0FF71D82A79300B89525 /* NSString+WSUpload.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1399,6 +1423,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C17F0FF91D82A88200B89525 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				C17F0FFA1D82A88200B89525 /* SSKeychain.h */,
+				C17F0FFB1D82A88200B89525 /* SSKeychain.m */,
+				C17F0FFC1D82A88200B89525 /* SSKeychainQuery.h */,
+				C17F0FFD1D82A88200B89525 /* SSKeychainQuery.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
 		C18040151D7417B500CF09A0 /* HomeCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1471,6 +1506,12 @@
 				C1611EE71D702E5E00A73FCB /* PreferPlayer.m */,
 				C1A6C8B81D816AB20067F5E7 /* Member.h */,
 				C1A6C8B91D816AB20067F5E7 /* Member.m */,
+				C17F0FED1D829F7E00B89525 /* WSUser.h */,
+				C17F0FEE1D829F7E00B89525 /* WSUser.m */,
+				C17F0FF01D82A43100B89525 /* WSAppContext.h */,
+				C17F0FF11D82A43100B89525 /* WSAppContext.m */,
+				C17F0FF31D82A58F00B89525 /* WSAppContext+WSLogin.h */,
+				C17F0FF41D82A58F00B89525 /* WSAppContext+WSLogin.m */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -1520,6 +1561,8 @@
 		C1A2FA921D6C2CC1000D09DE /* MyProfile（我的） */ = {
 			isa = PBXGroup;
 			children = (
+				C17F0FEA1D826D7400B89525 /* GWNewUserCenterTopCell.h */,
+				C17F0FEB1D826D7400B89525 /* GWNewUserCenterTopCell.m */,
 				C1A2FAA31D6C450A000D09DE /* MyProfieViewController.h */,
 				C1A2FAA41D6C450A000D09DE /* MyProfieViewController.m */,
 				C1A6C8B21D815F320067F5E7 /* UserCenterBaseCell.h */,
@@ -1634,6 +1677,7 @@
 				C140452B1D6D4F740067D66F /* FTAnimationManager.m in Sources */,
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
+				C17F0FEF1D829F7E00B89525 /* WSUser.m in Sources */,
 				C14046511D6D91190067D66F /* GWXMLDeserializerParserDelegates.m in Sources */,
 				C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */,
 				C145F8E21D6EBF1F00346164 /* AFURLRequestSerialization.m in Sources */,
@@ -1658,6 +1702,7 @@
 				C14046871D6D94BD0067D66F /* NSObject+AutoPairKeyValue.m in Sources */,
 				C140464F1D6D91190067D66F /* SFRuntimeUtils.m in Sources */,
 				C14046471D6D91190067D66F /* NSError+GWRError.m in Sources */,
+				C17F0FFF1D82A88200B89525 /* SSKeychainQuery.m in Sources */,
 				C145F9051D6ED38200346164 /* TAAnimatedDotView.m in Sources */,
 				C14045D41D6D8FFA0067D66F /* GWPagingProvider.m in Sources */,
 				C14046491D6D91190067D66F /* BasicAnnotation.m in Sources */,
@@ -1716,6 +1761,7 @@
 				C1611EE21D70274B00A73FCB /* HomepageNaviBarView.m in Sources */,
 				C145F89A1D6E8B8B00346164 /* TBXML.m in Sources */,
 				C145F8E11D6EBF1F00346164 /* AFURLConnectionOperation.m in Sources */,
+				C17F0FF51D82A58F00B89525 /* WSAppContext+WSLogin.m in Sources */,
 				C14046771D6D91E80067D66F /* NSObject+MJKeyValue.m in Sources */,
 				C14046341D6D91190067D66F /* GWCacheInfo.m in Sources */,
 				C150CD4D1D81C4550049D6BC /* UIImage+Utils.m in Sources */,
@@ -1728,6 +1774,7 @@
 				C14046741D6D91E80067D66F /* MJPropertyType.m in Sources */,
 				C140464A1D6D91190067D66F /* GWUserAnnotation.m in Sources */,
 				C14046761D6D91E80067D66F /* NSObject+MJCoding.m in Sources */,
+				C17F0FEC1D826D7400B89525 /* GWNewUserCenterTopCell.m in Sources */,
 				C14046731D6D91E80067D66F /* MJPropertyKey.m in Sources */,
 				C14046C11D6DAD240067D66F /* GWLocalCache.m in Sources */,
 				C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */,
@@ -1764,6 +1811,7 @@
 				C14045E91D6D90800067D66F /* GWUserDefaults.m in Sources */,
 				C145F93A1D6ED93800346164 /* UIImage+GIF.m in Sources */,
 				C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */,
+				C17F0FF21D82A43100B89525 /* WSAppContext.m in Sources */,
 				C145F93C1D6ED93800346164 /* UIImage+WebP.m in Sources */,
 				C145F8E01D6EBF1F00346164 /* AFSecurityPolicy.m in Sources */,
 				C14046401D6D91190067D66F /* SFImageLabel.m in Sources */,
@@ -1771,10 +1819,12 @@
 				C14045621D6D52980067D66F /* MJRefreshAutoStateFooter.m in Sources */,
 				C140464C1D6D91190067D66F /* LocalizedCurrentLocation.m in Sources */,
 				C14045D31D6D8FFA0067D66F /* GWBaseProvider.m in Sources */,
+				C17F0FFE1D82A88200B89525 /* SSKeychain.m in Sources */,
 				C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */,
 				C14045641D6D52980067D66F /* MJRefreshBackNormalFooter.m in Sources */,
 				C145F93F1D6ED93800346164 /* UIView+WebCacheOperation.m in Sources */,
 				C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */,
+				C17F0FF81D82A79300B89525 /* NSString+WSUpload.m in Sources */,
 				C14046701D6D91E80067D66F /* MJExtensionConst.m in Sources */,
 				C145F9311D6ED93800346164 /* NSData+ImageContentType.m in Sources */,
 				C14046911D6D96590067D66F /* NSDate+SFAddition.m in Sources */,

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GWLoginBaseControl.h"
 @protocol GWRegisterViewDelegate <NSObject>
+@optional
 -(void)verifyButtonTapped;
 -(void)showAgreement;
 -(void)registerBackClicked;

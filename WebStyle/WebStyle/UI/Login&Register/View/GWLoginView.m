@@ -52,7 +52,7 @@
     [_nameField setTextColor:defaultTextColor];
     _nameField.leftViewMode = UITextFieldViewModeAlways;
     [_nameField setBackgroundColor:[UIColor clearColor]];
-    _nameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"邮箱、手机号" attributes:@{NSForegroundColorAttributeName:textfieldLayerDefaultColor,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
+    _nameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"你的用户名" attributes:@{NSForegroundColorAttributeName:textfieldLayerDefaultColor,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
     [_nameField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
 //    GWLoginInfo *lastInfo = [GWMovieComUtils readLastLoginInfo];
@@ -69,7 +69,7 @@
     [passwordLayer setBackgroundColor:textfieldLayerDefaultColor.CGColor];
     [_passwordField.layer addSublayer:passwordLayer];
     
-    _passwordField.leftView = [self addLeftView:@"icon_password2"];
+    _passwordField.leftView = [self addLeftView:@"icon_password"];
     _passwordField.keyboardAppearance = UIKeyboardAppearanceAlert;
     [_passwordField setTintColor:defaultTextColor];
     [_passwordField setTextColor:defaultTextColor];
@@ -91,6 +91,14 @@
     [self.quickRegister setTitleColor:defaultTextColor forState:UIControlStateNormal];
     [self.passwordFind setTitleColor:defaultTextColor forState:UIControlStateNormal];
     [self.thirdLabel setTextColor:defaultTextColor];
+    
+    self.weixinButton.hidden = YES;
+    self.thirdLabel.hidden = YES;
+    self.qqButton.hidden = YES;
+    self.sinaButton.hidden = YES;
+    self.weixinButton.hidden = YES;
+    self.alipayButton.hidden = YES;
+    self.passwordFind.hidden = YES;
 }
 -(void)layoutSubviews
 {

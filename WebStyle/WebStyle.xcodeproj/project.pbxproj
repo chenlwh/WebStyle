@@ -181,6 +181,7 @@
 		C145F9601D6F05D000346164 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C145F95F1D6F05D000346164 /* SearchViewController.m */; };
 		C150CD4D1D81C4550049D6BC /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C150CD4C1D81C4550049D6BC /* UIImage+Utils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C150CD501D81C4B60049D6BC /* CGGeometry+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C150CD4F1D81C4B60049D6BC /* CGGeometry+Utils.m */; };
+		C15CCA6A1D87045900623323 /* icon_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C15CCA691D87045900623323 /* icon_60@2x.png */; };
 		C1611ED01D6FE9A100A73FCB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611ECE1D6FE9A100A73FCB /* TestViewController.m */; };
 		C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */; };
 		C1611EDF1D70274B00A73FCB /* GWDramaHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611ED61D70274B00A73FCB /* GWDramaHomeSearchView.m */; };
@@ -576,6 +577,7 @@
 		C150CD4C1D81C4550049D6BC /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 		C150CD4E1D81C4B60049D6BC /* CGGeometry+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+Utils.h"; sourceTree = "<group>"; };
 		C150CD4F1D81C4B60049D6BC /* CGGeometry+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+Utils.m"; sourceTree = "<group>"; };
+		C15CCA691D87045900623323 /* icon_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_60@2x.png"; sourceTree = "<group>"; };
 		C1611ECD1D6FE9A100A73FCB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		C1611ECE1D6FE9A100A73FCB /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -667,13 +669,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C1330EDC1D86C8990039ED2D /* Login&Register */ = {
+		C1330EDC1D86C8990039ED2D /* Login&Register (注册&登录) */ = {
 			isa = PBXGroup;
 			children = (
 				C1330EE41D86CBF90039ED2D /* View */,
 				C1330EDD1D86C8E60039ED2D /* LogingViewController.h */,
 				C1330EDE1D86C8E60039ED2D /* LogingViewController.m */,
 			);
+			name = "Login&Register (注册&登录)";
 			path = "Login&Register";
 			sourceTree = "<group>";
 		};
@@ -1515,6 +1518,7 @@
 		C1673F661D8012EB007EE026 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C15CCA691D87045900623323 /* icon_60@2x.png */,
 				C1673F671D8012EB007EE026 /* loadingGIF.gif */,
 			);
 			path = Resources;
@@ -1631,10 +1635,10 @@
 				C1673F5F1D800D5E007EE026 /* CommonUI */,
 				C1611ED41D70274B00A73FCB /* Homepage（首页） */,
 				C145F9551D6F02BA00346164 /* Search（搜索） */,
-				C1A2FA911D6C2CC1000D09DE /* Main */,
+				C1A2FA911D6C2CC1000D09DE /* Main （主Tab） */,
 				C1A2FA921D6C2CC1000D09DE /* MyProfile（我的） */,
 				C1A2FA931D6C2CC1000D09DE /* Video（视频） */,
-				C1330EDC1D86C8990039ED2D /* Login&Register */,
+				C1330EDC1D86C8990039ED2D /* Login&Register (注册&登录) */,
 				C1611ECD1D6FE9A100A73FCB /* TestViewController.h */,
 				C1611ECE1D6FE9A100A73FCB /* TestViewController.m */,
 				C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */,
@@ -1642,7 +1646,7 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		C1A2FA911D6C2CC1000D09DE /* Main */ = {
+		C1A2FA911D6C2CC1000D09DE /* Main （主Tab） */ = {
 			isa = PBXGroup;
 			children = (
 				C1A2FA941D6C2CF3000D09DE /* MainTabBarController.h */,
@@ -1653,6 +1657,7 @@
 				C1A2FA9E1D6C33F2000D09DE /* MainNavigationController.m */,
 				C14559FF1D75C6680021C453 /* UrlDefine.h */,
 			);
+			name = "Main （主Tab）";
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -1738,6 +1743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */,
+				C15CCA6A1D87045900623323 /* icon_60@2x.png in Resources */,
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
 				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
 				C1330EF61D86CCC80039ED2D /* GWRegisterView.xib in Resources */,

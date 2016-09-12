@@ -88,13 +88,13 @@
     [_nameField setTextColor:defaultTextColor];
     _nameField.leftViewMode = UITextFieldViewModeAlways;
     [_nameField setBackgroundColor:[UIColor clearColor]];
-    _nameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"昵称" attributes:@{NSForegroundColorAttributeName:textfieldLayerDefaultColor,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
+    _nameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"你的用户名" attributes:@{NSForegroundColorAttributeName:textfieldLayerDefaultColor,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
     [_nameField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     nameLayer = [[CALayer alloc] init];
     [nameLayer setBackgroundColor:textfieldLayerDefaultColor.CGColor];
     [_nameField.layer addSublayer:nameLayer];
     
-    _passwordField.leftView = [self addLeftView:@"icon_password2"];
+    _passwordField.leftView = [self addLeftView:@"icon_password"];
     _passwordField.keyboardAppearance = UIKeyboardAppearanceAlert;
     [_passwordField setDelegate:self];
     [_passwordField setTintColor:defaultTextColor];
@@ -210,11 +210,18 @@
 -(BOOL)checkTextLength
 {
     BOOL check = YES;
+    /*
     if (self.phoneNumberField.text.length == 0) {
         check = NO;
     }else if (self.checkNumberField.text.length ==0){
         check = NO;
     }else if (self.nameField.text.length ==0) {
+        check = NO;
+    }else if (self.passwordField.text.length ==0) {
+        check = NO;
+    }
+    */
+    if (self.nameField.text.length ==0) {
         check = NO;
     }else if (self.passwordField.text.length ==0) {
         check = NO;

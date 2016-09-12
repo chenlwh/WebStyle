@@ -25,6 +25,14 @@
 //首页视频排行
 #define kTopVideo @"http://114.55.224.29/blacksheepservice/topvideo"
 
+//搜索
 #define kQueryInfo  @"http://114.55.224.29/blacksheepservice/search?query="
+
+//注册  @"http://114.55.224.29/blacksheepservice/register?name=username&pwd=password"
+#define kRegisterMethod @"http://114.55.224.29/blacksheepservice/register?"
+
+//登录  http://114.55.224.29/blacksheepservice/login?name=username&pwd=password
+#define kLoginMethod @"http://114.55.224.29/blacksheepservice/login?"
+
 
 #endif /* UrlDefine_h */

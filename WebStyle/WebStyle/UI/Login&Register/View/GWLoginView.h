@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GWLoginBaseControl.h"
 @protocol GWLoginDelegate <NSObject>
-
+@optional
 -(void)weixinButtonClicked;
 -(void)sinaButtonClicked;
 -(void)qqButtonClicked;

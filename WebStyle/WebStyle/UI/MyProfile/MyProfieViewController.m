@@ -14,6 +14,7 @@
 #import "UIImage+Utils.h"
 #import "GWNewUserCenterTopCell.h"
 #import "WSAppContext+WSLogin.h"
+#import "LogingViewController.h"
 
 #define kTopHeightRatio 0.65
 //    UserCentenrRowStyleMyLike = 0
@@ -145,12 +146,12 @@ typedef enum {
 
 - (void)userCenterUserLoginFunction
 {
-//    __weak typeof(self) bself = self;
-//    [[GWLogin sharedInstance] showLoginWithCancelHandler:^(BOOL success) {
-//        
-//    } LoginFinishHandler:^(BOOL success) {
+    __weak typeof(self) bself = self;
+    [[GWLogin sharedInstance] showLoginWithCancelHandler:^(BOOL success) {
+        
+    } LoginFinishHandler:^(BOOL success) {
 //        [bself operateAfterUserLogin];
-//    }];
+    }];
 }
 
 

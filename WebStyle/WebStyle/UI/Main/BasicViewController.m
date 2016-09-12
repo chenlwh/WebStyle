@@ -11,6 +11,17 @@
 
 
 @implementation BasicViewController
+
+- (NSMutableDictionary*)controllerUserInfo
+{
+    if(!_controllerUserInfo)
+    {
+        _controllerUserInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+    }
+    
+    return _controllerUserInfo;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,4 +56,69 @@
     [self setStatusBarBackgroundColor:[UIColor whiteColor]];
     [UIApplication sharedApplication].statusBarStyle=UIStatusBarStyleDefault;
 }
+
+@end
+
+
+NSString* kLoadingViewKey = @"MBProgressHUD";
+@implementation BasicViewController (GWShowLoading)
+
+- (UIView*)hudSuperView
+{
+    return self.view;
+}
+
+- (MBProgressHUD*)progressHUD
+{
+    MBProgressHUD* progressHUD = self.controllerUserInfo[kLoadingViewKey];
+    if(!progressHUD)
+    {
+        progressHUD = [[MBProgressHUD alloc] initWithView:self.hudSuperView];
+        progressHUD.labelFont = [UIFont fontWithName:@"Helvetica" size:14.0];
+        progressHUD.labelText = @"加载中...";
+        [self.hudSuperView addSubview:progressHUD];
+        
+        [self.controllerUserInfo setValue:progressHUD forKey:kLoadingViewKey];
+    }
+    [progressHUD.superview bringSubviewToFront:progressHUD];
+    return progressHUD;
+}
+
+- (void)loadingViewWillShow:(UIView*)loadingView
+{
+    [self.hudSuperView bringSubviewToFront:loadingView];
+}
+
+- (void)startLoading
+{
+    [self startLoadingWithAnimated:YES];
+}
+
+- (void)startLoadingWithAnimated:(BOOL)animated
+{
+    [[self progressHUD] show:animated];
+}
+
+- (void)startLoadingWithMessage:(NSString*)message
+                   withAnimated:(BOOL)animated
+{
+    [self progressHUD].labelText = message;
+    [self startLoadingWithAnimated:animated];
+}
+
+- (void)stopLoading
+{
+    [self stopLoadingWithAnimated:YES];
+}
+
+- (void)stopLoadingWithAnimated:(BOOL)animated
+{
+    [[self progressHUD] hide:animated];
+}
+
+- (void)showProgressViewWithEnableClickBack
+{
+    [self progressHUD].isEnableClickBack = YES;
+}
+
 @end

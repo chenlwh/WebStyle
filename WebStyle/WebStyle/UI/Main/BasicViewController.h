@@ -12,14 +12,35 @@
 #import "UIView+Gewara.h"
 #import "MsgDefine.h"
 #import "UIViewController+GWFindSubController.h"
+#import "MBProgressHUD.h"
 
 @interface BasicViewController : UIViewController
-@property (nonatomic,strong) UIColor *navBarColor;
 
-//- (void)setStatusBarBackgroundColor:(UIColor *)color;
+@property (nonatomic,strong) UIColor *navBarColor;
+@property(nonatomic,strong) NSMutableDictionary* controllerUserInfo;
+
+- (void)setStatusBarBackgroundColor:(UIColor *)color;
 -(void)setStatusBarLight;
 
 -(void)setGradientColorBarLight:(UIColor*)color;
 
 -(void)setStatusBarDefault;
+@end
+
+
+@interface BasicViewController (GWShowLoading)
+- (void)loadingViewWillShow:(UIView*)loadingView;
+- (void)startLoading;
+- (void)startLoadingWithAnimated:(BOOL)animated;
+- (void)startLoadingWithMessage:(NSString*)message
+                   withAnimated:(BOOL)animated;
+- (void)stopLoading;
+- (void)stopLoadingWithAnimated:(BOOL)animated;
+- (void)showProgressViewWithEnableClickBack; // 设置等待背景可以点击
+
+// hud的父视图窗口
+- (UIView*)hudSuperView;
+
+- (MBProgressHUD*)progressHUD;
+
 @end

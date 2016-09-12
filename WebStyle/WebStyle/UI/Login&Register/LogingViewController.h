@@ -7,6 +7,9 @@
 //
 
 #import "BasicViewController.h"
+#import "GWLoginView.h"
+#import "GWPasswordFindView.h"
+#import "GWRegisterView.h"
 
 @interface GWLogin : NSObject
 
@@ -24,5 +27,10 @@
 
 
 @interface LogingViewController : BasicViewController
+@property (nonatomic, copy) void(^loginFinishHandler)(BOOL success);
+@property (nonatomic, copy) void(^loginCancelHandler)(BOOL success);
 
+@property (weak, nonatomic) GWLoginView *loginView;
+@property (weak, nonatomic) GWPasswordFindView *passwordFindView;
+@property (weak, nonatomic) GWRegisterView *registerView;
 @end

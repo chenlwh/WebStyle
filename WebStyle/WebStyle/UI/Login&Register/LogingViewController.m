@@ -263,7 +263,6 @@ typedef enum{
         
         [weakself stopLoading];
         D_Log(@"%@", operation.responseString);
-        D_Log(@"%@", operation.responseString);
         NSDictionary *dict = [operation.responseString objectFromJSONString];
         if([dict[@"code"] isEqualToString:@"02"])
         {

@@ -70,7 +70,7 @@
     [self.contentView addSubview:self.leftDescLabel];
     
     
-    UIImage *arrowImage = [UIImage imageNamed:@"newUser_arrow"];
+    UIImage *arrowImage = [UIImage imageNamed:@"icon_arrow_right"];
     self.rightArrowImageView = [[UIImageView alloc] initWithImage:arrowImage];
     self.rightArrowImageView.frame =CGRectMake(GWScreenW - (arrowImage.size.width+10), (UserCenterBaseCellHeight - arrowImage.size.height)/2, arrowImage.size.width, arrowImage.size.height);
     self.rightArrowImageView.backgroundColor = [UIColor clearColor];

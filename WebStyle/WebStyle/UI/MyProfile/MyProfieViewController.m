@@ -12,15 +12,18 @@
 #import "UserCenterHeader.h"
 #import "UserCenterBaseCell.h"
 #import "UIImage+Utils.h"
+#import "GWNewUserCenterTopCell.h"
+#import "WSAppContext+WSLogin.h"
 
+#define kTopHeightRatio 0.65
+//    UserCentenrRowStyleMyLike = 0
 typedef enum {
-    UserCentenrRowStyleMyLike = 0,
-    UserCentenrRowStyleMyAccount,
+    UserCentenrRowStyleMyAccount = 0,
     UserCentenrRowStyleSuggestion,
     UserCentenrRowStyleContactMe
 }UserCentenrRowStyle;
 
-@interface MyProfieViewController()<UITableViewDelegate, UITableViewDataSource>
+@interface MyProfieViewController()<UITableViewDelegate, UITableViewDataSource, UserCenterHeaderDelegate>
 
 @property (nonatomic, strong) UIView *customNaviView;
 @property (nonatomic, strong) UITableView *tableView;
@@ -85,26 +88,26 @@ typedef enum {
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     //    [self.tableView setBackgroundColor: RGBACOLORFromRGBHex(0xf6f6f6)];
-//    [self.tableView setBackgroundColor:[UIColor greenColor]];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth| UIViewAutoresizingFlexibleHeight;
     self.tableView.scrollsToTop = true;
     self.tableView.sectionHeaderHeight = 0.1f;
     [self.view insertSubview:self.tableView belowSubview:self.customNaviView];
     
-    CGRect frame = CGRectMake(0.0f, 0.0f,self.view.width,self.view.width * 0.65);
+    CGRect frame = CGRectMake(0.0f, 0.0f,self.view.width,self.view.width * kTopHeightRatio);
     self.pUserCenterHeaderView = [[UserCenterHeader alloc] initWithFrame:frame];
-    self.pUserCenterHeaderView.backgroundColor = [UIColor lightGrayColor];
-    
+    self.pUserCenterHeaderView.backgroundColor = [UIColor clearColor];
+    self.pUserCenterHeaderView.delegate = self;
     [self.tableView setTableHeaderView:self.pUserCenterHeaderView];
 }
 
 - (void)createBottomScrollView
 {
-    CGFloat fCoverHeight = self.view.width * 0.65;
+    CGFloat fCoverHeight = self.view.width * kTopHeightRatio;
     self.bottomCoverView = [[UIView alloc] init];
     self.bottomCoverView.clipsToBounds = YES;
-    self.bottomCoverView.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, fCoverHeight);
+    self.bottomCoverView.frame = CGRectMake(0.0f, kStatusHegiht + kNaviHeight, self.view.frame.size.width, fCoverHeight);
     [self.view insertSubview:self.bottomCoverView belowSubview:self.tableView];
     
     UIImageView *tempUserImageView = [[UIImageView alloc] init];
@@ -140,21 +143,64 @@ typedef enum {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
 
--(void) scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)userCenterUserLoginFunction
 {
-//    D_Log(@"%@", scrollView);
+//    __weak typeof(self) bself = self;
+//    [[GWLogin sharedInstance] showLoginWithCancelHandler:^(BOOL success) {
+//        
+//    } LoginFinishHandler:^(BOOL success) {
+//        [bself operateAfterUserLogin];
+//    }];
 }
+
+
+
 
 #pragma mark UITableViewDataSource && UITableViewDelegate
 
+-(void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    //    D_Log(@"%@", scrollView);
+    [self updateImagePosition:scrollView];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 1)
+    {
+        return 10;
+    }
+    return 0.1f;
+}
+
+-(NSInteger )numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return UserCentenrRowStyleContactMe + 1;
+    if(section == 0)
+    {
+        return 1;
+    }
+    else if(section == 1)
+    {
+        return UserCentenrRowStyleContactMe + 1;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UserCenterBaseCellHeight;
+    if(indexPath.section == 0)
+    {
+        return kUserCenterTopCellHeight;
+    }
+    else if(indexPath.section == 1)
+    {
+        return UserCenterBaseCellHeight;
+    }
+    return 0.1f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,43 +211,113 @@ typedef enum {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    static NSString *cellIdentfier = @"userCenterBaseCell";
-    UserCenterBaseCell *pUserCenterBaseCell = [tableView dequeueReusableCellWithIdentifier:cellIdentfier];
-    
-    if (pUserCenterBaseCell == nil) {
-        pUserCenterBaseCell = [[UserCenterBaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentfier];
-        pUserCenterBaseCell.backgroundColor = [UIColor clearColor];
-        pUserCenterBaseCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    }
-    if(indexPath.row == UserCentenrRowStyleMyLike)
+    if(indexPath.section == 0)
     {
-        pUserCenterBaseCell.hasDescription = YES;
-        [pUserCenterBaseCell setDescriptionWithText:@"你收集的都在这儿"];
-        [pUserCenterBaseCell setIconName:@"my_like" title:@"我的收藏"];
-    }
-    else if(indexPath.row == UserCentenrRowStyleMyAccount)
-    {
-        pUserCenterBaseCell.hasDescription = NO;
-        [pUserCenterBaseCell setIconName:@"my_jjfk" title:@"账号设置"];
-    }
-    else if (indexPath.row == UserCentenrRowStyleSuggestion)
-    {
-        pUserCenterBaseCell.hasDescription = NO;
-        [pUserCenterBaseCell setIconName:@"my_jjfk" title:@"意见反馈"];
-    }
-    else if(indexPath.row == UserCentenrRowStyleContactMe)
-    {
-        pUserCenterBaseCell.hasDescription = NO;
-        [pUserCenterBaseCell setIconName:@"my_lxwm" title:@"联系客服"];
-    }
-    else
-    {
-        ;
-    }
-    
-    return pUserCenterBaseCell;
+        static NSString *cellIdentifier = @"GWNewUserCenterTopCell";
         
+        GWNewUserCenterTopCell *pNewUserCenterTopCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (pNewUserCenterTopCell == nil)
+        {
+            pNewUserCenterTopCell = [[GWNewUserCenterTopCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                                  reuseIdentifier:cellIdentifier];
+//            pNewUserCenterTopCell.delegate = self;
+            pNewUserCenterTopCell.backgroundColor = [UIColor clearColor];
+            pNewUserCenterTopCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return pNewUserCenterTopCell;
+    }
+    else if(indexPath.section == 1)
+    {
+        static NSString *cellIdentfier = @"userCenterBaseCell";
+        UserCenterBaseCell *pUserCenterBaseCell = [tableView dequeueReusableCellWithIdentifier:cellIdentfier];
+        
+        if (pUserCenterBaseCell == nil) {
+            pUserCenterBaseCell = [[UserCenterBaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentfier];
+            pUserCenterBaseCell.backgroundColor = [UIColor clearColor];
+            pUserCenterBaseCell.selectionStyle = UITableViewCellSelectionStyleGray;
+        }
+//        if(indexPath.row == UserCentenrRowStyleMyLike)
+//        {
+//            pUserCenterBaseCell.hasDescription = YES;
+//            [pUserCenterBaseCell setDescriptionWithText:@"你收集的都在这儿"];
+//            [pUserCenterBaseCell setIconName:@"my_like" title:@"我的收藏"];
+//        }
+//        else
+        if(indexPath.row == UserCentenrRowStyleMyAccount)
+        {
+            pUserCenterBaseCell.hasDescription = NO;
+            [pUserCenterBaseCell setIconName:@"my_account" title:@"账号设置"];
+        }
+        else if (indexPath.row == UserCentenrRowStyleSuggestion)
+        {
+            pUserCenterBaseCell.hasDescription = NO;
+            [pUserCenterBaseCell setIconName:@"my_yjfk" title:@"意见反馈"];
+        }
+        else if(indexPath.row == UserCentenrRowStyleContactMe)
+        {
+            pUserCenterBaseCell.hasDescription = NO;
+            [pUserCenterBaseCell setIconName:@"my_lxwm" title:@"联系客服"];
+        }
+        else
+        {
+            ;
+        }
+        
+        return pUserCenterBaseCell;
+    }
+    return nil;
+}
+
+- (void)updateImagePosition:(UIScrollView *)scrollView
+{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat fInitTop = kStatusHegiht + kNaviHeight;
+    _bottomCoverView.top = fInitTop - offsetY;
+//    if (offsetY <= 0)
+//    {
+//        _bottomCoverView.top = 0;
+//        _bottomCoverView.height = self.view.width * kTopHeightRatio + ABS(offsetY);
+//        _bottomCoverView.width = self.view.width + ABS(offsetY);
+//    }
+//    else
+//    {
+//        _bottomCoverView.top = -offsetY;
+//        _bottomCoverView.height = self.view.width * kTopHeightRatio;
+//        _bottomCoverView.width = self.view.width;
+//    }
+}
+
+#pragma mark GWNewUserCenterTopCelllDelegate
+
+- (void)userCenterTopCell:(GWNewUserCenterTopCell *)userCenterTopCell clickWithStyle:(GWUserCenterTopCellStyle)topCellStyle
+{
+    if(topCellStyle == GWUserCenterTopCellMyFavorStyle)
+    {
+        D_Log(@"我喜欢的视频");
+    }
+    else if (topCellStyle == GWUserCenterTopCellMyViedoStyle)
+    {
+        D_Log(@"我的视频");
+    }
+    else if (topCellStyle == GWUserCenterTopCellPostVideoStyle)
+    {
+        D_Log(@"发布视频");
+    }
+}
+
+#pragma mark UserCenterHeaderDelegate
+
+- (void)editButtonClick:(UserCenterHeader *)userCenterHeaderView
+{
+    if(![[WSAppContext appContext] isLoging])
+    {
+        [self userCenterUserLoginFunction];
+        return;
+    }
+    
+    //跳转到个人信息编辑界面；
+    
 }
 
 @end

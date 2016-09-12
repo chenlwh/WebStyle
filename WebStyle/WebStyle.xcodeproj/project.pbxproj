@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EDE1D86C8E60039ED2D /* LogingViewController.m */; };
+		C1330EE31D86CB9E0039ED2D /* UIViewController+GWFindSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */; };
+		C1330EF01D86CCC80039ED2D /* GWDoubleFadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */; };
+		C1330EF11D86CCC80039ED2D /* GWLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE81D86CCC80039ED2D /* GWLoginView.m */; };
+		C1330EF21D86CCC80039ED2D /* GWLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1330EE91D86CCC80039ED2D /* GWLoginView.xib */; };
+		C1330EF31D86CCC80039ED2D /* GWPasswordFindView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EEB1D86CCC80039ED2D /* GWPasswordFindView.m */; };
+		C1330EF41D86CCC80039ED2D /* GWPasswordFindView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1330EEC1D86CCC80039ED2D /* GWPasswordFindView.xib */; };
+		C1330EF51D86CCC80039ED2D /* GWRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EEE1D86CCC80039ED2D /* GWRegisterView.m */; };
+		C1330EF61D86CCC80039ED2D /* GWRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1330EEF1D86CCC80039ED2D /* GWRegisterView.xib */; };
+		C1330EF91D86CCF90039ED2D /* GWLoginBaseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EF81D86CCF90039ED2D /* GWLoginBaseControl.m */; };
+		C1330EFC1D86CD290039ED2D /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EFB1D86CD290039ED2D /* UIViewController+Alert.m */; };
+		C1330EFF1D86CD5A0039ED2D /* SFDialogTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EFE1D86CD5A0039ED2D /* SFDialogTools.m */; };
+		C1330F021D86CE0D0039ED2D /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330F011D86CE0D0039ED2D /* Toast.m */; };
+		C1330F051D86CE5C0039ED2D /* DelayController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330F041D86CE5C0039ED2D /* DelayController.m */; };
+		C1330F081D86CE780039ED2D /* SFKeyboardStateListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330F071D86CE780039ED2D /* SFKeyboardStateListener.m */; };
+		C1330F0B1D86CEBE0039ED2D /* NSString+GWStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330F0A1D86CEBE0039ED2D /* NSString+GWStringDrawing.m */; };
 		C140452A1D6D4F740067D66F /* FTAnimation+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = C140451E1D6D4F740067D66F /* FTAnimation+UIView.m */; };
 		C140452B1D6D4F740067D66F /* FTAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C140451F1D6D4F740067D66F /* FTAnimationManager.m */; };
 		C140452C1D6D4F740067D66F /* FTUtils+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C14045201D6D4F740067D66F /* FTUtils+NSObject.m */; };
@@ -208,6 +224,35 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1330EDD1D86C8E60039ED2D /* LogingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogingViewController.h; sourceTree = "<group>"; };
+		C1330EDE1D86C8E60039ED2D /* LogingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogingViewController.m; sourceTree = "<group>"; };
+		C1330EE11D86CB9E0039ED2D /* UIViewController+GWFindSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GWFindSubController.h"; sourceTree = "<group>"; };
+		C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GWFindSubController.m"; sourceTree = "<group>"; };
+		C1330EE51D86CCC80039ED2D /* GWDoubleFadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDoubleFadeView.h; sourceTree = "<group>"; };
+		C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDoubleFadeView.m; sourceTree = "<group>"; };
+		C1330EE71D86CCC80039ED2D /* GWLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginView.h; sourceTree = "<group>"; };
+		C1330EE81D86CCC80039ED2D /* GWLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginView.m; sourceTree = "<group>"; };
+		C1330EE91D86CCC80039ED2D /* GWLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWLoginView.xib; sourceTree = "<group>"; };
+		C1330EEA1D86CCC80039ED2D /* GWPasswordFindView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWPasswordFindView.h; sourceTree = "<group>"; };
+		C1330EEB1D86CCC80039ED2D /* GWPasswordFindView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWPasswordFindView.m; sourceTree = "<group>"; };
+		C1330EEC1D86CCC80039ED2D /* GWPasswordFindView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWPasswordFindView.xib; sourceTree = "<group>"; };
+		C1330EED1D86CCC80039ED2D /* GWRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRegisterView.h; sourceTree = "<group>"; };
+		C1330EEE1D86CCC80039ED2D /* GWRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRegisterView.m; sourceTree = "<group>"; };
+		C1330EEF1D86CCC80039ED2D /* GWRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GWRegisterView.xib; sourceTree = "<group>"; };
+		C1330EF71D86CCF90039ED2D /* GWLoginBaseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWLoginBaseControl.h; sourceTree = "<group>"; };
+		C1330EF81D86CCF90039ED2D /* GWLoginBaseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWLoginBaseControl.m; sourceTree = "<group>"; };
+		C1330EFA1D86CD290039ED2D /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
+		C1330EFB1D86CD290039ED2D /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		C1330EFD1D86CD5A0039ED2D /* SFDialogTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFDialogTools.h; sourceTree = "<group>"; };
+		C1330EFE1D86CD5A0039ED2D /* SFDialogTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFDialogTools.m; sourceTree = "<group>"; };
+		C1330F001D86CE0D0039ED2D /* Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toast.h; sourceTree = "<group>"; };
+		C1330F011D86CE0D0039ED2D /* Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toast.m; sourceTree = "<group>"; };
+		C1330F031D86CE5C0039ED2D /* DelayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayController.h; sourceTree = "<group>"; };
+		C1330F041D86CE5C0039ED2D /* DelayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayController.m; sourceTree = "<group>"; };
+		C1330F061D86CE780039ED2D /* SFKeyboardStateListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFKeyboardStateListener.h; sourceTree = "<group>"; };
+		C1330F071D86CE780039ED2D /* SFKeyboardStateListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFKeyboardStateListener.m; sourceTree = "<group>"; };
+		C1330F091D86CEBE0039ED2D /* NSString+GWStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GWStringDrawing.h"; sourceTree = "<group>"; };
+		C1330F0A1D86CEBE0039ED2D /* NSString+GWStringDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GWStringDrawing.m"; sourceTree = "<group>"; };
 		C140451E1D6D4F740067D66F /* FTAnimation+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FTAnimation+UIView.m"; sourceTree = "<group>"; };
 		C140451F1D6D4F740067D66F /* FTAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTAnimationManager.m; sourceTree = "<group>"; };
 		C14045201D6D4F740067D66F /* FTUtils+NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FTUtils+NSObject.m"; sourceTree = "<group>"; };
@@ -622,6 +667,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1330EDC1D86C8990039ED2D /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				C1330EE41D86CBF90039ED2D /* View */,
+				C1330EDD1D86C8E60039ED2D /* LogingViewController.h */,
+				C1330EDE1D86C8E60039ED2D /* LogingViewController.m */,
+			);
+			path = "Login&Register";
+			sourceTree = "<group>";
+		};
+		C1330EE01D86CB9E0039ED2D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1330EFA1D86CD290039ED2D /* UIViewController+Alert.h */,
+				C1330EFB1D86CD290039ED2D /* UIViewController+Alert.m */,
+				C1330EE11D86CB9E0039ED2D /* UIViewController+GWFindSubController.h */,
+				C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1330EE41D86CBF90039ED2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1330EF71D86CCF90039ED2D /* GWLoginBaseControl.h */,
+				C1330EF81D86CCF90039ED2D /* GWLoginBaseControl.m */,
+				C1330EE51D86CCC80039ED2D /* GWDoubleFadeView.h */,
+				C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */,
+				C1330EE71D86CCC80039ED2D /* GWLoginView.h */,
+				C1330EE81D86CCC80039ED2D /* GWLoginView.m */,
+				C1330EE91D86CCC80039ED2D /* GWLoginView.xib */,
+				C1330EEA1D86CCC80039ED2D /* GWPasswordFindView.h */,
+				C1330EEB1D86CCC80039ED2D /* GWPasswordFindView.m */,
+				C1330EEC1D86CCC80039ED2D /* GWPasswordFindView.xib */,
+				C1330EED1D86CCC80039ED2D /* GWRegisterView.h */,
+				C1330EEE1D86CCC80039ED2D /* GWRegisterView.m */,
+				C1330EEF1D86CCC80039ED2D /* GWRegisterView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C140451B1D6D4F740067D66F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +868,7 @@
 		C140456E1D6D82E10067D66F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C1330EE01D86CB9E0039ED2D /* ViewController */,
 				C150CD4A1D81C4550049D6BC /* UIImage */,
 				C14046841D6D94BD0067D66F /* Base */,
 				C140456F1D6D82E10067D66F /* View */,
@@ -1094,6 +1181,8 @@
 		C14046841D6D94BD0067D66F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C1330F091D86CEBE0039ED2D /* NSString+GWStringDrawing.h */,
+				C1330F0A1D86CEBE0039ED2D /* NSString+GWStringDrawing.m */,
 				C140469A1D6D99DC0067D66F /* NSString+MD5Addition.h */,
 				C140469B1D6D99DC0067D66F /* NSString+MD5Addition.m */,
 				C140468F1D6D96590067D66F /* NSDate+SFAddition.h */,
@@ -1149,6 +1238,14 @@
 		C14046AE1D6D9A660067D66F /* Kits */ = {
 			isa = PBXGroup;
 			children = (
+				C1330F061D86CE780039ED2D /* SFKeyboardStateListener.h */,
+				C1330F071D86CE780039ED2D /* SFKeyboardStateListener.m */,
+				C1330F031D86CE5C0039ED2D /* DelayController.h */,
+				C1330F041D86CE5C0039ED2D /* DelayController.m */,
+				C1330F001D86CE0D0039ED2D /* Toast.h */,
+				C1330F011D86CE0D0039ED2D /* Toast.m */,
+				C1330EFD1D86CD5A0039ED2D /* SFDialogTools.h */,
+				C1330EFE1D86CD5A0039ED2D /* SFDialogTools.m */,
 				C14046C21D6DAD310067D66F /* EGOCache.h */,
 				C14046C31D6DAD310067D66F /* EGOCache.m */,
 				C14046BF1D6DAD240067D66F /* GWLocalCache.h */,
@@ -1537,6 +1634,7 @@
 				C1A2FA911D6C2CC1000D09DE /* Main */,
 				C1A2FA921D6C2CC1000D09DE /* MyProfile（我的） */,
 				C1A2FA931D6C2CC1000D09DE /* Video（视频） */,
+				C1330EDC1D86C8990039ED2D /* Login&Register */,
 				C1611ECD1D6FE9A100A73FCB /* TestViewController.h */,
 				C1611ECE1D6FE9A100A73FCB /* TestViewController.m */,
 				C1611ECF1D6FE9A100A73FCB /* TestViewController.xib */,
@@ -1642,8 +1740,11 @@
 				C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */,
 				C1A2FA861D6C2A65000D09DE /* LaunchScreen.storyboard in Resources */,
 				C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */,
+				C1330EF61D86CCC80039ED2D /* GWRegisterView.xib in Resources */,
 				C1A2FA831D6C2A65000D09DE /* Assets.xcassets in Resources */,
+				C1330EF21D86CCC80039ED2D /* GWLoginView.xib in Resources */,
 				C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */,
+				C1330EF41D86CCC80039ED2D /* GWPasswordFindView.xib in Resources */,
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */,
 				C140463C1D6D91190067D66F /* emotions.bundle in Resources */,
@@ -1661,6 +1762,7 @@
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
 				C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */,
 				C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */,
+				C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */,
 				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
 				C14046361D6D91190067D66F /* GWNonMemberEncodeCache.m in Sources */,
 				C14045D51D6D8FFA0067D66F /* GWProviderResultPackage.m in Sources */,
@@ -1671,6 +1773,7 @@
 				C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */,
 				C140466F1D6D91E80067D66F /* MBProgressHUD.m in Sources */,
 				C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */,
+				C1330EE31D86CB9E0039ED2D /* UIViewController+GWFindSubController.m in Sources */,
 				C145F8981D6E8B8B00346164 /* NSDataAdditions.m in Sources */,
 				C140455D1D6D52980067D66F /* MJRefreshComponent.m in Sources */,
 				C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */,
@@ -1678,6 +1781,7 @@
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
 				C17F0FEF1D829F7E00B89525 /* WSUser.m in Sources */,
+				C1330EF11D86CCC80039ED2D /* GWLoginView.m in Sources */,
 				C14046511D6D91190067D66F /* GWXMLDeserializerParserDelegates.m in Sources */,
 				C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */,
 				C145F8E21D6EBF1F00346164 /* AFURLRequestSerialization.m in Sources */,
@@ -1690,6 +1794,7 @@
 				C14045721D6D82E10067D66F /* UIView+Gewara.m in Sources */,
 				C140463E1D6D91190067D66F /* GWEmotionSelectView.m in Sources */,
 				C145F8DF1D6EBF1F00346164 /* AFNetworkReachabilityManager.m in Sources */,
+				C1330EF91D86CCF90039ED2D /* GWLoginBaseControl.m in Sources */,
 				C145F93B1D6ED93800346164 /* UIImage+MultiFormat.m in Sources */,
 				C14046421D6D91190067D66F /* SVChatEmotionItemView.m in Sources */,
 				C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */,
@@ -1715,6 +1820,7 @@
 				C140452D1D6D4F740067D66F /* FTUtils+UIGestureRecognizer.m in Sources */,
 				C140464B1D6D91190067D66F /* GWUserAnnotationView.m in Sources */,
 				C14046B31D6D9A660067D66F /* Constants.m in Sources */,
+				C1330EF51D86CCC80039ED2D /* GWRegisterView.m in Sources */,
 				C145F8DC1D6EBF1F00346164 /* AFHTTPRequestOperation.m in Sources */,
 				C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */,
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
@@ -1730,6 +1836,8 @@
 				C145F93D1D6ED93800346164 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C145F8E41D6EBF1F00346164 /* AFURLSessionManager.m in Sources */,
 				C145F8B01D6E9E5B00346164 /* HomepageScrollProvider.m in Sources */,
+				C1330F081D86CE780039ED2D /* SFKeyboardStateListener.m in Sources */,
+				C1330EFC1D86CD290039ED2D /* UIViewController+Alert.m in Sources */,
 				C145F8E81D6EBF1F00346164 /* UIButton+AFNetworking.m in Sources */,
 				C14046C41D6DAD310067D66F /* EGOCache.m in Sources */,
 				C140455C1D6D52980067D66F /* MJRefreshBackFooter.m in Sources */,
@@ -1755,6 +1863,7 @@
 				C18040181D7417E700CF09A0 /* HomeBaseCollectionViewController.m in Sources */,
 				C14045DF1D6D8FFA0067D66F /* GWASIMsgCreator.m in Sources */,
 				C14046B81D6D9B7A0067D66F /* GWAppGroupsForMovie.m in Sources */,
+				C1330F0B1D86CEBE0039ED2D /* NSString+GWStringDrawing.m in Sources */,
 				C14046451D6D91190067D66F /* SVPageIndicator.m in Sources */,
 				C14046461D6D91190067D66F /* GWErrorDomain.m in Sources */,
 				C14046441D6D91190067D66F /* SVEmotionView.m in Sources */,
@@ -1778,6 +1887,7 @@
 				C14046731D6D91E80067D66F /* MJPropertyKey.m in Sources */,
 				C14046C11D6DAD240067D66F /* GWLocalCache.m in Sources */,
 				C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */,
+				C1330EF31D86CCC80039ED2D /* GWPasswordFindView.m in Sources */,
 				C140455B1D6D52980067D66F /* MJRefreshAutoFooter.m in Sources */,
 				C145F9601D6F05D000346164 /* SearchViewController.m in Sources */,
 				C150CD501D81C4B60049D6BC /* CGGeometry+Utils.m in Sources */,
@@ -1802,16 +1912,19 @@
 				C14046AC1D6D9A060067D66F /* MAZeroingWeakProxy.m in Sources */,
 				C140455F1D6D52980067D66F /* MJRefreshHeader.m in Sources */,
 				C14045751D6D85000067D66F /* UIBarButtonItem+CustomInit.m in Sources */,
+				C1330EFF1D86CD5A0039ED2D /* SFDialogTools.m in Sources */,
 				C140456B1D6D52980067D66F /* UIScrollView+MJExtension.m in Sources */,
 				C14045D91D6D8FFA0067D66F /* GWProviderAppConfig.m in Sources */,
 				C14045DD1D6D8FFA0067D66F /* GWAFMsgCreator.m in Sources */,
 				C145F8F01D6ECBC500346164 /* XYString.m in Sources */,
+				C1330F021D86CE0D0039ED2D /* Toast.m in Sources */,
 				C145F8F31D6ECE5100346164 /* PreferVideo.m in Sources */,
 				C14045E11D6D8FFA0067D66F /* GWProgressObject.m in Sources */,
 				C14045E91D6D90800067D66F /* GWUserDefaults.m in Sources */,
 				C145F93A1D6ED93800346164 /* UIImage+GIF.m in Sources */,
 				C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */,
 				C17F0FF21D82A43100B89525 /* WSAppContext.m in Sources */,
+				C1330EF01D86CCC80039ED2D /* GWDoubleFadeView.m in Sources */,
 				C145F93C1D6ED93800346164 /* UIImage+WebP.m in Sources */,
 				C145F8E01D6EBF1F00346164 /* AFSecurityPolicy.m in Sources */,
 				C14046401D6D91190067D66F /* SFImageLabel.m in Sources */,
@@ -1820,6 +1933,7 @@
 				C140464C1D6D91190067D66F /* LocalizedCurrentLocation.m in Sources */,
 				C14045D31D6D8FFA0067D66F /* GWBaseProvider.m in Sources */,
 				C17F0FFE1D82A88200B89525 /* SSKeychain.m in Sources */,
+				C1330F051D86CE5C0039ED2D /* DelayController.m in Sources */,
 				C1A2FA9F1D6C33F2000D09DE /* MainNavigationController.m in Sources */,
 				C14045641D6D52980067D66F /* MJRefreshBackNormalFooter.m in Sources */,
 				C145F93F1D6ED93800346164 /* UIView+WebCacheOperation.m in Sources */,

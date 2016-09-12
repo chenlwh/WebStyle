@@ -16,10 +16,9 @@
 #import "WSAppContext+WSLogin.h"
 
 #define kTopHeightRatio 0.65
-
+//    UserCentenrRowStyleMyLike = 0
 typedef enum {
-    UserCentenrRowStyleMyLike = 0,
-    UserCentenrRowStyleMyAccount,
+    UserCentenrRowStyleMyAccount = 0,
     UserCentenrRowStyleSuggestion,
     UserCentenrRowStyleContactMe
 }UserCentenrRowStyle;
@@ -99,7 +98,7 @@ typedef enum {
     CGRect frame = CGRectMake(0.0f, 0.0f,self.view.width,self.view.width * kTopHeightRatio);
     self.pUserCenterHeaderView = [[UserCenterHeader alloc] initWithFrame:frame];
     self.pUserCenterHeaderView.backgroundColor = [UIColor clearColor];
-    
+    self.pUserCenterHeaderView.delegate = self;
     [self.tableView setTableHeaderView:self.pUserCenterHeaderView];
 }
 
@@ -238,13 +237,14 @@ typedef enum {
             pUserCenterBaseCell.backgroundColor = [UIColor clearColor];
             pUserCenterBaseCell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
-        if(indexPath.row == UserCentenrRowStyleMyLike)
-        {
-            pUserCenterBaseCell.hasDescription = YES;
-            [pUserCenterBaseCell setDescriptionWithText:@"你收集的都在这儿"];
-            [pUserCenterBaseCell setIconName:@"my_like" title:@"我的收藏"];
-        }
-        else if(indexPath.row == UserCentenrRowStyleMyAccount)
+//        if(indexPath.row == UserCentenrRowStyleMyLike)
+//        {
+//            pUserCenterBaseCell.hasDescription = YES;
+//            [pUserCenterBaseCell setDescriptionWithText:@"你收集的都在这儿"];
+//            [pUserCenterBaseCell setIconName:@"my_like" title:@"我的收藏"];
+//        }
+//        else
+        if(indexPath.row == UserCentenrRowStyleMyAccount)
         {
             pUserCenterBaseCell.hasDescription = NO;
             [pUserCenterBaseCell setIconName:@"my_account" title:@"账号设置"];

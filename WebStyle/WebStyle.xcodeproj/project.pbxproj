@@ -193,6 +193,7 @@
 		C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEB1D70326A00A73FCB /* SwipeView.m */; };
 		C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */; };
 		C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */; };
+		C1671B2D1D8952BC00208A7E /* WSLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C1671B2C1D8952BC00208A7E /* WSLoginInfo.m */; };
 		C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */; };
 		C1673F5E1D7FF01B007EE026 /* SearchedPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */; };
 		C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F611D800D5E007EE026 /* GWMessageView.m */; };
@@ -599,6 +600,9 @@
 		C1611EEE1D70329F00A73FCB /* PlayerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScrollView.m; sourceTree = "<group>"; };
 		C1611EF01D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GWWebDragBackAnimation.h"; sourceTree = "<group>"; };
 		C1611EF11D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GWWebDragBackAnimation.m"; sourceTree = "<group>"; };
+		C1671B2B1D8952BC00208A7E /* WSLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLoginInfo.h; sourceTree = "<group>"; };
+		C1671B2C1D8952BC00208A7E /* WSLoginInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLoginInfo.m; sourceTree = "<group>"; };
+		C1671B2E1D896B0C00208A7E /* WSNotificationList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSNotificationList.h; sourceTree = "<group>"; };
 		C1673F5A1D7FF01B007EE026 /* SearchedPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedPlayerCell.h; sourceTree = "<group>"; };
 		C1673F5B1D7FF01B007EE026 /* SearchedPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedPlayerCell.m; sourceTree = "<group>"; };
 		C1673F5C1D7FF01B007EE026 /* SearchedPlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedPlayerCell.xib; sourceTree = "<group>"; };
@@ -1613,6 +1617,9 @@
 				C17F0FF11D82A43100B89525 /* WSAppContext.m */,
 				C17F0FF31D82A58F00B89525 /* WSAppContext+WSLogin.h */,
 				C17F0FF41D82A58F00B89525 /* WSAppContext+WSLogin.m */,
+				C1671B2B1D8952BC00208A7E /* WSLoginInfo.h */,
+				C1671B2C1D8952BC00208A7E /* WSLoginInfo.m */,
+				C1671B2E1D896B0C00208A7E /* WSNotificationList.h */,
 			);
 			path = BusinessModel;
 			sourceTree = "<group>";
@@ -1842,6 +1849,7 @@
 				C145F93D1D6ED93800346164 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C145F8E41D6EBF1F00346164 /* AFURLSessionManager.m in Sources */,
 				C145F8B01D6E9E5B00346164 /* HomepageScrollProvider.m in Sources */,
+				C1671B2D1D8952BC00208A7E /* WSLoginInfo.m in Sources */,
 				C1330F081D86CE780039ED2D /* SFKeyboardStateListener.m in Sources */,
 				C1330EFC1D86CD290039ED2D /* UIViewController+Alert.m in Sources */,
 				C145F8E81D6EBF1F00346164 /* UIButton+AFNetworking.m in Sources */,

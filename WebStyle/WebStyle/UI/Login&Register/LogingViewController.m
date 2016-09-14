@@ -12,6 +12,8 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "UrlDefine.h"
 #import "JSONKit.h"
+#import "WSLoginInfo.h"
+#import "WSAppContext.h"
 
 #define topHeight self.view.height*3/5 > 288 ? self.view.height*2/5 : self.view.height/4+50;
 
@@ -267,6 +269,10 @@ typedef enum{
         if([dict[@"code"] isEqualToString:@"02"])
         {
             //注册成功；
+            WSLoginInfo *logInfo = [WSLoginInfo new];
+            logInfo.username = name;
+            logInfo.password = passwd;
+            [weakself loginSucessedWithUserInfo:logInfo];
             [weakself showAutoHideToastWithString:@"登录成功"];
         }
         else  if ([dict[@"code"] isEqualToString:@"01"])
@@ -341,14 +347,8 @@ typedef enum{
         {
             //注册成功；
            [weakself showAutoHideToastWithString:@"注册成功"];
+            [weakself loginSucessedWithUserInfo:@""];
         }
-//        else
-//        {
-//            NSString *des = dict[@"message"];
-//            des = [des stringByRemovingPercentEncoding];
-//            [weakself showAutoHideToastWithString:des];
-//        }
-      //  /*
         else if ([dict[@"code"] isEqualToString:@"01"])
         {
             [weakself showAutoHideToastWithString:@"用户名已经存在"];
@@ -372,6 +372,27 @@ typedef enum{
         D_Log(@"请求失败");
     }];
 }
+
+-(void)loginSucessedWithUserInfo:(WSLoginInfo*)loginInfo
+{
+    [WSAppContext  saveLastLoginInfo:loginInfo];
+    
+    NSArray *viewControlls = self.navigationController.viewControllers;
+    if (viewControlls.count == 1 && ([viewControlls indexOfObject:self] != NSNotFound)) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (self.loginFinishHandler) {
+                self.loginFinishHandler(YES);
+            }
+            
+        }];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+        if (self.loginFinishHandler) {
+            self.loginFinishHandler(YES);
+        }
+    }
+}
+
 #pragma mark - NSNotification
 
 -(void)showAnimation:(void (^)(void))compelete

@@ -155,7 +155,34 @@ typedef enum {
 }
 
 
+-(void) addNotifications
+{
+    [self addLoginNotification];
+}
 
+- (void)addLoginNotification
+{
+    __weak typeof(self)weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:WSMovieLoginDidSuccessNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+//                                                      weakSelf.haveLoadData = NO;
+//                                                      
+//                                                      GWUser *theUser = note.object;
+//                                                      if ([theUser.memberid isEqualToString:weakSelf.memberModel.memberid]) {
+//                                                          
+//                                                      }else{
+//                                                          weakSelf.memberModel.memberid = theUser.memberid;
+//                                                          weakSelf.memberModel.nickname = theUser.nickname;
+//                                                          weakSelf.memberModel.headpic = theUser.headpic;
+//                                                          [weakSelf requestDataWithRefresh:YES];
+//                                                          [weakSelf loadData];
+//                                                      }
+                                                  }];
+    
+}
 
 #pragma mark UITableViewDataSource && UITableViewDelegate
 

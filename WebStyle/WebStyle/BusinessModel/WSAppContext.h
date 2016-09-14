@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "WSUser.h"
+#import "WSLoginInfo.h"
+
+
 
 @interface WSAppContext : NSObject
 + (instancetype)appContext;
@@ -35,5 +38,9 @@
  *  @return 设备id
  */
 + (NSString*)appUUID;
+
+- (void)handleLoginSuccessWithObject:(id)result userInfo:(NSDictionary*)userInfo;
+
++(void)saveLastLoginInfo:(WSLoginInfo*)loginInfo;
 
 @end

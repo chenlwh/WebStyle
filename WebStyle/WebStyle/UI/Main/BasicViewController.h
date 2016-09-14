@@ -13,6 +13,7 @@
 #import "MsgDefine.h"
 #import "UIViewController+GWFindSubController.h"
 #import "MBProgressHUD.h"
+#import "WSNotificationList.h"
 
 @interface BasicViewController : UIViewController
 

@@ -9,10 +9,16 @@
 #import "WSAppContext.h"
 #import "NSString+WSUpload.h"
 #import "SSKeychain.h"
-
+#import "FTUtils.h"
+#import "MsgDefine.h"
 NSString* const WSKeychainServiceKey = @"com.webstyle.public";
 
 NSString* const kAppKeyChainUUIDKey = @"uuid";
+
+NSString* const kLastWSLoginInfo = @"kLastWSLoginInfo";
+
+
+
 
 @implementation WSAppContext
 + (instancetype)appContext
@@ -54,4 +60,28 @@ NSString* const kAppKeyChainUUIDKey = @"uuid";
     return uuidStr;
 }
 
+- (void)handleLoginSuccessWithObject:(id)result userInfo:(NSDictionary*)userInfo
+{
+    
+}
+
++(void)saveLastLoginInfo:(WSLoginInfo*)loginInfo
+{
+    if (loginInfo) {
+        
+        NSString* cacheFile = nil;
+        cacheFile = FTPathForFileInDocumentsDirectory(kLastWSLoginInfo);
+        BOOL result = [NSKeyedArchiver archiveRootObject:loginInfo
+                                                  toFile:cacheFile];
+        if (!result) {
+            D_Log(@"%@", @"writeCache failed");
+        }
+        
+        
+        
+    }else {
+        D_Log(@"write nil log info");
+    }
+
+}
 @end

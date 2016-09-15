@@ -30,6 +30,14 @@ NSString* const kLastWSLoginInfo = @"kLastWSLoginInfo";
     });
     return appContext;
 }
+-(id) init
+{
+    if(self = [super init])
+    {
+//        _wsUserInfo = [WSUser new];
+    }
+    return self;
+}
 
 + (NSString *)appName
 {
@@ -83,5 +91,16 @@ NSString* const kLastWSLoginInfo = @"kLastWSLoginInfo";
         D_Log(@"write nil log info");
     }
 
+}
+
++ (WSLoginInfo *)readLastLoginInfo
+{
+    NSString *cacheFile = FTPathForFileInDocumentsDirectory(kLastWSLoginInfo);
+    if(cacheFile.length > 0)
+    {
+        WSLoginInfo* cache = [NSKeyedUnarchiver unarchiveObjectWithFile:cacheFile];
+        return cache;
+    }
+    return nil;
 }
 @end

@@ -13,7 +13,7 @@
 @protocol UserCenterHeaderDelegate <NSObject>
 @optional
 - (void)editButtonClick:(UserCenterHeader *)userCenterHeaderView;
-
+- (void)settingButtonClick:(UserCenterHeader *)userCenterHeaderView;
 @end
 
 @interface UserCenterHeader : UIView

@@ -12,6 +12,7 @@
 
 
 
+
 @interface WSAppContext : NSObject
 + (instancetype)appContext;
 
@@ -42,5 +43,7 @@
 - (void)handleLoginSuccessWithObject:(id)result userInfo:(NSDictionary*)userInfo;
 
 +(void)saveLastLoginInfo:(WSLoginInfo*)loginInfo;
+
++ (WSLoginInfo *)readLastLoginInfo;
 
 @end

@@ -14,7 +14,7 @@
 #import "JSONKit.h"
 #import "WSLoginInfo.h"
 #import "WSAppContext.h"
-
+#import "BasicViewController+Login.h"
 #define topHeight self.view.height*3/5 > 288 ? self.view.height*2/5 : self.view.height/4+50;
 
 #define textlineColor RGBACOLORFromRGBHex(0x5f5f5f)
@@ -272,7 +272,7 @@ typedef enum{
             WSLoginInfo *logInfo = [WSLoginInfo new];
             logInfo.username = name;
             logInfo.password = passwd;
-            [weakself loginSucessedWithUserInfo:logInfo];
+            [weakself loginSuccess:logInfo];
             [weakself showAutoHideToastWithString:@"登录成功"];
         }
         else  if ([dict[@"code"] isEqualToString:@"01"])
@@ -347,7 +347,10 @@ typedef enum{
         {
             //注册成功；
            [weakself showAutoHideToastWithString:@"注册成功"];
-            [weakself loginSucessedWithUserInfo:@""];
+            WSLoginInfo *loginfo = [WSLoginInfo new];
+            loginfo.username = name;
+            loginfo.password = passwd;
+            [weakself loginSuccess:loginfo];
         }
         else if ([dict[@"code"] isEqualToString:@"01"])
         {
@@ -373,9 +376,11 @@ typedef enum{
     }];
 }
 
--(void)loginSucessedWithUserInfo:(WSLoginInfo*)loginInfo
+-(void)loginSuccess:(WSLoginInfo*)loginfo
 {
-    [WSAppContext  saveLastLoginInfo:loginInfo];
+    [self loginSucessedWithUserInfo:loginfo];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WSMovieLoginDidSuccessNotification object:nil];
     
     NSArray *viewControlls = self.navigationController.viewControllers;
     if (viewControlls.count == 1 && ([viewControlls indexOfObject:self] != NSNotFound)) {
@@ -391,7 +396,9 @@ typedef enum{
             self.loginFinishHandler(YES);
         }
     }
+    
 }
+
 
 #pragma mark - NSNotification
 

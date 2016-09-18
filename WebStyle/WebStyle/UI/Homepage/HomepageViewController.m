@@ -26,6 +26,8 @@
 #import "UrlDefine.h"
 
 #import "HomepageViewController+GradientNaviBar.h"
+#import "MJRefresh.h"
+
 
 
 @interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate>
@@ -288,6 +290,48 @@ const NSString *topVideo = @"视频排行";
     return _pTopVideoVC;
 }
 
+-(void)addMJRefresh{
+    __unsafe_unretained UITableView *tableView = self.tableView;
+    __weak HomepageViewController *selfView = self;
+    // 下拉刷新
+    tableView.header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        D_Log(@"refresh data");
+        [selfView refreshData];
+    }];
+    
+    
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    tableView.header.automaticallyChangeAlpha = YES;
+    // 上拉刷新
+//    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        NSString *URLString = [NSString stringWithFormat:@"http://c.m.163.com/nc/video/home/%ld-10.html",_dataSource.count - _dataSource.count%10];
+//        [[DataManager shareManager] getSIDArrayWithURLString:URLString
+//                                                     success:^(NSArray *sidArray, NSArray *videoArray) {
+//                                                         [_dataSource addObjectsFromArray:videoArray];
+//                                                         dispatch_async(dispatch_get_main_queue(), ^{
+//                                                             [tableView reloadData];
+//                                                             [tableView.mj_header endRefreshing];
+//                                                         });
+//                                                         
+//                                                     }
+//                                                      failed:^(NSError *error) {
+//                                                          
+//                                                      }];
+//        // 结束刷新
+//        [tableView.mj_footer endRefreshing];
+//    }];
+}
+
+-(void) refreshData
+{
+    WeakObjectDef(self);
+    dispatch_after(5, dispatch_get_main_queue(), ^(void){
+//         [tableView.mj_header endRefreshing];
+        D_Log(@"end Refreshing");
+        [weakself.tableView.header endRefreshing];
+    });
+}
 #pragma mark UITableViewDelegate
 
 #pragma mark UITableViewDataSource

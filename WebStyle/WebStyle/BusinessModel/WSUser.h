@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *headpic;
+@property (nonatomic, strong) NSString *passwd;
 @end

@@ -16,7 +16,8 @@
 //#import "GWMovieComUtils.h"
 //#import "GWLoginInfo.h"
 //#import <TencentOpenAPI/QQApiInterface.h>
-
+#import "WSAppContext.h"
+#import "WSLoginInfo.h"
 @interface GWLoginView ()
 {
     CALayer *nameLayer;
@@ -55,10 +56,10 @@
     _nameField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"你的用户名" attributes:@{NSForegroundColorAttributeName:textfieldLayerDefaultColor,NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
     [_nameField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
-//    GWLoginInfo *lastInfo = [GWMovieComUtils readLastLoginInfo];
-//    if ((lastInfo.logInfoType == AutoLoginInfoTypeGewara)&& (lastInfo.username.length > 0)) {
-//        _nameField.text = lastInfo.username;
-//    }
+    WSLoginInfo *lastInfo = [WSAppContext readLastLoginInfo];
+    if (lastInfo.username.length > 0) {
+        _nameField.text = lastInfo.username;
+    }
     
     
     nameLayer = [[CALayer alloc] init];

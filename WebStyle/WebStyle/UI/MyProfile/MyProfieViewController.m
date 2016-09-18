@@ -15,7 +15,8 @@
 #import "GWNewUserCenterTopCell.h"
 #import "WSAppContext+WSLogin.h"
 #import "LogingViewController.h"
-
+#import "WSUser.h"
+#import "GWSettingViewController.h"
 #define kTopHeightRatio 0.65
 //    UserCentenrRowStyleMyLike = 0
 typedef enum {
@@ -32,6 +33,7 @@ typedef enum {
 
 @property (nonatomic, strong) UIView *bottomCoverView; // 头部滚动视图
 @property (nonatomic, strong) UIImageView *scrollImageView; // 滚动图片
+@property (nonatomic, strong) Member *currentMember;
 
 @end
 @implementation MyProfieViewController
@@ -39,20 +41,33 @@ typedef enum {
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self setStatusBarLight];
+    if([[WSAppContext appContext] isLoging])
+    {
+        self.currentMember.nickname = [WSAppContext appContext].wsUserInfo.nickname;
+    }
     [self setNav];
     [self createTableView];
     [self createBottomScrollView];
     /*http://bbs.csdn.net/topics/391833162 解释UITableView 与 UITableWarapperView 的 高度差*/
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout=UIRectEdgeNone;
+    [self addNotifications];
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
     [self setStatusBarLight];
+    
+    if (![[WSAppContext appContext] isLoging]) {
+        
+        [self.pUserCenterHeaderView restUserCenterIfNotLogin];
+//        [self loadData];
+    }else{
+//        [self requestDataWithRefresh:YES];
+    }
 }
 //-(void) setNav
 //{
@@ -101,6 +116,7 @@ typedef enum {
     self.pUserCenterHeaderView.backgroundColor = [UIColor clearColor];
     self.pUserCenterHeaderView.delegate = self;
     [self.tableView setTableHeaderView:self.pUserCenterHeaderView];
+    [self.pUserCenterHeaderView setCurrentMember: self.currentMember];
 }
 
 - (void)createBottomScrollView
@@ -139,10 +155,20 @@ typedef enum {
     [self.bottomCoverView bringSubviewToFront:blackView];
 }
 
+-(Member*)currentMember
+{
+    if(!_currentMember)
+    {
+        _currentMember = [Member new];
+    }
+    return _currentMember;
+}
+
 -(void)settingClick
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
 }
+
 
 - (void)userCenterUserLoginFunction
 {
@@ -158,6 +184,7 @@ typedef enum {
 -(void) addNotifications
 {
     [self addLoginNotification];
+    [self addLoginOutNotification];
 }
 
 - (void)addLoginNotification
@@ -167,22 +194,39 @@ typedef enum {
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *note) {
+                                                      D_Log(@"note %@",note);
                                                       
-//                                                      weakSelf.haveLoadData = NO;
-//                                                      
-//                                                      GWUser *theUser = note.object;
-//                                                      if ([theUser.memberid isEqualToString:weakSelf.memberModel.memberid]) {
-//                                                          
-//                                                      }else{
-//                                                          weakSelf.memberModel.memberid = theUser.memberid;
-//                                                          weakSelf.memberModel.nickname = theUser.nickname;
-//                                                          weakSelf.memberModel.headpic = theUser.headpic;
-//                                                          [weakSelf requestDataWithRefresh:YES];
-//                                                          [weakSelf loadData];
-//                                                      }
+                                                      if([[WSAppContext appContext] isLoging])
+                                                      {
+                                                          weakSelf.currentMember.nickname = [WSAppContext appContext].wsUserInfo.nickname;
+                                                          [weakSelf.pUserCenterHeaderView setCurrentMember:weakSelf.currentMember];
+                                                      }
+
+                                                  }];
+    
+   }
+
+- (void)addLoginOutNotification
+{
+    __weak typeof(self)weakSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:WSMovieLogoutDidSuccessNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      D_Log(@"note %@",note);
+                                                      
+                                                      weakSelf.currentMember.nickname = @"";
+                                                      weakSelf.currentMember.headpic = @"";
+                                                      [weakSelf.pUserCenterHeaderView setCurrentMember:weakSelf.currentMember];
+                                                      
                                                   }];
     
 }
+
+//-(void)reloadData
+//{
+//    [self.tableView reloadData];
+//}
 
 #pragma mark UITableViewDataSource && UITableViewDelegate
 
@@ -348,4 +392,10 @@ typedef enum {
     
 }
 
+
+- (void)settingButtonClick:(UserCenterHeader *)userCenterHeaderView
+{
+    GWSettingViewController *settingVC = [[GWSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVC animated:YES];
+}
 @end

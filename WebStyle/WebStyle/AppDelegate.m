@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "MainTabBarController.h"
+#import "WSAppcontext.h"
+#import "WSAppContext+WSLogin.h"
+
 @interface AppDelegate ()
 
 @end
@@ -20,6 +23,9 @@
     // Override point for customization after application launch.
     [self setKeyWindow];
     [self setAppAppearance];
+    
+    //处理自动登录
+    [[WSAppContext appContext] autoLogin];
     
     
     return YES;

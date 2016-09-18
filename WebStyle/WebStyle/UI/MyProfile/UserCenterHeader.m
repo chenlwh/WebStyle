@@ -9,6 +9,7 @@
 #import "UserCenterHeader.h"
 #import "UIView+Gewara.h"
 #import "UIImageView+WebCache.h"
+#import "MsgDefine.h"
 
 @interface UserCenterHeader ()
 //@property (nonatomic, strong) GWExclusiveTouchButton *messageButton; // 消息按钮
@@ -32,7 +33,7 @@
     if (self) {
         
         [self loadUserCustomInfo:frame];
-//        [self loadLeftRightButtons];
+        [self loadLeftRightButtons];
         
     }
     return self;
@@ -95,7 +96,8 @@
     pencilImageView.backgroundColor = [UIColor clearColor];
     pencilImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.pencilImageView = pencilImageView;
-    [self addSubview:pencilImageView];
+    //暂时不做个人编辑
+//    [self addSubview:pencilImageView];
     
     UITapGestureRecognizer *pTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(touchAction)];
@@ -103,6 +105,40 @@
     
 }
 
+
+-(void) loadLeftRightButtons
+{
+    CGFloat padding = 18;
+    
+    // 设置
+    UIImage *settingImage = [UIImage imageNamed:@"icon_setting"];
+    
+    CGFloat imageWidth = settingImage.size.width - 5;
+    
+    UIButton *settingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    settingButton.frame = CGRectMake(self.width-imageWidth - padding, 35, imageWidth, imageWidth);
+    [settingButton setBackgroundImage:settingImage forState:UIControlStateNormal];
+    settingButton.backgroundColor =[UIColor clearColor];
+//    self.settingButton = settingButton;
+    [self addSubview:settingButton];
+    settingButton.exclusiveTouch = YES;
+    
+    UIButton * settbtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    settbtn.frame = CGRectMake(0, 0, 70, 70);
+    settbtn.center = settingButton.center;
+    settbtn.backgroundColor = [UIColor clearColor];
+    [settbtn addTarget:self action:@selector(gotoGWSettingViewAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:settbtn];
+}
+
+
+-(void)gotoGWSettingViewAction
+{
+    D_Log(@"gotoGWSettingViewAction");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(settingButtonClick:)]) {
+        [self.delegate settingButtonClick:self];
+    }
+}
 - (void)restUserCenterIfNotLogin
 {
     self.nickName.text = @"点击登录";
@@ -127,38 +163,21 @@
 
 - (void)handleCurrentMemberInfo
 {
-//    NSString *fitUrlStr = [[GWFitSizeNetworkPolicy shareInstance] fitImageUrlWithOriginUrl:_currentMember.headpic
-//                                                                              imageFitSize:self.userHeaderImageView.bounds.size];
-//    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:fitUrlStr];
-//    
-//    if (image)
-//    {
-//        self.userHeaderImageView.image = image;
-//    }
-//    else
-//    {
-//        image = self.userHeaderImageView.image ? self.userHeaderImageView.image : [GWMovieImage imageDefaultUserHeader];
-//        [self.userHeaderImageView setFitSizeImageWithURLString:_currentMember.headpic
-//                                              placeholderImage:image
-//                                                     completed:nil];
-//    }
-    [self.userHeaderImageView sd_setImageWithURL:[NSURL URLWithString:_currentMember.headpic] placeholderImage:nil];
+    [self.userHeaderImageView sd_setImageWithURL:[NSURL URLWithString:_currentMember.headpic] placeholderImage:[UIImage imageNamed:@"icon_defaultAvatar"]];
     
-//    [GWMovieAppContext appContext].gwUserInfo.headpic = _currentMember.headpic;
     
     if (_currentMember.nickname.length > 0)
     {
         self.nickName.text = _currentMember.nickname;
         self.nickName.width = [self userNameLabelWidth:_nickName.text];
     }
+    else
+    {
+        self.nickName.text = @"";
+    }
     
     self.nickName.centerX = self.width/2;
     
-//    self.userDescImageLabel.centerY = self.nickName.centerY;
-//    [self.userDescImageLabel displayTitleLabelWithMovieOrCinema:_currentMember.userMark];
-//    self.userDescImageLabel.left = self.nickName.centerX + [self userNameLabelWidth:self.nickName.text]/2.0 + 1;
-//    
-//    self.userDescImageLabel.hidden = NO;
     self.pencilImageView.hidden = NO;
 }
 

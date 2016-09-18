@@ -27,10 +27,10 @@
 
 #import "HomepageViewController+GradientNaviBar.h"
 #import "MJRefresh.h"
+#import "PlayVideoViewController.h"
 
 
-
-@interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate>
+@interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate, HomeBaseCollectionDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -72,7 +72,8 @@ const NSString *topVideo = @"视频排行";
     [self createHotPlayerVideoRequest];
     [self createTopVideoRequest];
     
-//    [self.tableView.header beginRefreshing];
+    [self addMJRefresh];
+    [self.tableView.header beginRefreshing];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -259,7 +260,7 @@ const NSString *topVideo = @"视频排行";
     if(!_pNewPlayerVideoVC)
     {
         _pNewPlayerVideoVC = [[HomeNewPlayerVideoViewController alloc] init];
-        
+        _pNewPlayerVideoVC.delegate = self;
     }
     
     return _pNewPlayerVideoVC;
@@ -272,7 +273,7 @@ const NSString *topVideo = @"视频排行";
     if(!_pHotPlayerVideoVC)
     {
         _pHotPlayerVideoVC = [[HomeHotPlayerVideoViewController alloc] init];
-        
+        _pHotPlayerVideoVC.delegate = self;
     }
     
     return _pHotPlayerVideoVC;
@@ -284,7 +285,7 @@ const NSString *topVideo = @"视频排行";
     if(!_pTopVideoVC)
     {
         _pTopVideoVC = [[HomeTopVideoViewController alloc] init];
-        
+        _pTopVideoVC.delegate = self;
     }
     
     return _pTopVideoVC;
@@ -326,8 +327,9 @@ const NSString *topVideo = @"视频排行";
 -(void) refreshData
 {
     WeakObjectDef(self);
-    dispatch_after(5, dispatch_get_main_queue(), ^(void){
-//         [tableView.mj_header endRefreshing];
+
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         D_Log(@"end Refreshing");
         [weakself.tableView.header endRefreshing];
     });
@@ -365,9 +367,7 @@ const NSString *topVideo = @"视频排行";
         if(scrollView == nil)
         {
             scrollView = [[PlayerScrollView alloc] initWithFrame:CGRectZero];
-//            WeakObjectDef(self);
-//            [scrollView setSelectPeopleBlock:^(GWPeople *people) {
-//            }];
+
 
         }
         
@@ -509,7 +509,15 @@ const NSString *topVideo = @"视频排行";
     return headView;
 }
 
-
+#pragma mark HomeBaseCollectionDelegate
+- (void)gotoMovieDetail:(PreferVideo*)movie withMovieCard:(VideoCard*)movieCard
+{
+    D_Log(@"%@", NSStringFromSelector(_cmd));
+    PlayVideoViewController *playVideoVC = [PlayVideoViewController new];
+    playVideoVC.model = movie;
+    [self.navigationController pushViewController:playVideoVC animated:true];
+    
+}
 #pragma mark CustomNaviDelegate
 -(void)naviBarsearchBtnClick
 {

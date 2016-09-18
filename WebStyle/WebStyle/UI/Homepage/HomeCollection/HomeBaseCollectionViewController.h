@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Gewara.h"
+#import "VideoCard.h"
+#import "PreferVideo.h"
+
+#define cardTag 1000
+
+
+@protocol HomeBaseCollectionDelegate <NSObject>
+
+- (void)gotoMovieDetail:(PreferVideo*)movie withMovieCard:(VideoCard*)movieCard; 
+
+
+@end
+
 @interface HomeBaseCollectionViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) UICollectionView * collectionView;
@@ -15,6 +28,8 @@
 @property (nonatomic,strong) NSMutableArray * dataArray;
 
 @property (nonatomic,strong) NSString * cellIdentifier;
+
+@property (nonatomic,weak) id<HomeBaseCollectionDelegate> delegate;
 
 
 /**

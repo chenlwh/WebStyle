@@ -41,6 +41,22 @@
 }
 */
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (self.dataArray.count==0||self.dataArray.count<=indexPath.row) {
+        return;
+    }
+    
+    PreferVideo * movie = self.dataArray[indexPath.row];
+    VideoCard * cardView = (id)[cell viewWithTag:cardTag];
+    
+    if ([self.delegate respondsToSelector:@selector(gotoMovieDetail:withMovieCard:)]) {
+        [self.delegate gotoMovieDetail:movie withMovieCard:cardView];
+    }
+}
+
 #pragma mark getter && setter
 -(NSString*)cellIdentifier
 {

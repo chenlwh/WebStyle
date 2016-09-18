@@ -15,7 +15,6 @@
 #define movieCardWidth GWTranslateWidthBase4P7ScreenValue(170)
 #define viewMargin 10
 #define movieCardLineCount 2
-#define cardTag 1000
 
 @interface HomeBaseCollectionViewController ()
 
@@ -110,7 +109,6 @@
 }
 
 #pragma mark collectionview delegate
-
 
 
 #pragma mark collectionViewFlowLayout

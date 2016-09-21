@@ -493,4 +493,10 @@ typedef enum {
     GWSettingViewController *settingVC = [[GWSettingViewController alloc] init];
     [self.navigationController pushViewController:settingVC animated:YES];
 }
+
+#pragma mark 点击事件
+-(void)pushToDetailViewController
+{
+    D_Log(@"pushToDetailViewController");
+}
 @end

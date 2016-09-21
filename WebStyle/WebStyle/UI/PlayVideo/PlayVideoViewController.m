@@ -59,6 +59,7 @@
     } completion:^(BOOL finished) {
         [_htPlayer removeFromSuperview];
         [self releaseWMPlayer];
+        //添加重新播放的页面；
     }];
     
 }

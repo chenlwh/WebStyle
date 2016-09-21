@@ -11,9 +11,9 @@
 #define kUserCenterTopCellHeight (83)
 
 typedef enum{
-    GWUserCenterTopCellMyFavorStyle = 0, // 喜欢
+    GWUserCenterTopCellPostVideoStyle = 0,// 发布视频
     GWUserCenterTopCellMyViedoStyle, // 我的视频
-    GWUserCenterTopCellPostVideoStyle,// 发布视频
+    GWUserCenterTopCellMyFavorStyle , // 我的收藏
 }GWUserCenterTopCellStyle;
 
 

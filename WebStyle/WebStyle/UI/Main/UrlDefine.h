@@ -34,5 +34,7 @@
 //登录  http://114.55.224.29/blacksheepservice/login?name=username&pwd=password
 #define kLoginMethod @"http://114.55.224.29/blacksheepservice/login?"
 
+//我的爆款 登录之后才能查询；
+#define kMyPopular @"http://114.55.224.29/blacksheepservice/selfprefer?name="
 
 #endif /* UrlDefine_h */

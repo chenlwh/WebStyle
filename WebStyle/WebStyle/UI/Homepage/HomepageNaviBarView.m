@@ -36,15 +36,16 @@
     if(!self.leftButton)
     {
         self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.leftButton.frame = CGRectMake(10, 6, 54, 28);
+        self.leftButton.frame = CGRectMake(10, 6, 54, 40);
         [self.leftButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.leftButton.titleLabel setFont:[UIFont systemFontOfSize:14.0f]];
-        [self.leftButton setTitle:kAppName forState:UIControlStateNormal];
+//        [self.leftButton setTitle:kAppName forState:UIControlStateNormal];
+        [self.leftButton setImage:[UIImage imageNamed:@"icon_app"] forState:UIControlStateNormal];
         [self.leftButton addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        self.leftButton.top = (self.height - self.leftButton.height)/2;
-        self.leftButton.layer.cornerRadius = 3.0f;
-        self.leftButton.layer.borderWidth = 0.8;
-        self.leftButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//        self.leftButton.top = (self.height - self.leftButton.height)/2;
+//        self.leftButton.layer.cornerRadius = 3.0f;
+//        self.leftButton.layer.borderWidth = 0.8;
+//        self.leftButton.layer.borderColor = [UIColor whiteColor].CGColor;
     }
     [self addSubview:self.leftButton];
     

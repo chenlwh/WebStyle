@@ -256,6 +256,7 @@
 		C1A6C8B41D815F320067F5E7 /* UserCenterBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */; };
 		C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */; };
 		C1A6C8BA1D816AB20067F5E7 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = C1A6C8B91D816AB20067F5E7 /* Member.m */; };
+		C1AF61D11D9280070048983F /* MyPopularColletionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1AF61D01D9280070048983F /* MyPopularColletionViewController.m */; };
 		C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */; };
 		C1F6E7FE1D7F0E6700781DB6 /* SearchedVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */; };
 /* End PBXBuildFile section */
@@ -747,6 +748,8 @@
 		C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterHeader.m; sourceTree = "<group>"; };
 		C1A6C8B81D816AB20067F5E7 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
 		C1A6C8B91D816AB20067F5E7 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		C1AF61CF1D9280070048983F /* MyPopularColletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPopularColletionViewController.h; sourceTree = "<group>"; };
+		C1AF61D01D9280070048983F /* MyPopularColletionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPopularColletionViewController.m; sourceTree = "<group>"; };
 		C1F6E7FA1D7F0E6700781DB6 /* SearchedVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedVideoCell.h; sourceTree = "<group>"; };
 		C1F6E7FB1D7F0E6700781DB6 /* SearchedVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedVideoCell.m; sourceTree = "<group>"; };
 		C1F6E7FC1D7F0E6700781DB6 /* SearchedVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchedVideoCell.xib; sourceTree = "<group>"; };
@@ -1854,6 +1857,8 @@
 				C1A6C8B31D815F320067F5E7 /* UserCenterBaseCell.m */,
 				C1A6C8B51D816A280067F5E7 /* UserCenterHeader.h */,
 				C1A6C8B61D816A280067F5E7 /* UserCenterHeader.m */,
+				C1AF61CF1D9280070048983F /* MyPopularColletionViewController.h */,
+				C1AF61D01D9280070048983F /* MyPopularColletionViewController.m */,
 			);
 			name = "MyProfile（我的）";
 			path = MyProfile;
@@ -2033,6 +2038,7 @@
 				C1330EF51D86CCC80039ED2D /* GWRegisterView.m in Sources */,
 				C145F8DC1D6EBF1F00346164 /* AFHTTPRequestOperation.m in Sources */,
 				C1673F5D1D7FF01B007EE026 /* SearchedPlayerCell.m in Sources */,
+				C1AF61D11D9280070048983F /* MyPopularColletionViewController.m in Sources */,
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
 				C14046751D6D91E80067D66F /* NSObject+MJClass.m in Sources */,
 				C140463A1D6D91190067D66F /* NSDateFormatter+Gewara.m in Sources */,

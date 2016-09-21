@@ -38,8 +38,8 @@
 {
     self.showViewList = [NSMutableArray array];
     
-    NSArray *iconList = @[@"my_like",@"my_video",@"my_uploadVideo"];
-    NSArray *textList = @[@"我的收藏",@"我的视频",@"发布视频"];
+    NSArray *iconList = @[@"my_uploadVideo",@"my_video", @"my_like"];
+    NSArray *textList = @[@"发布视频", @"我的视频", @"我的收藏"];
     
     CGFloat increase = GWScreenW/3;
     CGFloat startX = 0;

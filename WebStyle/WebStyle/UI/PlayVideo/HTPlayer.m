@@ -174,7 +174,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
                 self.progressSlider.maximumValue = CMTimeGetSeconds(self.player.currentItem.duration);
             }
             [self initTimer];
-            if (self.status)self.status(UIHTPlayerStatusReadyToPlayTyep);
+            if (self.status)self.status(UIHTPlayerStatusReadyToPlayType);
             
 //            NSLog(@"正在播放...，视频总长度:%.2f",CMTimeGetSeconds(playerItem.duration));
             

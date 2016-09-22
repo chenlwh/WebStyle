@@ -8,11 +8,20 @@
 
 #import "PlayVideoViewController.h"
 #import "UIViewExt.h"
+#import "PrePlayView.h"
 
+@interface PlayVideoViewController()<PrePlayViewDelegate>
+
+@property (nonatomic, strong) PrePlayView *prePlayView;
+@property (nonatomic, strong) UITableView *tableView;
+
+@end
 @implementation PlayVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     
     _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
@@ -20,6 +29,11 @@
     [self.view addSubview:_videoView];
     
 //    [self addBtn];
+    _prePlayView = [[PrePlayView alloc] initWithFrame:_videoView.bounds];
+    _prePlayView.delegate = self;
+    _prePlayView.video = self.model;
+    [_videoView addSubview:_prePlayView];
+    
 }
 
 
@@ -53,7 +67,7 @@
         [self toCell];//先变回cell
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
     }
-    
+    self.prePlayView.hidden = false;
     [UIView animateWithDuration:0.3 animations:^{
         _htPlayer.alpha = 0.0;
     } completion:^(BOOL finished) {
@@ -119,7 +133,7 @@
 -(void)setModel:(PreferVideo *)model
 {
     _model = model;
-    [self reloadData];
+//    [self reloadData];
 }
 
 //开始播放
@@ -136,12 +150,38 @@
     _htPlayer.screenType = UIHTPlayerSizeDetailScreenType;
     
     [_htPlayer setPlayTitle:_model.vedioDesc];
-    
+    WeakObjectDef(self);
+    [_htPlayer setStatus:^(UIHTPlayerStatusChangeType status){
+        if(status == UIHTPlayerStatusLoadingType)
+        {
+            D_Log(@"正在加载中");
+            
+        }
+        else if (status == UIHTPlayerStatusReadyToPlayType)
+        {
+            D_Log(@"开始播放");
+            weakself.prePlayView.hidden = true;
+            [MBProgressHUD showHUDAddedTo:weakself.videoView animated:YES];
+        }
+        else if(status == UIHTPlayeStatusrLoadedTimeRangesType)
+        {
+            [MBProgressHUD hideHUDForView:weakself.videoView animated:NO];
+            D_Log(@"开始缓存");
+        }
+    }];
     [self.videoView addSubview:_htPlayer];
     [self.videoView bringSubviewToFront:_htPlayer];
+    
+    
     
     if (_htPlayer.screenType == UIHTPlayerSizeSmallScreenType) {
         [_htPlayer reductionWithInterfaceOrientation:self.videoView];
     }
+}
+
+#pragma mark PrePlayViewDelegate
+-(void)playVideo
+{
+    [self reloadData];
 }
 @end

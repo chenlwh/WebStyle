@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, UIHTPlayerSizeType) {
 
 typedef NS_ENUM(NSInteger, UIHTPlayerStatusChangeType) {
     UIHTPlayerStatusLoadingType          = 0, //正在加载
-    UIHTPlayerStatusReadyToPlayTyep      = 1,//开始播放
+    UIHTPlayerStatusReadyToPlayType      = 1,//开始播放
     UIHTPlayeStatusrLoadedTimeRangesType = 2//开始缓存
 };
 
@@ -47,6 +47,7 @@ typedef void (^PlayerAnimateFinish) (void);
 //@property (strong, nonatomic)PlayerAnimateFinish playerAnimateFinish;//To cell 动画完成
 @property(nonatomic,copy) NSString *videoURLStr;//播放地址
 @property (assign, nonatomic)UIHTPlayerSizeType screenType;
+
 
 - (id)initWithFrame:(CGRect)frame videoURLStr:(NSString *)videoURLStr;
 

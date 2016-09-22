@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1247EE21D93DD8600F7A7D0 /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */; };
 		C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EDE1D86C8E60039ED2D /* LogingViewController.m */; };
 		C1330EE31D86CB9E0039ED2D /* UIViewController+GWFindSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */; };
 		C1330EF01D86CCC80039ED2D /* GWDoubleFadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */; };
@@ -263,6 +264,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
 		C1330EDD1D86C8E60039ED2D /* LogingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogingViewController.h; sourceTree = "<group>"; };
 		C1330EDE1D86C8E60039ED2D /* LogingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogingViewController.m; sourceTree = "<group>"; };
 		C1330EE11D86CB9E0039ED2D /* UIViewController+GWFindSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GWFindSubController.h"; sourceTree = "<group>"; };
@@ -1684,6 +1686,7 @@
 		C1673F661D8012EB007EE026 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */,
 				C13BF3F71D8E8C17004C12FA /* clear@2x.png */,
 				C13BF3F81D8E8C17004C12FA /* close@2x.png */,
 				C13BF3F91D8E8C17004C12FA /* close@3x.png */,
@@ -1925,6 +1928,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1247EE21D93DD8600F7A7D0 /* video_play_btn_bg@2x.png in Resources */,
 				C13BF40B1D8E8C17004C12FA /* dot@3x.png in Resources */,
 				C13BF4091D8E8C17004C12FA /* close@3x.png in Resources */,
 				C13BF4141D8E8C17004C12FA /* play@2x.png in Resources */,

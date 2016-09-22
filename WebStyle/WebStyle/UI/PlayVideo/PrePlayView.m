@@ -9,12 +9,23 @@
 #import "PrePlayView.h"
 #import "UIView+Gewara.h"
 #import "Color+Hex.h"
+#import "UIImageView+WebCache.h"
 
 @implementation PrePlayView
-- (void)initSubViewFrame:(CGRect)rect
+
+-(id) initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:frame])
+    {
+        [self initSubViews];
+    }
+    return self;
+}
+
+- (void)initSubViews
 {
     
-    _imgView = [[UIImageView alloc] initWithFrame:self.backView.bounds];
+    _imgView = [[UIImageView alloc] initWithFrame:self.bounds];
     _imgView.backgroundColor = [UIColor hexStringToColor:@"#dbdbdb"];
     _imgView.layer.masksToBounds = YES;
     _imgView.contentMode = UIViewContentModeCenter;
@@ -28,6 +39,7 @@
     _playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _playBtn.frame = CGRectMake((self.width-img.size.width)/2, (self.height-img.size.height)/2, img.size.width, img.size.height);
     [_playBtn setBackgroundImage:img forState:UIControlStateNormal];
+    [_playBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_playBtn];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, self.width - 30, 33)];
@@ -35,5 +47,25 @@
     _titleLabel.font = [UIFont systemFontOfSize:17.0f];
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:_titleLabel];
+    
 }
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (_video == nil) return;
+    
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:_video.vedioimage] placeholderImage:nil];
+    
+    self.titleLabel.text = _video.vedioDesc;
+}
+
+-(void)playBtnClick:(id)sender
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(playVideo)])
+    {
+        [_delegate playVideo];
+    }
+}
+
 @end

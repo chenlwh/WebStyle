@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C1247EE21D93DD8600F7A7D0 /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */; };
+		C1268F3B1D9518BB00845370 /* VideoBrowserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F391D9518BB00845370 /* VideoBrowserTableViewCell.m */; };
+		C1268F3C1D9518BB00845370 /* VideoBrowserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1268F3A1D9518BB00845370 /* VideoBrowserTableViewCell.xib */; };
+		C1268F401D951A9C00845370 /* VideoTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F3E1D951A9C00845370 /* VideoTitleTableViewCell.m */; };
+		C1268F411D951A9C00845370 /* VideoTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1268F3F1D951A9C00845370 /* VideoTitleTableViewCell.xib */; };
+		C1268F441D953FCA00845370 /* BottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F431D953FCA00845370 /* BottomToolBar.m */; };
+		C1268F471D95487900845370 /* GWProtocolInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F461D95487900845370 /* GWProtocolInterceptor.m */; };
 		C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EDE1D86C8E60039ED2D /* LogingViewController.m */; };
 		C1330EE31D86CB9E0039ED2D /* UIViewController+GWFindSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */; };
 		C1330EF01D86CCC80039ED2D /* GWDoubleFadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */; };
@@ -265,6 +271,16 @@
 
 /* Begin PBXFileReference section */
 		C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
+		C1268F381D9518BB00845370 /* VideoBrowserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoBrowserTableViewCell.h; sourceTree = "<group>"; };
+		C1268F391D9518BB00845370 /* VideoBrowserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoBrowserTableViewCell.m; sourceTree = "<group>"; };
+		C1268F3A1D9518BB00845370 /* VideoBrowserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoBrowserTableViewCell.xib; sourceTree = "<group>"; };
+		C1268F3D1D951A9C00845370 /* VideoTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoTitleTableViewCell.h; sourceTree = "<group>"; };
+		C1268F3E1D951A9C00845370 /* VideoTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoTitleTableViewCell.m; sourceTree = "<group>"; };
+		C1268F3F1D951A9C00845370 /* VideoTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoTitleTableViewCell.xib; sourceTree = "<group>"; };
+		C1268F421D953FCA00845370 /* BottomToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BottomToolBar.h; path = ../Homepage/BottomToolBar.h; sourceTree = "<group>"; };
+		C1268F431D953FCA00845370 /* BottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BottomToolBar.m; path = ../Homepage/BottomToolBar.m; sourceTree = "<group>"; };
+		C1268F451D95487900845370 /* GWProtocolInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProtocolInterceptor.h; sourceTree = "<group>"; };
+		C1268F461D95487900845370 /* GWProtocolInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProtocolInterceptor.m; sourceTree = "<group>"; };
 		C1330EDD1D86C8E60039ED2D /* LogingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogingViewController.h; sourceTree = "<group>"; };
 		C1330EDE1D86C8E60039ED2D /* LogingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogingViewController.m; sourceTree = "<group>"; };
 		C1330EE11D86CB9E0039ED2D /* UIViewController+GWFindSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GWFindSubController.h"; sourceTree = "<group>"; };
@@ -872,6 +888,12 @@
 				C13BF3EF1D8E7B4E004C12FA /* HTPlayer.m */,
 				C13BF3EB1D8E7ABF004C12FA /* PlayVideoViewController.h */,
 				C13BF3EC1D8E7ABF004C12FA /* PlayVideoViewController.m */,
+				C1268F381D9518BB00845370 /* VideoBrowserTableViewCell.h */,
+				C1268F391D9518BB00845370 /* VideoBrowserTableViewCell.m */,
+				C1268F3A1D9518BB00845370 /* VideoBrowserTableViewCell.xib */,
+				C1268F3D1D951A9C00845370 /* VideoTitleTableViewCell.h */,
+				C1268F3E1D951A9C00845370 /* VideoTitleTableViewCell.m */,
+				C1268F3F1D951A9C00845370 /* VideoTitleTableViewCell.xib */,
 				C1AF61D21D9297150048983F /* PrePlayView.h */,
 				C1AF61D31D9297150048983F /* PrePlayView.m */,
 			);
@@ -1409,6 +1431,8 @@
 		C14046AE1D6D9A660067D66F /* Kits */ = {
 			isa = PBXGroup;
 			children = (
+				C1268F451D95487900845370 /* GWProtocolInterceptor.h */,
+				C1268F461D95487900845370 /* GWProtocolInterceptor.m */,
 				C1330F061D86CE780039ED2D /* SFKeyboardStateListener.h */,
 				C1330F071D86CE780039ED2D /* SFKeyboardStateListener.m */,
 				C1330F031D86CE5C0039ED2D /* DelayController.h */,
@@ -1675,6 +1699,8 @@
 		C1673F5F1D800D5E007EE026 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				C1268F421D953FCA00845370 /* BottomToolBar.h */,
+				C1268F431D953FCA00845370 /* BottomToolBar.m */,
 				C1673F601D800D5E007EE026 /* GWMessageView.h */,
 				C1673F611D800D5E007EE026 /* GWMessageView.m */,
 				C1673F621D800D5E007EE026 /* GWProgressHUD.h */,
@@ -1928,6 +1954,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1268F411D951A9C00845370 /* VideoTitleTableViewCell.xib in Resources */,
 				C1247EE21D93DD8600F7A7D0 /* video_play_btn_bg@2x.png in Resources */,
 				C13BF40B1D8E8C17004C12FA /* dot@3x.png in Resources */,
 				C13BF4091D8E8C17004C12FA /* close@3x.png in Resources */,
@@ -1954,6 +1981,7 @@
 				C13BF4131D8E8C17004C12FA /* play.png in Resources */,
 				C13BF4151D8E8C17004C12FA /* play@3x.png in Resources */,
 				C13BF4071D8E8C17004C12FA /* clear@2x.png in Resources */,
+				C1268F3C1D9518BB00845370 /* VideoBrowserTableViewCell.xib in Resources */,
 				C13BF40A1D8E8C17004C12FA /* dot@2x.png in Resources */,
 				C140463C1D6D91190067D66F /* emotions.bundle in Resources */,
 				C13BF4161D8E8C17004C12FA /* playcount.png in Resources */,
@@ -2111,6 +2139,8 @@
 				C14046761D6D91E80067D66F /* NSObject+MJCoding.m in Sources */,
 				C17F0FEC1D826D7400B89525 /* GWNewUserCenterTopCell.m in Sources */,
 				C14046731D6D91E80067D66F /* MJPropertyKey.m in Sources */,
+				C1268F401D951A9C00845370 /* VideoTitleTableViewCell.m in Sources */,
+				C1268F3B1D9518BB00845370 /* VideoBrowserTableViewCell.m in Sources */,
 				C14046C11D6DAD240067D66F /* GWLocalCache.m in Sources */,
 				C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */,
 				C1330EF31D86CCC80039ED2D /* GWPasswordFindView.m in Sources */,
@@ -2124,6 +2154,7 @@
 				C145F9541D6EEF5400346164 /* UIView+GWCorner.m in Sources */,
 				C145F90A1D6ED38200346164 /* UIView+SDExtension.m in Sources */,
 				C140469C1D6D99DC0067D66F /* NSString+MD5Addition.m in Sources */,
+				C1268F441D953FCA00845370 /* BottomToolBar.m in Sources */,
 				C13712121D8AF4E700635894 /* MASViewConstraint.m in Sources */,
 				C140464E1D6D91190067D66F /* SFObjectProperty.m in Sources */,
 				C14046391D6D91190067D66F /* NSDateAdditions.m in Sources */,
@@ -2131,6 +2162,7 @@
 				C14045631D6D52980067D66F /* MJRefreshBackGifFooter.m in Sources */,
 				C1611ED01D6FE9A100A73FCB /* TestViewController.m in Sources */,
 				C140463D1D6D91190067D66F /* GWEmotionManager.m in Sources */,
+				C1268F471D95487900845370 /* GWProtocolInterceptor.m in Sources */,
 				C145F8EB1D6EBF1F00346164 /* UIRefreshControl+AFNetworking.m in Sources */,
 				C140452A1D6D4F740067D66F /* FTAnimation+UIView.m in Sources */,
 				C14045E21D6D8FFA0067D66F /* GWProviderManager.m in Sources */,

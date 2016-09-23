@@ -68,23 +68,6 @@
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifier forIndexPath:indexPath];
-//    cell.backgroundColor = RGBACOLORFromRGBHex(0xe9e8e8);
-    
-//    GWMovieCard *_cellCard = (id)[cell.contentView viewWithTag:cardTag];
-//    
-//    if (_cellCard == nil) {
-//        _cellCard = [[GWMovieCard alloc] initWithFrame:CGRectMake(0, 0, movieCardWidth, movieCardHeight) withType:MovieCardOnPlaying];
-//        _cellCard.userInteractionEnabled = NO;
-//        _cellCard.tag = cardTag;
-//        [_cellCard checkSize];
-//        [cell.contentView addSubview:_cellCard];
-//    }
-//    if (self.dataArray.count > indexPath.row) {
-//        Movie *tmpMovie = self.dataArray[indexPath.row];
-//        _cellCard.movie = tmpMovie;
-//    }else{
-//        _cellCard.movie = nil;
-//    }
     
     VideoCard *card = [cell.contentView viewWithTag:cardTag];
     if(card == nil)

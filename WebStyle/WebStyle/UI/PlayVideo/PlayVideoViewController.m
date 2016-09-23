@@ -9,11 +9,16 @@
 #import "PlayVideoViewController.h"
 #import "UIViewExt.h"
 #import "PrePlayView.h"
+#import "VideoTitleTableViewCell.h"
+#import "VideoBrowserTableViewCell.h"
+#import "BottomToolBar.h"
 
-@interface PlayVideoViewController()<PrePlayViewDelegate>
+@interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PrePlayView *prePlayView;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableDictionary *heightDict;
+@property (nonatomic, strong) BottomToolBar *bottombar;
 
 @end
 @implementation PlayVideoViewController
@@ -22,11 +27,21 @@
     [super viewDidLoad];
     
     
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.tableView];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerNib:[UINib nibWithNibName:@"VideoBrowserTableViewCell" bundle:nil] forCellReuseIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
+    [self.tableView registerNib:[UINib nibWithNibName:@"VideoTitleTableViewCell" bundle:nil] forCellReuseIdentifier:[VideoTitleTableViewCell cellIndentifier]];
     
     
     _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
     _videoView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_videoView];
+    
+    self.tableView.tableHeaderView = _videoView;
     
 //    [self addBtn];
     _prePlayView = [[PrePlayView alloc] initWithFrame:_videoView.bounds];
@@ -34,8 +49,19 @@
     _prePlayView.video = self.model;
     [_videoView addSubview:_prePlayView];
     
+    self.bottombar = [BottomToolBar createBottomToolBarWithView:self.view];
+    [self.bottombar setObserverScrollView:self.tableView];
+    
 }
 
+-(NSMutableDictionary*)heightDict
+{
+    if(!_heightDict)
+    {
+        _heightDict = [[NSMutableDictionary alloc] init];
+    }
+    return _heightDict;
+}
 
 -(void) addBtn
 {
@@ -184,4 +210,88 @@
 {
     [self reloadData];
 }
+
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 0)
+        return 1;
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        VideoBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
+        cell.infoLabel.text = [NSString stringWithFormat:@"浏览%@次", _model.browsers];
+        cell.contentView.backgroundColor = [UIColor greenColor];
+        return cell;
+    }
+    else if (indexPath.section == 1)
+    {
+        VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoTitleTableViewCell cellIndentifier]];
+        cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
+        cell.videoTitleLabel.text = @"A4D4-2B8F10532FB5&method=com.gewara.pushcs.userDevice.save&mnet=wifi&mobileType=iPhone&osType=IPHONE&osVersion=9.3.5&pointx=121.350851&pointy=31.220344&pushToken=%3C8a68a3af%2075767396%20409fd49f%2034224a98%20892703e1%205e18a486%20e8d618e0%201111c78e%3E&securityCode=3DuPuUJSVmiWwyL&sign=57E716AC2A5FCC1D646F21EAAE514869&signmethod=MD5&timestamp=2016-09-23%2016:33:25&userId=64015347&uuid=AF435CE6-98B1-41D0-A4D4-2B8F10532FB5&v=1.0";
+        cell.contentView.backgroundColor = [UIColor yellowColor];
+        cell.backgroundColor = [UIColor yellowColor];
+        return cell;
+    }
+    return nil;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0)
+    {
+        return 44.0f;
+    }
+    else if(indexPath.section == 1)
+    {
+        NSNumber *number = [self.heightDict objectForKey:[NSString stringWithFormat:@"%ld_%ld", (long)indexPath.section, (long)indexPath.row]];
+        if(number == nil)
+        {
+            VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoTitleTableViewCell cellIndentifier]];
+            cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
+            cell.videoTitleLabel.text = @"A4D4-2B8F10532FB5&method=com.gewara.pushcs.userDevice.save&mnet=wifi&mobileType=iPhone&osType=IPHONE&osVersion=9.3.5&pointx=121.350851&pointy=31.220344&pushToken=%3C8a68a3af%2075767396%20409fd49f%2034224a98%20892703e1%205e18a486%20e8d618e0%201111c78e%3E&securityCode=3DuPuUJSVmiWwyL&sign=57E716AC2A5FCC1D646F21EAAE514869&signmethod=MD5&timestamp=2016-09-23%2016:33:25&userId=64015347&uuid=AF435CE6-98B1-41D0-A4D4-2B8F10532FB5&v=1.0";
+            [cell layoutIfNeeded];
+            CGFloat fHeight = cell.videoTimeLabel.bottom + 5;
+            
+            number = @(fHeight);
+            [self.heightDict setObject:number forKey:[NSString stringWithFormat:@"%ld_%ld", (long)indexPath.section, (long)indexPath.row]];
+        }
+        D_Log(@"fheight %f", [number floatValue]);
+        return [number floatValue];
+    }
+    return 20;
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+-(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if(section == 1)
+    {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
+        view.backgroundColor = RGBACOLORFromRGBHex(0xf6f6f6);
+        return view;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section == 0)
+    {
+        return 0.1f;
+    }
+    else
+    {
+        return 10;
+    }
+}
+
+
 @end

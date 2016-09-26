@@ -12,6 +12,10 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+//    if(!([self appRootViewController] == self))
+//    {
+//        return;
+//    }
     // offset 0 ~ 125
     CGFloat fHeightDenominator = [self headView].height - kNaviHeight - 20 - 25;
     CGFloat fHeightNumerator = scrollView.contentOffset.y;

@@ -22,7 +22,7 @@
 typedef NS_ENUM(NSInteger, UIHTPlayerSizeType) {
     UIHTPlayerSizeFullScreenType     = 0, //全屏
     UIHTPlayerSizeSmallScreenType    = 1,//小屏
-    UIHTPlayerSizeDetailScreenType   = 2,//详情页面显示
+    UIHTPlayerSizeDetailScreenType   = 2,//详情页面显示 小屏
     UIHTPlayerSizeRecoveryScreenType = 3//恢复大小
 };
 

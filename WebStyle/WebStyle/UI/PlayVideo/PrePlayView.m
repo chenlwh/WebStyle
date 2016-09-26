@@ -34,6 +34,11 @@
     
     [self addSubview:_imgView];
     
+    _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_backBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+    [_backBtn setFrame:CGRectMake(8, 4, 40, 40)];
+    [_backBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_backBtn];
     
     UIImage *img = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"video_play_btn_bg@2x" ofType:@"png"]];
     _playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -42,11 +47,12 @@
     [_playBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_playBtn];
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, self.width - 30, 33)];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(_backBtn.right + 5, 0, self.width - 30, 33)];
     _titleLabel.textColor = [UIColor whiteColor];
     _titleLabel.font = [UIFont systemFontOfSize:17.0f];
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:_titleLabel];
+    _titleLabel.centerY = _backBtn.centerY;
     
 }
 - (void)layoutSubviews
@@ -65,6 +71,13 @@
     if(_delegate && [_delegate respondsToSelector:@selector(playVideo)])
     {
         [_delegate playVideo];
+    }
+}
+-(void)backBtnClick:(id)sender
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(goBack)])
+    {
+        [_delegate goBack];
     }
 }
 

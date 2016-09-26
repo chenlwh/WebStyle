@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+OBJC_EXPORT const CGFloat kBottomBarHeight;
 @interface BottomToolBar : UIView
 
 @property (nonatomic, readonly) UIButton *likeBtn;

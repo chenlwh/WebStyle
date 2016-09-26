@@ -22,6 +22,16 @@
     return _controllerUserInfo;
 }
 
+- (UIViewController *)appRootViewController
+{
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    while (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
+}
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];

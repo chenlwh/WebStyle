@@ -12,6 +12,7 @@
 #import "VideoTitleTableViewCell.h"
 #import "VideoBrowserTableViewCell.h"
 #import "BottomToolBar.h"
+//#import "<#header#>"
 
 @interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -27,23 +28,23 @@
     [super viewDidLoad];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
+    _videoView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_videoView];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
-    self.tableView.backgroundColor = [UIColor clearColor];
+//    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoBrowserTableViewCell" bundle:nil] forCellReuseIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoTitleTableViewCell" bundle:nil] forCellReuseIdentifier:[VideoTitleTableViewCell cellIndentifier]];
+    self.tableView.frame = CGRectMake(0, self.videoView.bottom, self.view.width, self.view.height -self.videoView.bottom - kBottomBarHeight);
+    
+
     
     
-    _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
-    _videoView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:_videoView];
-    
-    self.tableView.tableHeaderView = _videoView;
-    
-//    [self addBtn];
     _prePlayView = [[PrePlayView alloc] initWithFrame:_videoView.bounds];
     _prePlayView.delegate = self;
     _prePlayView.video = self.model;
@@ -52,6 +53,14 @@
     self.bottombar = [BottomToolBar createBottomToolBarWithView:self.view];
     [self.bottombar setObserverScrollView:self.tableView];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    [self setGradientColorBarLight:[UIColor clearColor]];
+//    [self setStatusBarLight];
+    [self setGradientColorBarLight:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
 }
 
 -(NSMutableDictionary*)heightDict
@@ -84,6 +93,25 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreenBtnClick:)
                                                  name:kHTPlayerFullScreenBtnNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeTheVideo:)
+                                                 name:kHTPlayerCloseVideoNotificationKey
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeTheVideo:)
+                                                 name:kHTPlayerPopDetailNotificationKey
+                                               object:nil];
+    
+}
+
+-(void)closeTheVideo:(NSNotification *)notice
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        _htPlayer.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [_htPlayer removeFromSuperview];
+        [self releaseWMPlayer];
+        [self.navigationController popViewControllerAnimated:true];
+    }];
 }
 
 -(void)videoDidFinished:(NSNotification *)notice{
@@ -211,6 +239,11 @@
     [self reloadData];
 }
 
+-(void)goBack
+{
+    [self.navigationController popViewControllerAnimated:true];
+}
+
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -225,16 +258,16 @@
     {
         VideoBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
         cell.infoLabel.text = [NSString stringWithFormat:@"浏览%@次", _model.browsers];
-        cell.contentView.backgroundColor = [UIColor greenColor];
+//        cell.contentView.backgroundColor = [UIColor greenColor];
         return cell;
     }
     else if (indexPath.section == 1)
     {
         VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoTitleTableViewCell cellIndentifier]];
         cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
-        cell.videoTitleLabel.text = @"A4D4-2B8F10532FB5&method=com.gewara.pushcs.userDevice.save&mnet=wifi&mobileType=iPhone&osType=IPHONE&osVersion=9.3.5&pointx=121.350851&pointy=31.220344&pushToken=%3C8a68a3af%2075767396%20409fd49f%2034224a98%20892703e1%205e18a486%20e8d618e0%201111c78e%3E&securityCode=3DuPuUJSVmiWwyL&sign=57E716AC2A5FCC1D646F21EAAE514869&signmethod=MD5&timestamp=2016-09-23%2016:33:25&userId=64015347&uuid=AF435CE6-98B1-41D0-A4D4-2B8F10532FB5&v=1.0";
-        cell.contentView.backgroundColor = [UIColor yellowColor];
-        cell.backgroundColor = [UIColor yellowColor];
+        cell.videoTitleLabel.text = _model.vedioDesc;
+//        cell.contentView.backgroundColor = [UIColor yellowColor];
+//        cell.backgroundColor = [UIColor yellowColor];
         return cell;
     }
     return nil;
@@ -244,7 +277,7 @@
 {
     if(indexPath.section == 0)
     {
-        return 44.0f;
+        return 56;
     }
     else if(indexPath.section == 1)
     {
@@ -270,28 +303,22 @@
     return 2;
 }
 
--(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    if(section == 1)
-    {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
-        view.backgroundColor = RGBACOLORFromRGBHex(0xf6f6f6);
-        return view;
-    }
-    return nil;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if(section == 0)
-    {
-        return 0.1f;
-    }
-    else
-    {
-        return 10;
-    }
-}
+//-(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    if(section == 1)
+//    {
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+//        view.backgroundColor = [UIColor redColor];
+////        RGBACOLORFromRGBHex(0xf6f6f6);
+//        return view;
+//    }
+//    return nil;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 50;
+//}
 
 
 @end

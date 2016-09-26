@@ -12,6 +12,7 @@
 @protocol PrePlayViewDelegate <NSObject>
 
 -(void)playVideo;
+-(void)goBack;
 
 @end
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic)UIImageView *imgView;
 @property (strong, nonatomic)UILabel *titleLabel;
 @property (strong, nonatomic)UIButton *playBtn;
+@property (strong, nonatomic)UIButton *backBtn;
 
 //@property (strong, nonatomic)UIView *backView;
 @property (nonatomic, weak) id<PrePlayViewDelegate> delegate;

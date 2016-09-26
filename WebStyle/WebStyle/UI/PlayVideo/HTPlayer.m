@@ -49,6 +49,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 @property(nonatomic,retain)UIButton *playOrPauseBtn;
 //关闭按钮
 @property(nonatomic,retain)UIButton *closeBtn;
+
+@property(nonatomic,retain)UIButton *backBtn;
 /* playItem */
 @property(nonatomic, retain) AVPlayerItem *currentItem;
 @property(nonatomic, retain)NSDateFormatter *dateFormatter;
@@ -192,9 +194,8 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
             self.cacheProgressView.progress = totalBuffer/self.progressSlider.maximumValue;
         }
         
-        
+        if (self.status)self.status(UIHTPlayeStatusrLoadedTimeRangesType);
         if (self.alpha == 0.00) {
-             if (self.status)self.status(UIHTPlayeStatusrLoadedTimeRangesType);
             [UIView animateWithDuration:0.5 animations:^{
                 self.alpha = 1.0;
             }];
@@ -285,14 +286,17 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     [[NSNotificationCenter defaultCenter] postNotificationName:kHTPlayerFullScreenBtnNotificationKey object:sender];
 }
 
+
 //关闭播放视频通知
 -(void)colseTheVideo:(UIButton *)sender{
+    NSLog(@"colseTheVideo");
     [self.player pause];
     [[NSNotificationCenter defaultCenter] postNotificationName:kHTPlayerCloseVideoNotificationKey object:sender];
 }
 
 //关闭详情视频
 - (void)colseDetailVideo:(UIButton *)sender{
+    NSLog(@"colseDetailVideo");
     [[NSNotificationCenter defaultCenter] postNotificationName:kHTPlayerPopDetailNotificationKey object:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:kHTPlayerCloseDetailVideoNotificationKey object:sender];
 }
@@ -340,8 +344,10 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     
     [UIView animateWithDuration:0.5 animations:^{
         if (self.backView.alpha == 0.0) {
+            self.backBtn.alpha = 0;
             self.backView.alpha = 1.0;
         }else{
+            self.backBtn.alpha = 1;
             self.backView.alpha = 0.0;
         }
         
@@ -361,6 +367,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
 {
     [UIView animateWithDuration:0.5 animations:^{
         self.backView.alpha = 0.0;
+        self.backBtn.alpha = 1;
     }];
 }
 
@@ -407,6 +414,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
         self.playerLayer.frame = self.layer.bounds;
         if ([_playerLayer superlayer] == nil)[self.layer addSublayer:_playerLayer];
         if ([self.backView superview] == nil)[self addSubview:self.backView];
+//        if ([self.backBtn superview] == nil)[self addSubview:self.backBtn];
     }
     
     self.playOrPauseBtn.selected = NO;
@@ -465,6 +473,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     [self removeFromSuperview];
 
     self.backView.alpha= 0;
+    self.backBtn.alpha = 1;
     
     [UIView animateWithDuration:0.5 animations:^{
         self.transform = CGAffineTransformIdentity;
@@ -479,6 +488,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
         
         [UIView animateWithDuration:0.7f animations:^{
             self.backView.alpha = 1;
+            self.backBtn.alpha = 0;
         } completion:^(BOOL finished) {
             //            显示之后，3秒钟隐藏
             if (self.backView.alpha == 1.0) {
@@ -510,6 +520,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     [view addSubview:self];
     [view bringSubviewToFront:self];
     self.backView.alpha= 0;
+    self.backBtn.alpha = 1;
     float duration = self.screenType == UIHTPlayerSizeFullScreenType?0.5f:0.0f;
     
     [UIView animateWithDuration:duration animations:^{
@@ -521,6 +532,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     }completion:^(BOOL finished) {
         [UIView animateWithDuration:0.7f animations:^{
             self.backView.alpha = 1;
+            self.backBtn.alpha = 0;
         } completion:^(BOOL finished) {
             //            显示之后，3秒钟隐藏
             if (self.backView.alpha == 1.0) {
@@ -636,21 +648,35 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
 - (UIButton *)closeBtn{
     if (_closeBtn) return _closeBtn;
     _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _closeBtn.showsTouchWhenHighlighted = YES;
+//    _closeBtn.showsTouchWhenHighlighted = YES;
     [_closeBtn addTarget:self action:@selector(colseTheVideo:) forControlEvents:UIControlEventTouchUpInside];
-    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-    [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateSelected];
+    [_closeBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+//    [_closeBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateSelected];
     _closeBtn.layer.cornerRadius = 30/2;
     _closeBtn.frame = CGRectMake(5, 5, 30, 30);
-    _closeBtn.hidden = YES;
+//    _closeBtn.hidden = YES;
     return _closeBtn;
+}
+
+- (UIButton *)backBtn{
+//    if (_backBtn) return _backBtn;
+//    _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _backBtn.showsTouchWhenHighlighted = YES;
+//    [_backBtn addTarget:self action:@selector(colseTheVideo:) forControlEvents:UIControlEventTouchUpInside];
+//    [_backBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+//    [_backBtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateSelected];
+//    _backBtn.layer.cornerRadius = 30/2;
+//    _backBtn.frame = CGRectMake(5, 5, 30, 30);
+//    return _backBtn;
+//    return _backBtn;
+    return nil;
 }
 
 - (UIView *)backView{
     if (_backView) return _backView;
     
     _backView = [[UIView alloc] initWithFrame:self.bounds];
-    _backView.alpha = 0;
+//    _backView.alpha = 0;
     
     //   开始或者暂停按钮
     UIImage *img = [UIImage imageNamed:@"pause"];
@@ -727,9 +753,9 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     self.progressSlider.frame = CGRectMake(self.leftTimeLabel.right, 0, width ,_bottomView.height);
     [self.bottomView addSubview:self.progressSlider];
     
-    self.cacheProgressView = [[UIProgressView alloc] init];
-    self.cacheProgressView.frame = CGRectMake(self.leftTimeLabel.right, _bottomView.height, width ,_bottomView.height);
-    [self.bottomView addSubview:self.cacheProgressView];
+//    self.cacheProgressView = [[UIProgressView alloc] init];
+//    self.cacheProgressView.frame = CGRectMake(self.leftTimeLabel.right, _bottomView.height, width ,_bottomView.height);
+//    [self.bottomView addSubview:self.cacheProgressView];
     
     
     [self bringSubviewToFront:self.bottomView];

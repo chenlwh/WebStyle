@@ -39,6 +39,8 @@ const CGFloat kBottomBarHeight = 48;
 
 -(void) loadAllControlls
 {
+    self.backgroundColor = RGBACOLORFromRGBHex(0xf6f6f6);
+    
     CGFloat radio = 4/9.f;
     
     CGFloat customButtonWith = self.width*radio;
@@ -52,8 +54,8 @@ const CGFloat kBottomBarHeight = 48;
     _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _likeBtn.frame = CGRectMake(0, 0, blockWidth, blockHeight);
     [_likeBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_likeBtn setImage:[UIImage imageNamed:@"icon_bigdislike"] forState:UIControlStateNormal];
-    [_likeBtn setImage:[UIImage imageNamed:@"icon_bigdislike"] forState:UIControlStateSelected];
+    [_likeBtn setImage:[UIImage imageNamed:@"icon_dislike"] forState:UIControlStateNormal];
+    [_likeBtn setImage:[UIImage imageNamed:@"icon_dislike"] forState:UIControlStateSelected];
     CGFloat likeimageWidth = [_likeBtn imageForState:UIControlStateNormal].size.width;
     [_likeBtn  setImageEdgeInsets:UIEdgeInsetsMake(0, -blockWidth + likeimageWidth + 30, 0, 0)];
     [self addSubview:_likeBtn];

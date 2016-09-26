@@ -26,6 +26,8 @@
 -(void)setGradientColorBarLight:(UIColor*)color;
 
 -(void)setStatusBarDefault;
+
+- (UIViewController *)appRootViewController;
 @end
 
 

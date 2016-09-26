@@ -24,10 +24,10 @@
 #import "HomeHotPlayerVideoViewController.h"
 #import "HomeTopVideoViewController.h"
 #import "UrlDefine.h"
-
 #import "HomepageViewController+GradientNaviBar.h"
 #import "MJRefresh.h"
 #import "PlayVideoViewController.h"
+#import "VideoListViewController.h"
 
 
 @interface HomepageViewController()<UITableViewDelegate, UITableViewDataSource, GWProviderDelegate, CustomNaviBarDelegate, HomeBaseCollectionDelegate>
@@ -74,6 +74,7 @@ const NSString *topVideo = @"视频排行";
     
     [self addMJRefresh];
     [self.tableView.header beginRefreshing];
+    [self scrollViewDidScroll:self.tableView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -81,8 +82,11 @@ const NSString *topVideo = @"视频排行";
     [super viewWillAppear:animated];
 //    [self setStatusBarLight];
 //    [self setGradientColorBarLight:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2]];
+    self.tableView.delegate = self;
     [self scrollViewDidScroll:self.tableView];
 }
+
+
 
 -(void)createSectionArrayData
 {
@@ -497,10 +501,19 @@ const NSString *topVideo = @"视频排行";
     if (headView == nil)
     {
         headView = [[HomeTableHeaderView alloc] initWithReuseIdentifier:headerIndentifier withViewWidth:self.tableView.width];
-        [headView.allButton addTarget:self action:@selector(pushToDetailViewController) forControlEvents:UIControlEventTouchUpInside];
+        [headView.allButton addTarget:self action:@selector(pushToDetailViewController:) forControlEvents:UIControlEventTouchUpInside];
 
         headView.contentView.backgroundColor = [UIColor whiteColor];
     }
+    if(section == 0)
+    {
+        headView.allButton.hidden = true;
+    }
+    else
+    {
+        headView.allButton.hidden = false;
+    }
+    [headView.allButton setTag:section];
     [headView.titleLabel setText:self.sectionArray[section]];
     [headView.titleLabel sizeToFit];
     [headView.titleLabel setCenter:CGPointMake(0, headView.orangeView.center.y)];
@@ -540,8 +553,42 @@ const NSString *topVideo = @"视频排行";
 
 
 #pragma mark 点击事件
--(void)pushToDetailViewController
+-(void)pushToDetailViewController:(UIButton*)sender
 {
-    D_Log(@"pushToDetailViewController");
+    
+    D_Log(@"pushToDetailViewController tag %ld", (long)[sender tag]);
+    NSInteger tag = [sender tag];
+    if(tag >= self.sectionArray.count)
+    {
+        return;
+    }
+    
+    NSString *sectionInfo = self.sectionArray[tag];
+    if(sectionInfo == playerList)
+    {
+        ;
+    }
+    else
+    {
+        VideoListViewController *videoListVC = [VideoListViewController new];
+        if(sectionInfo == newPlayerVideo)
+        {
+            videoListVC.url = kNewPlayerVideo;
+            videoListVC.dataSource = self.pNewPlayerVideoVC.dataArray;
+        }
+        else if (sectionInfo == hotPlayerVideo)
+        {
+            videoListVC.url = kHotPlayerVideo;
+            videoListVC.dataSource = self.pHotPlayerVideoVC.dataArray;
+        }
+        else if(sectionInfo == topVideo)
+        {
+            videoListVC.url = kTopVideo;
+            videoListVC.dataSource = self.pTopVideoVC.dataArray;
+        }
+            
+        self.tableView.delegate = nil;
+        [self.navigationController pushViewController:videoListVC animated:true];
+    }
 }
 @end

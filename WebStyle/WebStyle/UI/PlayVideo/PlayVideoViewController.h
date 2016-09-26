@@ -14,5 +14,5 @@
 @property (strong, nonatomic)HTPlayer *htPlayer;
 @property (strong, nonatomic)PreferVideo *model;
 @property (strong, nonatomic)UIView *videoView;
-
+-(void)reloadData;
 @end

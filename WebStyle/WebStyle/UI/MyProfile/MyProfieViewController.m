@@ -24,7 +24,8 @@
 #import "MJExtension.h"
 #import "HomeTableHeaderView.h"
 #import "MyPopularColletionViewController.h"
-
+#import "VideoListViewController.h"
+#import "PlayVideoViewController.h"
 #define kTopHeightRatio 0.65
 //    UserCentenrRowStyleMyLike = 0
 typedef enum {
@@ -378,7 +379,7 @@ typedef enum {
         if(indexPath.row == UserCentenrRowStyleMyShop)
         {
             pUserCenterBaseCell.hasDescription = NO;
-            [pUserCenterBaseCell setIconName:@"my_account" title:@"我的直播"];
+            [pUserCenterBaseCell setIconName:@"my_account" title:@"我的店铺"];
         }
         else if (indexPath.row == UserCentenrRowStyleMyLive)
         {
@@ -498,5 +499,20 @@ typedef enum {
 -(void)pushToDetailViewController
 {
     D_Log(@"pushToDetailViewController");
+    VideoListViewController *videoListVC = [VideoListViewController new];
+    NSString * urlString = [NSString stringWithFormat:@"%@%@",kMyPopular, [WSAppContext appContext].wsUserInfo.nickname];
+    videoListVC.url = urlString;
+    videoListVC.dataSource = self.pMyPopularVC.dataArray;
+    videoListVC.videoTitle = @"我的爆款";
+}
+
+#pragma mark HomeBaseCollectionDelegate
+- (void)gotoMovieDetail:(PreferVideo*)movie withMovieCard:(VideoCard*)movieCard
+{
+    D_Log(@"%@", NSStringFromSelector(_cmd));
+    PlayVideoViewController *playVideoVC = [PlayVideoViewController new];
+    playVideoVC.model = movie;
+    [self.navigationController pushViewController:playVideoVC animated:true];
+    
 }
 @end

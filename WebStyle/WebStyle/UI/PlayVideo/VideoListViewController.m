@@ -72,7 +72,7 @@
     [self.customNaviView addSubview:backBtn];
     
     UILabel *titleLab = [UILabel new];
-    titleLab.text = self.title ? self.title : @"视频列表";
+    titleLab.text = self.videoTitle ? self.videoTitle : @"视频列表";
     titleLab.textColor = [UIColor whiteColor];
     titleLab.font = [UIFont systemFontOfSize:16.0f];
     [titleLab sizeToFit];
@@ -264,8 +264,12 @@
 
 //开始播放
 -(void)startPlayVideo:(UIButton *)sender{
-    _currentIndexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
     
+
+    [self tableView:self.table didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:0]];
+    //暂时屏蔽掉 列表内播放视频的功能；
+    /*
+     _currentIndexPath = [NSIndexPath indexPathForRow:sender.tag inSection:0];
     self.currentCell = (THVideoCell *)[self.table cellForRowAtIndexPath:_currentIndexPath];
     PreferVideo *model = [_dataSource objectAtIndex:sender.tag];
     
@@ -289,11 +293,18 @@
     _isSmallScreen = NO;
     
     [self.table reloadData];
+     */
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    PlayVideoViewController *playVC = [PlayVideoViewController new];
+    playVC.view.backgroundColor = [UIColor whiteColor];
+    playVC.model =  [_dataSource objectAtIndex:indexPath.row];
+    [playVC reloadData];
+    [self.navigationController pushViewController:playVC animated:true];
     
+    /*
     if (!_detail) {
         _detail = [[PlayVideoViewController alloc] init];
         _detail.view.backgroundColor = [UIColor whiteColor];
@@ -315,14 +326,14 @@
     }
     _detail.htPlayer = _htPlayer;
     PreferVideo *model = [_dataSource objectAtIndex:indexPath.row];
-    _detail.model =model;
+    _detail.model = model;
     
     [_detail reloadData];
     
     [UIView animateWithDuration:0.5 animations:^{
         _detail.view.alpha = 1;
     }];
-    
+    */
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kHTPlayerFinishedPlayNotificationKey object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kHTPlayerFullScreenBtnNotificationKey object:nil];

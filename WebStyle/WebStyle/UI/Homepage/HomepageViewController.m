@@ -91,8 +91,8 @@ const NSString *topVideo = @"视频排行";
 -(void)createSectionArrayData
 {
     [self.sectionArray addObject:playerList];
-    [self.sectionArray addObject:newPlayerVideo];
     [self.sectionArray addObject:hotPlayerVideo];
+    [self.sectionArray addObject:newPlayerVideo];
     [self.sectionArray addObject:topVideo];
 }
 
@@ -575,18 +575,21 @@ const NSString *topVideo = @"视频排行";
         {
             videoListVC.url = kNewPlayerVideo;
             videoListVC.dataSource = self.pNewPlayerVideoVC.dataArray;
+            videoListVC.videoTitle = sectionInfo;
         }
         else if (sectionInfo == hotPlayerVideo)
         {
             videoListVC.url = kHotPlayerVideo;
             videoListVC.dataSource = self.pHotPlayerVideoVC.dataArray;
+            videoListVC.videoTitle = sectionInfo;
         }
         else if(sectionInfo == topVideo)
         {
             videoListVC.url = kTopVideo;
             videoListVC.dataSource = self.pTopVideoVC.dataArray;
+            videoListVC.videoTitle = sectionInfo;
         }
-            
+        
         self.tableView.delegate = nil;
         [self.navigationController pushViewController:videoListVC animated:true];
     }

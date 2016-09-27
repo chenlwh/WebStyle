@@ -37,4 +37,6 @@
 //我的爆款 登录之后才能查询；
 #define kMyPopular @"http://114.55.224.29/blacksheepservice/selfprefer?name="
 
+//打开视频商品
+#define kGoodsVideo @"http://114.55.224.29/blacksheepservice/goodsvideo?param="
 #endif /* UrlDefine_h */

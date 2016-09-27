@@ -13,6 +13,7 @@
 #import "HTPlayer.h"
 #import "UIViewExt.h"
 #import "Color+Hex.h"
+#import "Toast.h"
 
 #define kBottomViewHeight 40.0f
 
@@ -393,6 +394,11 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
 - (void)setVideoURLStr:(NSString *)videoURLStr
 {
     self.alpha = 0;
+    if(videoURLStr.length == 0)
+    {
+
+        return;
+    }
     _videoURLStr = videoURLStr;
     
     if (self.currentItem) {
@@ -676,7 +682,7 @@ NSString *const kHTPlayerPopDetailNotificationKey = @"com.hotoday.kHTPlayerPopDe
     if (_backView) return _backView;
     
     _backView = [[UIView alloc] initWithFrame:self.bounds];
-//    _backView.alpha = 0;
+    _backView.alpha = 0;
     
     //   开始或者暂停按钮
     UIImage *img = [UIImage imageNamed:@"pause"];

@@ -11,5 +11,5 @@
 @interface VideoListViewController : BasicViewController
 @property (nonatomic, strong) NSString *url;
 @property (strong, nonatomic)NSMutableArray *dataSource; //数据源
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *videoTitle;
 @end

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WebStyle/UI/PlayVideo/HTPlayer.m"
-            timestampString = "496565709.919252"
+            timestampString = "496642717.723784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "605"
-            endingLineNumber = "605"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
             landmarkName = "-setScreenType:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,28 +25,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WebStyle/UI/PlayVideo/HTPlayer.m"
-            timestampString = "496565751.042606"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "-colseDetailVideo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "WebStyle/UI/PlayVideo/PlayVideoViewController.m"
-            timestampString = "496566059.316427"
+            timestampString = "496638464.410752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-closeTheVideo:"
             landmarkType = "5">
             <Locations>
@@ -58,11 +42,11 @@
                   moduleName = "WebStyle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/PlayVideo/PlayVideoViewController.m"
-                  timestampString = "496579798.967072"
+                  timestampString = "496666217.204847"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
                   offsetFromSymbolStart = "88">
                </Location>
                <Location
@@ -73,14 +57,30 @@
                   moduleName = "WebStyle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/PlayVideo/PlayVideoViewController.m"
-                  timestampString = "496579798.967184"
+                  timestampString = "496666217.204993"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "108"
-                  endingLineNumber = "108"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebStyle/UI/PlayVideo/HTPlayer.m"
+            timestampString = "496642473.864394"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "-setVideoURLStr:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -12,8 +12,11 @@
 #import "VideoTitleTableViewCell.h"
 #import "VideoBrowserTableViewCell.h"
 #import "BottomToolBar.h"
-//#import "<#header#>"
-
+#import "UrlDefine.h"
+#import "AFNetworking.h"
+#import "XYString.h"
+#import "MJExtension.h"
+#import "UIViewController+Alert.h"
 @interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PrePlayView *prePlayView;
@@ -188,6 +191,27 @@
 {
     _model = model;
 //    [self reloadData];
+    [self requestGoodsInfo];
+}
+
+//请求商品信息;
+-(void) requestGoodsInfo
+{
+    WeakObjectDef(self);
+    NSString * urlString = [NSString stringWithFormat:@"%@%@", kGoodsVideo, _model.vedioID];
+    D_Log(@"______%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        D_Log(@"operation response %@", operation.responseString);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        D_Log(@"请求失败");
+    }];
 }
 
 //开始播放
@@ -198,6 +222,12 @@
         [_htPlayer setVideoURLStr:_model.vediolink];
         
     }else{
+        if(_model.vediolink.length == 0)
+        {
+            [self showToastWithString:@"视频地址不能为空" hideAfterInterval:2 completion:nil];
+            return;
+        }
+        
         _htPlayer = [[HTPlayer alloc]initWithFrame:self.videoView.bounds videoURLStr:_model.vediolink];
     }
     

@@ -12,6 +12,11 @@
 
 @implementation BasicViewController
 
+-(void)dealloc
+{
+    NSLog(@"dealloc %@", NSStringFromClass([self class]));
+}
+
 - (NSMutableDictionary*)controllerUserInfo
 {
     if(!_controllerUserInfo)

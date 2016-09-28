@@ -42,7 +42,7 @@
                   moduleName = "WebStyle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/PlayVideo/PlayVideoViewController.m"
-                  timestampString = "496666217.204847"
+                  timestampString = "496727514.884964"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -57,7 +57,7 @@
                   moduleName = "WebStyle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gongchenghao/Documents/git_WebStyle/WebStyle/WebStyle/WebStyle/UI/PlayVideo/PlayVideoViewController.m"
-                  timestampString = "496666217.204993"
+                  timestampString = "496727514.885121"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "111"
@@ -80,6 +80,22 @@
             startingLineNumber = "397"
             endingLineNumber = "397"
             landmarkName = "-setVideoURLStr:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebStyle/UI/Main/BasicViewController.m"
+            timestampString = "496727524.61693"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-dealloc"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

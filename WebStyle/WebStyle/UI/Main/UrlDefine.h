@@ -39,4 +39,7 @@
 
 //打开视频商品
 #define kGoodsVideo @"http://114.55.224.29/blacksheepservice/goodsvideo?param="
+
+//查询是否收藏 name=params&id=params
+#define kQueryIsFavorite @"http://114.55.224.29/blacksheepservice/isfavorite?"
 #endif /* UrlDefine_h */

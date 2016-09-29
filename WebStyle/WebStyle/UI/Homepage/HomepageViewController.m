@@ -61,10 +61,13 @@ const NSString *topVideo = @"视频排行";
 {
     [super viewDidLoad];
     
+//    [self testProviderRequest];
+//    return;
     [self createSectionArrayData];
     
     [self setNav];
     [self createTableView];
+    
     
     [self createTopScrollRequest];
     [self createPreferPlayerRequest];
@@ -77,6 +80,17 @@ const NSString *topVideo = @"视频排行";
 //    [self scrollViewDidScroll:self.tableView];
 }
 
+-(void)testProviderRequest
+{
+    if(!self.topScrollProvider)
+    {
+        self.topScrollProvider = [[HomepageScrollProvider alloc] initWithSender:self];
+    }
+    D_Log(@"%@", [self.topScrollProvider description]);
+    [self.topScrollProvider requestWithCompletionHandler:^(id response, NSError* error){
+        D_Log(@"topScrollProvider %@", response);
+    }];
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

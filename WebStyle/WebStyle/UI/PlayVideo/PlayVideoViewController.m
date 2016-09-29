@@ -17,19 +17,24 @@
 #import "XYString.h"
 #import "MJExtension.h"
 #import "UIViewController+Alert.h"
+#import "QueryIsFavoriteProvider.h"
+#import "WSAppContext+WSLogin.h"
+
+
 @interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) PrePlayView *prePlayView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *heightDict;
 @property (nonatomic, strong) BottomToolBar *bottombar;
-
+@property (nonatomic, strong) QueryIsFavoriteProvider *queryFavoriteProvider;
+@property (nonatomic, assign) FavoStatusType favorStatus;
 @end
 @implementation PlayVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _favorStatus = FavoStatusUnKown;
     
     _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
     _videoView.backgroundColor = [UIColor blackColor];
@@ -45,9 +50,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VideoTitleTableViewCell" bundle:nil] forCellReuseIdentifier:[VideoTitleTableViewCell cellIndentifier]];
     self.tableView.frame = CGRectMake(0, self.videoView.bottom, self.view.width, self.view.height -self.videoView.bottom - kBottomBarHeight);
     
-
-    
-    
     _prePlayView = [[PrePlayView alloc] initWithFrame:_videoView.bounds];
     _prePlayView.delegate = self;
     _prePlayView.video = self.model;
@@ -56,6 +58,7 @@
     self.bottombar = [BottomToolBar createBottomToolBarWithView:self.view];
     [self.bottombar setObserverScrollView:self.tableView];
     
+    [self queryFavoriteRequest];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -196,6 +199,7 @@
 //    [self reloadData];
     [self requestGoodsInfo];
 }
+#pragma mark request
 
 //请求商品信息;
 -(void) requestGoodsInfo
@@ -216,6 +220,35 @@
         D_Log(@"请求失败");
     }];
 }
+
+-(void)queryFavoriteRequest
+{
+    if(![[WSAppContext appContext] isLoging])
+    {
+        return;
+    }
+    
+    if(!self.queryFavoriteProvider)
+    {
+        self.queryFavoriteProvider = [[QueryIsFavoriteProvider alloc] init];
+    }
+    self.queryFavoriteProvider.name = [WSAppContext appContext].wsUserInfo.nickname;
+    self.queryFavoriteProvider.id = self.model.vedioID;
+    
+    WeakObjectDef(self);
+    [self.queryFavoriteProvider requestWithCompletionHandler:^(id resposne, NSError*err){
+        D_Log(@"response %@", resposne);
+        if(err == nil)
+        {
+            NSDictionary *dict = [XYString getObjectFromJsonString:resposne];
+            if([dict[@"code"] isEqualToString: @"02"])
+            {
+                weakself.favorStatus = FavoStatusIsNotFavor;
+            }
+        }
+    }];
+}
+
 
 //开始播放
 -(void)startPlayVideo:(UIButton *)sender{

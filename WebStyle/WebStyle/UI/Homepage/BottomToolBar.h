@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum: NSInteger{
+    FavoStatusUnKown = -1,
+    FavoStatusIsFavor, //收藏，
+    FavoStatusIsNotFavor //未收藏
+}FavoStatusType;
+
 OBJC_EXPORT const CGFloat kBottomBarHeight;
 @interface BottomToolBar : UIView
 

@@ -24,7 +24,7 @@
 #import "HomeHotPlayerVideoViewController.h"
 #import "HomeTopVideoViewController.h"
 #import "UrlDefine.h"
-#import "HomepageViewController+GradientNaviBar.h"
+//#import "HomepageViewController+GradientNaviBar.h"
 #import "MJRefresh.h"
 #import "PlayVideoViewController.h"
 #import "VideoListViewController.h"
@@ -74,16 +74,17 @@ const NSString *topVideo = @"视频排行";
     
     [self addMJRefresh];
     [self.tableView.header beginRefreshing];
-    [self scrollViewDidScroll:self.tableView];
+//    [self scrollViewDidScroll:self.tableView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self setStatusBarLight];
+    [self setStatusBarLight];
+    [self.customNaviView setNaviBarAlpha:1];
 //    [self setGradientColorBarLight:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2]];
     self.tableView.delegate = self;
-    [self scrollViewDidScroll:self.tableView];
+//    [self scrollViewDidScroll:self.tableView];
 }
 
 
@@ -223,10 +224,10 @@ const NSString *topVideo = @"视频排行";
 
 -(void)createTableView
 {
-    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, -20 , self.view.width, self.view.height+20 ) style:UITableViewStyleGrouped];
+    self.tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, kStatusHegiht+kNaviHeight-20 , self.view.width, self.view.height - kStatusHegiht - kNaviHeight + 20) style:UITableViewStyleGrouped];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
-//    [self.tableView setBackgroundColor: RGBACOLORFromRGBHex(0xf6f6f6)];
+
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.autoresizingMask=UIViewAutoresizingFlexibleWidth| UIViewAutoresizingFlexibleHeight;
@@ -244,7 +245,11 @@ const NSString *topVideo = @"视频排行";
 {
     if(!_headView)
     {
+        WeakObjectDef(self);
         _headView = [[HomepageHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 125+kNaviHeight)];
+        [_headView setSelectVideoBlock:^(PreferVideo *video){
+            [weakself gotoDetailVideo:video];
+        }];
     }
     return _headView;
 }
@@ -424,14 +429,6 @@ const NSString *topVideo = @"视频排行";
 {
     if([playerList isEqualToString:self.sectionArray[section]])
     {
-//        if([self actorList].count > 0)
-//        {
-//            return 10;
-//        }
-//        else
-//        {
-//            return 5;
-//        }
         return 40;
     }
     else if([newPlayerVideo isEqualToString:self.sectionArray[section]])
@@ -526,10 +523,14 @@ const NSString *topVideo = @"视频排行";
 - (void)gotoMovieDetail:(PreferVideo*)movie withMovieCard:(VideoCard*)movieCard
 {
     D_Log(@"%@", NSStringFromSelector(_cmd));
+    [self gotoDetailVideo:movie];
+}
+
+-(void)gotoDetailVideo:(PreferVideo*)video
+{
     PlayVideoViewController *playVideoVC = [PlayVideoViewController new];
-    playVideoVC.model = movie;
+    playVideoVC.model = video;
     [self.navigationController pushViewController:playVideoVC animated:true];
-    
 }
 #pragma mark CustomNaviDelegate
 -(void)naviBarsearchBtnClick
@@ -594,4 +595,6 @@ const NSString *topVideo = @"视频排行";
         [self.navigationController pushViewController:videoListVC animated:true];
     }
 }
+
+
 @end

@@ -39,7 +39,7 @@
     _imgView = [[UIImageView alloc] initWithFrame:self.backView.bounds];
     _imgView.backgroundColor = [UIColor hexStringToColor:@"#dbdbdb"];
     _imgView.layer.masksToBounds = YES;
-    _imgView.contentMode = UIViewContentModeCenter;
+    _imgView.contentMode = UIViewContentModeScaleAspectFill;
     _imgView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"logo" ofType:@"png"]];
      [_imgView layer].shadowPath =[UIBezierPath bezierPathWithRect:_imgView.bounds].CGPath;
     

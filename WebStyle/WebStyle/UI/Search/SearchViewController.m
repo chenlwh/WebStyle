@@ -17,6 +17,7 @@
 #import "SearchedPlayerCell.h"
 #import "GWProgressHUD.h"
 #import "GWMessageView.h"
+#import "PlayVideoViewController.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
 #define tableViewHeadHeight 45
@@ -60,13 +61,13 @@ enum {
 {
     [super viewWillAppear:animated];
     [self setStatusBarDefault];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
 //    if (self.showSelectedMode) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-        }else{
-            self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        }
+//        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+//            self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//        }else{
+//            self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//        }
 //    } else {
 //        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
 //            self.navigationController.navigationBar.barTintColor = self.navBarColor;
@@ -74,7 +75,8 @@ enum {
 //            self.navigationController.navigationBar.tintColor = self.navBarColor;
 //        }
 //    }
-    [self.navigationController.navigationBar addSubview:self.currentNavView];
+//    [self.navigationController.navigationBar addSubview:self.currentNavView];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -89,7 +91,7 @@ enum {
 //    }else{
 //        self.navigationController.navigationBar.tintColor = [GWPColor navTintColorForIOS7];
 //    }
-    [self.currentNavView removeFromSuperview];
+//    [self.currentNavView removeFromSuperview];
 }
 
 -(void)loadAllView
@@ -115,8 +117,12 @@ enum {
         buttonPadding = 0;
         leftPadding = 12;
     }
+    self.currentNavView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 44)
+                           ];
+    self.currentNavView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.currentNavView];
     pTopBarView = [[UIView alloc] initWithFrame:CGRectMake(leftPadding, 7, self.view.width-2*leftPadding, 30)];
-    self.currentNavView = pTopBarView;
+    [self.currentNavView addSubview:pTopBarView];
     UIImage *clearImage = [UIImage imageNamed:@"icon_cancel"];
     UIButton *pClearButton = [UIButton buttonWithType:UIButtonTypeCustom];
     pClearButton.frame = CGRectMake(0, 0, clearImage.size.width, clearImage.size.height);
@@ -175,7 +181,9 @@ enum {
     pCancleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [pTopBarView addSubview:pCancleBtn];
 
-    _mainTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+
+    CGRect tableRect = CGRectMake(0, self.currentNavView.bottom, self.view.width, self.view.height - self.currentNavView.bottom);
+    _mainTableView = [[UITableView alloc] initWithFrame:tableRect];
     _mainTableView.delegate = self;
     _mainTableView.dataSource = self;
     _mainTableView.backgroundColor = RGBACOLORFromRGBHex(0xf0efef);
@@ -189,7 +197,7 @@ enum {
     [_mainTableView registerNib:[UINib nibWithNibName:@"SearchedVideoCell" bundle:nil] forCellReuseIdentifier:SearchedVideoCellIndentifier];
     [_mainTableView registerNib:[UINib nibWithNibName:@"SearchedPlayerCell" bundle:nil] forCellReuseIdentifier:SearchedPlayerCellIndentifier];
     
-    _historyTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _historyTableView = [[UITableView alloc] initWithFrame:tableRect];
     [_historyTableView setBackgroundColor:RGBACOLORFromRGBHex(0xf0efef)];
     _historyTableView.delegate = self;
     _historyTableView.dataSource = self;
@@ -715,6 +723,27 @@ enum {
             [self cleanHistoryText];
         }
     }
+    else if(tableView == _mainTableView)
+    {
+        if(indexPath.section == 0) //video
+        {
+            PreferVideo *video = self.searchedVideoList[indexPath.row];
+            [self gotoDetailVideo:video];
+        }
+        else if(indexPath.section == 1) //player
+        {
+            
+        }
+            
+    }
+}
+
+
+-(void)gotoDetailVideo:(PreferVideo*)video
+{
+    PlayVideoViewController *playVideoVC = [PlayVideoViewController new];
+    playVideoVC.model = video;
+    [self.navigationController pushViewController:playVideoVC animated:true];
 }
 
 #pragma mark - UITextFieldDelegate

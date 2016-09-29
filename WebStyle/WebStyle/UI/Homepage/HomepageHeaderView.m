@@ -7,7 +7,7 @@
 //
 
 #import "HomepageHeaderView.h"
-#import "PreferVideo.h"
+
 @implementation HomepageHeaderView
 
 /*
@@ -46,11 +46,26 @@
     
     self.cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;// 分页控件位置
     self.cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;// 分页控件风格
-//    self.cycleScrollView.delegate = self;
+    self.cycleScrollView.delegate = self;
     self.cycleScrollView.titlesGroup = titles;
     self.cycleScrollView.imageURLStringsGroup = imagesURLStrings;
     self.cycleScrollView.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
     self.cycleScrollView.placeholderImage = [UIImage imageNamed:@"303"];
     self.cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
 }
+
+#pragma mark SDCycleScrollViewDelegate
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    if(index >= self.dataArray.count)
+        return;
+    PreferVideo *video = self.dataArray[index];
+    if(self.selectVideoBlock)
+    {
+        self.selectVideoBlock(video);
+    }
+    
+}
+
 @end

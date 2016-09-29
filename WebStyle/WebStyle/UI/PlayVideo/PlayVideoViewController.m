@@ -61,9 +61,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = true;
 //    [self setGradientColorBarLight:[UIColor clearColor]];
-//    [self setStatusBarLight];
-    [self setGradientColorBarLight:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]];
+    [self setStatusBarLight];
+    
 }
 
 -(NSMutableDictionary*)heightDict
@@ -108,12 +109,13 @@
 
 -(void)closeTheVideo:(NSNotification *)notice
 {
+    WeakObjectDef(self);
     [UIView animateWithDuration:0.3 animations:^{
         _htPlayer.alpha = 0.0;
     } completion:^(BOOL finished) {
         [_htPlayer removeFromSuperview];
-        [self releaseWMPlayer];
-        [self.navigationController popViewControllerAnimated:true];
+        [weakself releaseWMPlayer];
+        [weakself.navigationController popViewControllerAnimated:true];
     }];
 }
 
@@ -124,12 +126,13 @@
         [self toCell];//先变回cell
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
     }
+    WeakObjectDef(self);
     self.prePlayView.hidden = false;
     [UIView animateWithDuration:0.3 animations:^{
         _htPlayer.alpha = 0.0;
     } completion:^(BOOL finished) {
         [_htPlayer removeFromSuperview];
-        [self releaseWMPlayer];
+        [weakself releaseWMPlayer];
         //添加重新播放的页面；
     }];
     

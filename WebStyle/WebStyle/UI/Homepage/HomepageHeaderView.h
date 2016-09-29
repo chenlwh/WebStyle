@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "SDCycleScrollView.h"
-@interface HomepageHeaderView : UIView
+#import "PreferVideo.h"
 
+@interface HomepageHeaderView : UIView<SDCycleScrollViewDelegate>
 
 /**
  *  滚动图片区
  */
 @property(nonatomic ,strong) SDCycleScrollView * cycleScrollView;
+@property(nonatomic, copy) void (^selectVideoBlock)(PreferVideo* video);
 
 
 @property (nonatomic, strong) NSArray *dataArray;

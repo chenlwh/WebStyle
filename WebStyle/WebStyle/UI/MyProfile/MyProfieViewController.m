@@ -504,6 +504,7 @@ typedef enum {
     videoListVC.url = urlString;
     videoListVC.dataSource = self.pMyPopularVC.dataArray;
     videoListVC.videoTitle = @"我的爆款";
+    [self.navigationController pushViewController:videoListVC animated:true];
 }
 
 #pragma mark HomeBaseCollectionDelegate

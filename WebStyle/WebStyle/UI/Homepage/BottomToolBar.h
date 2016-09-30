@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PreferVideo.h"
 
 typedef enum: NSInteger{
     FavoStatusUnKown = -1,
@@ -21,6 +22,11 @@ OBJC_EXPORT const CGFloat kBottomBarHeight;
 @property (nonatomic, readonly) UIButton *customBtn;
 @property (nonatomic, readonly) UILabel* likeTitleView;
 @property (nonatomic, strong) UIScrollView* observerScrollView;
-
+@property (nonatomic, strong) PreferVideo *video;
+@property (nonatomic, assign) FavoStatusType favorStatus;
+@property (nonatomic, strong) UIViewController *attachedVC;
 + (BottomToolBar*)createBottomToolBarWithView:(UIView*)superView;
+
+//加载收藏状态
+-(void)reloadData;
 @end

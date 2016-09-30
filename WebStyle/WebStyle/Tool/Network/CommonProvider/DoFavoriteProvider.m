@@ -7,7 +7,23 @@
 //
 
 #import "DoFavoriteProvider.h"
-
+#import "UrlDefine.h"
 @implementation DoFavoriteProvider
-
+-(id)init
+{
+    if(self = [super init])
+    {
+        //        self.method = @"prefervideo";
+        self.urlString = kDoFavorite;
+        self.cacheUrlString = kDoFavorite;
+        
+        
+        [self setResponseHandler:^id(id response, NSError **error) {
+            
+            
+            return response;
+        }];
+    }
+    return self;
+}
 @end

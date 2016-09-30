@@ -42,4 +42,7 @@
 
 //查询是否收藏 name=params&id=params
 #define kQueryIsFavorite @"http://114.55.224.29/blacksheepservice/isfavorite?"
+
+//添加取消收藏；name=params&id=params
+#define kDoFavorite @"http://114.55.224.29/blacksheepservice/favorite?"
 #endif /* UrlDefine_h */

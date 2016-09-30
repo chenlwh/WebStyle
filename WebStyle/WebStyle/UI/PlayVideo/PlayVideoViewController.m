@@ -56,9 +56,12 @@
     [_videoView addSubview:_prePlayView];
     
     self.bottombar = [BottomToolBar createBottomToolBarWithView:self.view];
+    self.bottombar.video = self.model;
+    self.bottombar.attachedVC = self;
+    [self.bottombar reloadData];
     [self.bottombar setObserverScrollView:self.tableView];
     
-    [self queryFavoriteRequest];
+//    [self queryFavoriteRequest];
 }
 
 -(void)viewWillAppear:(BOOL)animated

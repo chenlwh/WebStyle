@@ -11,12 +11,30 @@
 #import "Color+Hex.h"
 #import "FTUtils.h"
 #import "GWProtocolInterceptor.h"
+#import "WSAppContext+WSLogin.h"
+
+#import "QueryIsFavoriteProvider.h"
+#import "DoFavoriteProvider.h"
+
+#import "MsgDefine.h"
+#import "XYString.h"
+
+#import "LogingViewController.h"
+#import "UIViewController+Alert.h"
+
 const CGFloat kBottomBarHeight = 48;
 @interface BottomToolBar ()<UIScrollViewDelegate>
 {
     
     GWProtocolInterceptor* _interceptor;
 }
+
+@end
+@interface BottomToolBar()
+
+@property (nonatomic, assign) BOOL isReadySearch;
+@property (nonatomic, strong) QueryIsFavoriteProvider *queryFavoriteProvider;
+@property (nonatomic, strong) DoFavoriteProvider *doFavorProvider;
 
 @end
 @implementation BottomToolBar
@@ -32,6 +50,7 @@ const CGFloat kBottomBarHeight = 48;
 {
     if (self = [super initWithFrame:frame])
     {
+        self.favorStatus = FavoStatusIsNotFavor;
         [self loadAllControlls];
     }
     return self;
@@ -55,7 +74,7 @@ const CGFloat kBottomBarHeight = 48;
     _likeBtn.frame = CGRectMake(0, 0, blockWidth, blockHeight);
     [_likeBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [_likeBtn setImage:[UIImage imageNamed:@"icon_dislike"] forState:UIControlStateNormal];
-    [_likeBtn setImage:[UIImage imageNamed:@"icon_dislike"] forState:UIControlStateSelected];
+    [_likeBtn setImage:[UIImage imageNamed:@"icon_like"] forState:UIControlStateSelected];
     CGFloat likeimageWidth = [_likeBtn imageForState:UIControlStateNormal].size.width;
     [_likeBtn  setImageEdgeInsets:UIEdgeInsetsMake(0, -blockWidth + likeimageWidth + 30, 0, 0)];
     [self addSubview:_likeBtn];
@@ -115,6 +134,7 @@ const CGFloat kBottomBarHeight = 48;
 -(void)buttonClick:(UIButton*)btn
 {
     NSLog(@"btnClick");
+    [self doFavorRequest];
 }
 
 
@@ -197,5 +217,116 @@ const CGFloat kBottomBarHeight = 48;
     }
 }
 
+-(void)reloadData
+{
+    if(![[WSAppContext appContext] isLoging])
+    {
+        return;
+    }
+    
+    if(!_isReadySearch && _video)
+    {
+        _isReadySearch = YES;
+        [self queryFavoriteRequest];
+    }
+}
+
+-(void)queryFavoriteRequest
+{
+    
+    if(!self.queryFavoriteProvider)
+    {
+        self.queryFavoriteProvider = [[QueryIsFavoriteProvider alloc] init];
+    }
+    self.queryFavoriteProvider.name = [WSAppContext appContext].wsUserInfo.nickname;
+    self.queryFavoriteProvider.id = self.video.vedioID;
+    
+    WeakObjectDef(self);
+    [self.queryFavoriteProvider requestWithCompletionHandler:^(id resposne, NSError*err){
+        D_Log(@"response %@", resposne);
+        if(err == nil)
+        {
+            NSDictionary *dict = [XYString getObjectFromJsonString:resposne];
+            if([dict[@"code"] isEqualToString: @"02"])
+            {
+                weakself.favorStatus = FavoStatusIsNotFavor;
+                [weakself updateLikeBtnStatus];
+            }
+            else if([dict[@"code"] isEqualToString: @"01"])
+            {
+                weakself.favorStatus = FavoStatusIsFavor;
+                [weakself updateLikeBtnStatus];
+            }
+            else
+            {
+                [weakself.attachedVC showAutoHideToastWithString:([dict[@"message"] length] > 0 ? dict[@"message"] : @"查询收藏状态失败") ];
+            }
+        }
+    }];
+}
+
+-(void) doFavorRequest
+{
+    WeakObjectDef(self);
+    if(![[WSAppContext appContext] isLoging])
+    {
+        [[GWLogin sharedInstance] showLoginWithCancelHandler:nil LoginFinishHandler:^(BOOL success){
+            [weakself doFavorRequest];
+        }];
+        return;
+    }
+    
+    if(!self.doFavorProvider)
+    {
+        self.doFavorProvider = [[DoFavoriteProvider alloc] init];
+    }
+    self.doFavorProvider.name = [WSAppContext appContext].wsUserInfo.nickname;
+    self.doFavorProvider.id = self.video.vedioID;
+    
+    [self.doFavorProvider requestWithCompletionHandler:^(id resposne, NSError*err){
+        D_Log(@"response %@", resposne);
+        if(err == nil)
+        {
+            NSDictionary *dict = [XYString getObjectFromJsonString:resposne];
+            if([dict[@"code"] isEqualToString: @"02"])
+            {
+                weakself.favorStatus = FavoStatusIsNotFavor;
+                [weakself updateLikeBtnStatus];
+            }
+            else if([dict[@"code"] isEqualToString: @"01"])
+            {
+                weakself.favorStatus = FavoStatusIsFavor;
+                [weakself updateLikeBtnStatus];
+            }
+            else
+            {
+                [weakself.attachedVC showAutoHideToastWithString:([dict[@"message"] length] > 0 ? dict[@"message"] : @"操作失败") ];
+            }
+        }
+    }];
+}
+-(void)updateLikeBtnStatus
+{
+    if(self.favorStatus == FavoStatusUnKown)
+    {
+        _likeBtn.selected = FALSE;
+    }
+    else if(self.favorStatus == FavoStatusIsNotFavor)
+    {
+        _likeBtn.selected = FALSE;
+        _likeTitleView.text = @"收藏";
+        [_likeTitleView sizeToFit];
+        CGFloat walaImageWidth = [_likeBtn imageForState:UIControlStateNormal].size.width;
+        _likeTitleView.left = _likeBtn.left + _likeBtn.imageView.centerX + walaImageWidth/2 + 5;
+    }
+    else if (self.favorStatus == FavoStatusIsFavor)
+    {
+        _likeBtn.selected = YES;
+        _likeTitleView.text = @"取消收藏";
+        [_likeTitleView sizeToFit];
+        CGFloat walaImageWidth = [_likeBtn imageForState:UIControlStateNormal].size.width;
+        _likeTitleView.left = _likeBtn.left + _likeBtn.imageView.centerX + walaImageWidth/2 + 5;
+    }
+}
 
 @end

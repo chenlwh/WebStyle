@@ -10,5 +10,6 @@
 
 //收藏该视频;
 @interface DoFavoriteProvider : GWBaseInfoProvider
-
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *id;
 @end

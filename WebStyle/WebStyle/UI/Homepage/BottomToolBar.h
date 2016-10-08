@@ -14,6 +14,11 @@ typedef enum: NSInteger{
     FavoStatusIsFavor, //收藏，
     FavoStatusIsNotFavor //未收藏
 }FavoStatusType;
+@protocol  BottomBarDelegate <NSObject>
+
+-(void)customButtonClick;
+
+@end
 
 OBJC_EXPORT const CGFloat kBottomBarHeight;
 @interface BottomToolBar : UIView
@@ -25,6 +30,8 @@ OBJC_EXPORT const CGFloat kBottomBarHeight;
 @property (nonatomic, strong) PreferVideo *video;
 @property (nonatomic, assign) FavoStatusType favorStatus;
 @property (nonatomic, strong) UIViewController *attachedVC;
+@property (nonatomic, assign) id <BottomBarDelegate> delegate;
+
 + (BottomToolBar*)createBottomToolBarWithView:(UIView*)superView;
 
 //加载收藏状态

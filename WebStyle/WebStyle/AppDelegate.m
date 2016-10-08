@@ -11,6 +11,7 @@
 #import "MainTabBarController.h"
 #import "WSAppcontext.h"
 #import "WSAppContext+WSLogin.h"
+#import <ALBBSDK/ALBBSDK.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self setAliBBInfo];
     [self setKeyWindow];
     [self setAppAppearance];
     
@@ -37,6 +39,21 @@
     return [MainTabBarController new];
 }
 
+//设置阿里配置
+-(void) setAliBBInfo
+{
+    [[ALBBSDK sharedInstance] setDebugLogOpen:NO];//开发阶段打开日志开关，方便排查错误信息
+    [[ALBBSDK sharedInstance] setUseTaobaoNativeDetail:NO];//优先使用手淘APP打开商品详情页面，如果没有安装手机淘宝，SDK会使用H5打开
+    [[ALBBSDK sharedInstance] setViewType:ALBB_ITEM_VIEWTYPE_TAOBAO];//使用淘宝H5页面打开商品详情
+    [[ALBBSDK sharedInstance] setISVCode:@"webstyle_1.0"];//设置全局的app标识，在电商模块里等同于isv_code,可以用来跟踪交易订单
+    //基础SDK初始化
+    [[ALBBSDK sharedInstance] asyncInit:^{
+        NSLog(@"init success");
+    } failure:^(NSError *error) {
+        NSLog(@"init failure, %@", error);
+    }];
+}
+
 -(void) setKeyWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[Constants MainBounds]];
@@ -48,16 +65,16 @@
 -(void)setAppAppearance
 {
     [[UITabBarItem appearance] setTitleTextAttributes:
-  @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:12]}
+     @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:12]}
                                              forState:UIControlStateSelected];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor grayColor], NSFontAttributeName:[UIFont systemFontOfSize:12]}
                                              forState:UIControlStateNormal];
     
-//    UINavigationBar *naviBarAppearance = [UINavigationBar appearance];
-//    naviBarAppearance.translucent = false;
-//    naviBarAppearance.titleTextAttributes = @{NSFontAttributeName:[Constants SDNavTitleFont], NSForegroundColorAttributeName:[UIColor blackColor]};
-//    naviBarAppearance.backgroundColor = [UIColor blueColor];
+    //    UINavigationBar *naviBarAppearance = [UINavigationBar appearance];
+    //    naviBarAppearance.translucent = false;
+    //    naviBarAppearance.titleTextAttributes = @{NSFontAttributeName:[Constants SDNavTitleFont], NSForegroundColorAttributeName:[UIColor blackColor]};
+    //    naviBarAppearance.backgroundColor = [UIColor blueColor];
     
     id item = [UIBarButtonItem appearance];
     [item setTitleTextAttributes:@{NSFontAttributeName: [Constants SDNavItemFont], NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateNormal];
@@ -84,5 +101,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    BOOL isHandledByALBBSDK=[[ALBBSDK sharedInstance] handleOpenURL:url];//处理其他app跳转到自己的app，如果百川处理过会返回YES
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    BOOL isHandledByALBBSDK=[[ALBBSDK sharedInstance] handleOpenURL:url];//处理其他app跳转到自己的app，如果百川处理过会返回YES
+    
+    return YES;
+}
+
 
 @end

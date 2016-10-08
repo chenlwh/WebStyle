@@ -19,10 +19,11 @@
 #import "UIViewController+Alert.h"
 #import "QueryIsFavoriteProvider.h"
 #import "WSAppContext+WSLogin.h"
+#import <ALBBSDK/ALBBSDK.h>
+#import <ALBBTradeSDK/ALBBTradeSDK.h>
+@interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource, BottomBarDelegate>
 
-
-@interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource>
-
+@property (nonatomic, strong) id<ALBBTradeService> tradeService;
 @property (nonatomic, strong) PrePlayView *prePlayView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *heightDict;
@@ -35,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _favorStatus = FavoStatusUnKown;
+    _tradeService=ALBBService(ALBBTradeService);
     
     _videoView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, self.view.width * 0.6)];
     _videoView.backgroundColor = [UIColor blackColor];
@@ -42,7 +44,7 @@
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
-//    self.tableView.backgroundColor = [UIColor clearColor];
+    //    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -58,17 +60,18 @@
     self.bottombar = [BottomToolBar createBottomToolBarWithView:self.view];
     self.bottombar.video = self.model;
     self.bottombar.attachedVC = self;
+    self.bottombar.delegate = self;
     [self.bottombar reloadData];
     [self.bottombar setObserverScrollView:self.tableView];
     
-//    [self queryFavoriteRequest];
+    //    [self queryFavoriteRequest];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
-//    [self setGradientColorBarLight:[UIColor clearColor]];
+    //    [self setGradientColorBarLight:[UIColor clearColor]];
     [self setStatusBarLight];
     
 }
@@ -199,7 +202,7 @@
 -(void)setModel:(PreferVideo *)model
 {
     _model = model;
-//    [self reloadData];
+    //    [self reloadData];
     [self requestGoodsInfo];
 }
 #pragma mark request
@@ -327,7 +330,7 @@
     {
         VideoBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
         cell.infoLabel.text = [NSString stringWithFormat:@"浏览%@次", _model.browsers];
-//        cell.contentView.backgroundColor = [UIColor greenColor];
+        //        cell.contentView.backgroundColor = [UIColor greenColor];
         return cell;
     }
     else if (indexPath.section == 1)
@@ -335,8 +338,8 @@
         VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoTitleTableViewCell cellIndentifier]];
         cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
         cell.videoTitleLabel.text = _model.vedioDesc;
-//        cell.contentView.backgroundColor = [UIColor yellowColor];
-//        cell.backgroundColor = [UIColor yellowColor];
+        //        cell.contentView.backgroundColor = [UIColor yellowColor];
+        //        cell.backgroundColor = [UIColor yellowColor];
         return cell;
     }
     return nil;
@@ -389,5 +392,34 @@
 //    return 50;
 //}
 
+#pragma mark bottomBardelegate
+-(void)customButtonClick
+{
+    __unused TaeWebViewUISettings *viewSettings =[self getWebViewSetting];
+    NSNumber *realitemId= [[[NSNumberFormatter alloc]init] numberFromString:@"37347328302"];
+    
+    ALBBTradePage *page=[ALBBTradePage itemDetailPage:[NSString stringWithFormat:@"%@",realitemId] params:@{@"_viewType":@"taobaoH5", @"isv_code":@"tag1"}];
+    [_tradeService  show:self
+              isNeedPush:YES
+       webViewUISettings:viewSettings
+                    page:page
+             taoKeParams:nil
+tradeProcessSuccessCallback:^(ALBBTradeResult*  __nullable result){
+    D_Log(@"result %@", result);
+}
+tradeProcessFailedCallback:^(NSError * __nullable error){
+    D_Log(@"error %@", error);
+}];
+    
+}
+
+-( TaeWebViewUISettings *)getWebViewSetting{
+    
+    TaeWebViewUISettings *settings = [[TaeWebViewUISettings alloc] init];
+    settings.titleColor = [UIColor blueColor];
+    settings.tintColor = [UIColor redColor];
+    settings.barTintColor = [UIColor grayColor];
+    return settings;
+}
 
 @end

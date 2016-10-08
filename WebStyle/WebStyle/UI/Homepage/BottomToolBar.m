@@ -22,6 +22,7 @@
 #import "LogingViewController.h"
 #import "UIViewController+Alert.h"
 
+
 const CGFloat kBottomBarHeight = 48;
 @interface BottomToolBar ()<UIScrollViewDelegate>
 {
@@ -35,7 +36,6 @@ const CGFloat kBottomBarHeight = 48;
 @property (nonatomic, assign) BOOL isReadySearch;
 @property (nonatomic, strong) QueryIsFavoriteProvider *queryFavoriteProvider;
 @property (nonatomic, strong) DoFavoriteProvider *doFavorProvider;
-
 @end
 @implementation BottomToolBar
 
@@ -97,7 +97,7 @@ const CGFloat kBottomBarHeight = 48;
     [_customBtn setTitle:@"点击购买" forState:UIControlStateNormal];
     _customBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     
-
+    
     
     
     _likeBtn.frame = CGRectMake(3, 0, blockWidth, blockHeight);
@@ -134,7 +134,18 @@ const CGFloat kBottomBarHeight = 48;
 -(void)buttonClick:(UIButton*)btn
 {
     NSLog(@"btnClick");
-    [self doFavorRequest];
+    if(btn == self.likeBtn)
+    {
+        [self doFavorRequest];
+    }
+    else if (btn == self.customBtn)
+    {
+        D_Log(@"去购买");
+        if([self.delegate respondsToSelector:@selector(customButtonClick)])
+        {
+            [self.delegate customButtonClick];
+        }
+    }
 }
 
 
@@ -203,17 +214,17 @@ const CGFloat kBottomBarHeight = 48;
     if (animated) {
         [UIView animateWithDuration:0.5 animations:^{
             self.frame = newFrame;
-//            if (self.updateFrameBlock) {
-//                self.updateFrameBlock(newFrame);
-//            }
+            //            if (self.updateFrameBlock) {
+            //                self.updateFrameBlock(newFrame);
+            //            }
         }];
     }
     else
     {
         self.frame = newFrame;
-//        if (self.updateFrameBlock) {
-//            self.updateFrameBlock(newFrame);
-//        }
+        //        if (self.updateFrameBlock) {
+        //            self.updateFrameBlock(newFrame);
+        //        }
     }
 }
 

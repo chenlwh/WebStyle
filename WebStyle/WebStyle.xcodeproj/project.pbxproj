@@ -170,6 +170,29 @@
 		C14046C41D6DAD310067D66F /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C14046C31D6DAD310067D66F /* EGOCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C14046C61D6DB3040067D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14046C51D6DB3040067D66F /* Foundation.framework */; };
 		C14046C81D6DB3240067D66F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C14046C71D6DB3240067D66F /* CoreData.framework */; };
+		C143B5261DA901DA00797412 /* ALBBFullSecurityGuard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5191DA901DA00797412 /* ALBBFullSecurityGuard.framework */; };
+		C143B5271DA901DA00797412 /* ALBBLoginSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B51A1DA901DA00797412 /* ALBBLoginSDK.framework */; };
+		C143B5281DA901DA00797412 /* ALBBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B51B1DA901DA00797412 /* ALBBSDK.framework */; };
+		C143B5291DA901DA00797412 /* ALBBTradeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B51C1DA901DA00797412 /* ALBBTradeSDK.framework */; };
+		C143B52A1DA901DA00797412 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C143B51D1DA901DA00797412 /* AlipaySDK.bundle */; };
+		C143B52B1DA901DA00797412 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B51E1DA901DA00797412 /* AlipaySDK.framework */; };
+		C143B52C1DA901DA00797412 /* baichuan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C143B51F1DA901DA00797412 /* baichuan.bundle */; };
+		C143B52D1DA901DA00797412 /* SecurityGuardSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5201DA901DA00797412 /* SecurityGuardSDK.framework */; };
+		C143B52E1DA901DA00797412 /* SGMain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5211DA901DA00797412 /* SGMain.framework */; };
+		C143B52F1DA901DA00797412 /* TBAppLinkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5221DA901DA00797412 /* TBAppLinkSDK.framework */; };
+		C143B5301DA901DA00797412 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5231DA901DA00797412 /* UTDID.framework */; };
+		C143B5311DA901DA00797412 /* UTMini.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5241DA901DA00797412 /* UTMini.framework */; };
+		C143B5321DA901DA00797412 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5251DA901DA00797412 /* ZipArchive.framework */; };
+		C143B5341DA902A500797412 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5331DA902A500797412 /* CoreMotion.framework */; };
+		C143B5361DA902B000797412 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5351DA902B000797412 /* CFNetwork.framework */; };
+		C143B5381DA902BA00797412 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5371DA902BA00797412 /* CoreTelephony.framework */; };
+		C143B53A1DA902C000797412 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5391DA902C000797412 /* SystemConfiguration.framework */; };
+		C143B53C1DA902C900797412 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B53B1DA902C900797412 /* Security.framework */; };
+		C143B53E1DA902D300797412 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B53D1DA902D300797412 /* CoreLocation.framework */; };
+		C143B5401DA902DA00797412 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B53F1DA902DA00797412 /* ImageIO.framework */; };
+		C143B5421DA902E200797412 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5411DA902E200797412 /* AssetsLibrary.framework */; };
+		C143B5441DA902F100797412 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C143B5431DA902F100797412 /* libstdc++.6.0.9.tbd */; };
+		C143B5461DA9035700797412 /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C143B5451DA9035700797412 /* yw_1222.jpg */; };
 		C14559FE1D75C5630021C453 /* HomeHotPlayerVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14559FD1D75C5630021C453 /* HomeHotPlayerVideoViewController.m */; };
 		C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1455A011D75C9370021C453 /* HomeTopVideoViewController.m */; };
 		C1455A051D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C1455A041D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m */; };
@@ -586,6 +609,29 @@
 		C14046C31D6DAD310067D66F /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
 		C14046C51D6DB3040067D66F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C14046C71D6DB3240067D66F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C143B5191DA901DA00797412 /* ALBBFullSecurityGuard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBFullSecurityGuard.framework; sourceTree = "<group>"; };
+		C143B51A1DA901DA00797412 /* ALBBLoginSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBLoginSDK.framework; sourceTree = "<group>"; };
+		C143B51B1DA901DA00797412 /* ALBBSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBSDK.framework; sourceTree = "<group>"; };
+		C143B51C1DA901DA00797412 /* ALBBTradeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ALBBTradeSDK.framework; sourceTree = "<group>"; };
+		C143B51D1DA901DA00797412 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		C143B51E1DA901DA00797412 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		C143B51F1DA901DA00797412 /* baichuan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baichuan.bundle; sourceTree = "<group>"; };
+		C143B5201DA901DA00797412 /* SecurityGuardSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityGuardSDK.framework; sourceTree = "<group>"; };
+		C143B5211DA901DA00797412 /* SGMain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SGMain.framework; sourceTree = "<group>"; };
+		C143B5221DA901DA00797412 /* TBAppLinkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TBAppLinkSDK.framework; sourceTree = "<group>"; };
+		C143B5231DA901DA00797412 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTDID.framework; sourceTree = "<group>"; };
+		C143B5241DA901DA00797412 /* UTMini.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UTMini.framework; sourceTree = "<group>"; };
+		C143B5251DA901DA00797412 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZipArchive.framework; sourceTree = "<group>"; };
+		C143B5331DA902A500797412 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C143B5351DA902B000797412 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C143B5371DA902BA00797412 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C143B5391DA902C000797412 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C143B53B1DA902C900797412 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C143B53D1DA902D300797412 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C143B53F1DA902DA00797412 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C143B5411DA902E200797412 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C143B5431DA902F100797412 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		C143B5451DA9035700797412 /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
 		C14559FC1D75C5630021C453 /* HomeHotPlayerVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHotPlayerVideoViewController.h; sourceTree = "<group>"; };
 		C14559FD1D75C5630021C453 /* HomeHotPlayerVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHotPlayerVideoViewController.m; sourceTree = "<group>"; };
 		C14559FF1D75C6680021C453 /* UrlDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrlDefine.h; sourceTree = "<group>"; };
@@ -793,9 +839,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C145F8AC1D6E8E9E00346164 /* libz.tbd in Frameworks */,
-				C14046C81D6DB3240067D66F /* CoreData.framework in Frameworks */,
 				C14046C61D6DB3040067D66F /* Foundation.framework in Frameworks */,
+				C145F8AC1D6E8E9E00346164 /* libz.tbd in Frameworks */,
+				C143B5441DA902F100797412 /* libstdc++.6.0.9.tbd in Frameworks */,
+				C143B5421DA902E200797412 /* AssetsLibrary.framework in Frameworks */,
+				C143B5401DA902DA00797412 /* ImageIO.framework in Frameworks */,
+				C143B53E1DA902D300797412 /* CoreLocation.framework in Frameworks */,
+				C143B53C1DA902C900797412 /* Security.framework in Frameworks */,
+				C143B53A1DA902C000797412 /* SystemConfiguration.framework in Frameworks */,
+				C143B5381DA902BA00797412 /* CoreTelephony.framework in Frameworks */,
+				C143B5361DA902B000797412 /* CFNetwork.framework in Frameworks */,
+				C143B5341DA902A500797412 /* CoreMotion.framework in Frameworks */,
+				C143B52B1DA901DA00797412 /* AlipaySDK.framework in Frameworks */,
+				C14046C81D6DB3240067D66F /* CoreData.framework in Frameworks */,
+				C143B5311DA901DA00797412 /* UTMini.framework in Frameworks */,
+				C143B52D1DA901DA00797412 /* SecurityGuardSDK.framework in Frameworks */,
+				C143B5281DA901DA00797412 /* ALBBSDK.framework in Frameworks */,
+				C143B5301DA901DA00797412 /* UTDID.framework in Frameworks */,
+				C143B5261DA901DA00797412 /* ALBBFullSecurityGuard.framework in Frameworks */,
+				C143B5291DA901DA00797412 /* ALBBTradeSDK.framework in Frameworks */,
+				C143B5271DA901DA00797412 /* ALBBLoginSDK.framework in Frameworks */,
+				C143B52E1DA901DA00797412 /* SGMain.framework in Frameworks */,
+				C143B52F1DA901DA00797412 /* TBAppLinkSDK.framework in Frameworks */,
+				C143B5321DA901DA00797412 /* ZipArchive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1542,26 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		C143B5181DA901DA00797412 /* OneSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C143B5191DA901DA00797412 /* ALBBFullSecurityGuard.framework */,
+				C143B51A1DA901DA00797412 /* ALBBLoginSDK.framework */,
+				C143B51B1DA901DA00797412 /* ALBBSDK.framework */,
+				C143B51C1DA901DA00797412 /* ALBBTradeSDK.framework */,
+				C143B51D1DA901DA00797412 /* AlipaySDK.bundle */,
+				C143B51E1DA901DA00797412 /* AlipaySDK.framework */,
+				C143B51F1DA901DA00797412 /* baichuan.bundle */,
+				C143B5201DA901DA00797412 /* SecurityGuardSDK.framework */,
+				C143B5211DA901DA00797412 /* SGMain.framework */,
+				C143B5221DA901DA00797412 /* TBAppLinkSDK.framework */,
+				C143B5231DA901DA00797412 /* UTDID.framework */,
+				C143B5241DA901DA00797412 /* UTMini.framework */,
+				C143B5251DA901DA00797412 /* ZipArchive.framework */,
+			);
+			path = OneSDK;
+			sourceTree = "<group>";
+		};
 		C145F8911D6E8B8B00346164 /* GWTBXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -1732,6 +1818,7 @@
 		C1673F661D8012EB007EE026 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C143B5451DA9035700797412 /* yw_1222.jpg */,
 				C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */,
 				C13BF3F71D8E8C17004C12FA /* clear@2x.png */,
 				C13BF3F81D8E8C17004C12FA /* close@2x.png */,
@@ -1786,6 +1873,15 @@
 		C1A2FA6A1D6C2A65000D09DE = {
 			isa = PBXGroup;
 			children = (
+				C143B5431DA902F100797412 /* libstdc++.6.0.9.tbd */,
+				C143B5411DA902E200797412 /* AssetsLibrary.framework */,
+				C143B53F1DA902DA00797412 /* ImageIO.framework */,
+				C143B53D1DA902D300797412 /* CoreLocation.framework */,
+				C143B53B1DA902C900797412 /* Security.framework */,
+				C143B5391DA902C000797412 /* SystemConfiguration.framework */,
+				C143B5371DA902BA00797412 /* CoreTelephony.framework */,
+				C143B5351DA902B000797412 /* CFNetwork.framework */,
+				C143B5331DA902A500797412 /* CoreMotion.framework */,
 				C145F8AB1D6E8E9E00346164 /* libz.tbd */,
 				C14046C71D6DB3240067D66F /* CoreData.framework */,
 				C14046C51D6DB3040067D66F /* Foundation.framework */,
@@ -1805,6 +1901,7 @@
 		C1A2FA751D6C2A65000D09DE /* WebStyle */ = {
 			isa = PBXGroup;
 			children = (
+				C143B5181DA901DA00797412 /* OneSDK */,
 				C1A2FA791D6C2A65000D09DE /* AppDelegate.h */,
 				C1A2FA7A1D6C2A65000D09DE /* AppDelegate.m */,
 				C140451B1D6D4F740067D66F /* Vender */,
@@ -1997,9 +2094,12 @@
 				C14045691D6D52980067D66F /* MJRefresh.bundle in Resources */,
 				C1611ED11D6FE9A100A73FCB /* TestViewController.xib in Resources */,
 				C13BF40D1D8E8C17004C12FA /* fullscreen@3x.png in Resources */,
+				C143B52C1DA901DA00797412 /* baichuan.bundle in Resources */,
+				C143B5461DA9035700797412 /* yw_1222.jpg in Resources */,
 				C13BF40E1D8E8C17004C12FA /* logo.png in Resources */,
 				C13BF4131D8E8C17004C12FA /* play.png in Resources */,
 				C13BF4151D8E8C17004C12FA /* play@3x.png in Resources */,
+				C143B52A1DA901DA00797412 /* AlipaySDK.bundle in Resources */,
 				C13BF4071D8E8C17004C12FA /* clear@2x.png in Resources */,
 				C1268F3C1D9518BB00845370 /* VideoBrowserTableViewCell.xib in Resources */,
 				C13BF40A1D8E8C17004C12FA /* dot@2x.png in Resources */,
@@ -2350,10 +2450,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WebStyle/OneSDK",
+				);
 				INFOPLIST_FILE = WebStyle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gewara.-.WebStyle";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuhan.WebStyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2361,10 +2473,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WebStyle/OneSDK",
+				);
 				INFOPLIST_FILE = WebStyle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gewara.-.WebStyle";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lstdc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuhan.WebStyle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

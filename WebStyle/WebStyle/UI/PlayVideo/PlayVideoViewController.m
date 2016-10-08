@@ -30,6 +30,7 @@
 @property (nonatomic, strong) BottomToolBar *bottombar;
 @property (nonatomic, strong) QueryIsFavoriteProvider *queryFavoriteProvider;
 @property (nonatomic, assign) FavoStatusType favorStatus;
+@property (nonatomic, strong) NSString *goodsLink;
 @end
 @implementation PlayVideoViewController
 
@@ -220,6 +221,17 @@
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         D_Log(@"operation response %@", operation.responseString);
+        id obj = [XYString getObjectFromJsonString:operation.responseString];
+        if([obj isKindOfClass:[NSArray class]] && [obj count] > 0)
+        {
+            id dict = obj[0];
+            weakself.goodsLink = [dict objectForKey:@"goodslink"];
+        }
+        else if ([obj isKindOfClass:[NSDictionary class]])
+        {
+             weakself.goodsLink = [obj objectForKey:@"goodslink"];
+        }
+//        weakself.goodsLink = [dict objectForKey:@"goodslink"];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -395,14 +407,25 @@
 #pragma mark bottomBardelegate
 -(void)customButtonClick
 {
+    if([self.goodsLink length] == 0)
+    {
+        [self showToastWithString:@"商品链接为空" hideAfterInterval:2.0f];
+        return;
+    }
     __unused TaeWebViewUISettings *viewSettings =[self getWebViewSetting];
-    NSNumber *realitemId= [[[NSNumberFormatter alloc]init] numberFromString:@"37347328302"];
+    NSNumber *realitemId= [[[NSNumberFormatter alloc]init] numberFromString:@"538780610715"];
     
-    ALBBTradePage *page=[ALBBTradePage itemDetailPage:[NSString stringWithFormat:@"%@",realitemId] params:@{@"_viewType":@"taobaoH5", @"isv_code":@"tag1"}];
+    //tip1
+//    ALBBTradePage *page2=[ALBBTradePage itemDetailPage:[NSString stringWithFormat:@"%@",realitemId] params:@{@"_viewType":@"taobaoH5", @"isv_code":@"tag1"}];
+    
+    //tip2
+    ALBBTradePage *page2 = [ALBBTradePage page:self.goodsLink];
+    
+    
     [_tradeService  show:self
-              isNeedPush:YES
+              isNeedPush:NO
        webViewUISettings:viewSettings
-                    page:page
+                    page:page2
              taoKeParams:nil
 tradeProcessSuccessCallback:^(ALBBTradeResult*  __nullable result){
     D_Log(@"result %@", result);

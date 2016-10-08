@@ -43,7 +43,7 @@
 -(void) setAliBBInfo
 {
     [[ALBBSDK sharedInstance] setDebugLogOpen:NO];//开发阶段打开日志开关，方便排查错误信息
-    [[ALBBSDK sharedInstance] setUseTaobaoNativeDetail:NO];//优先使用手淘APP打开商品详情页面，如果没有安装手机淘宝，SDK会使用H5打开
+    [[ALBBSDK sharedInstance] setUseTaobaoNativeDetail:YES];//优先使用手淘APP打开商品详情页面，如果没有安装手机淘宝，SDK会使用H5打开
     [[ALBBSDK sharedInstance] setViewType:ALBB_ITEM_VIEWTYPE_TAOBAO];//使用淘宝H5页面打开商品详情
     [[ALBBSDK sharedInstance] setISVCode:@"webstyle_1.0"];//设置全局的app标识，在电商模块里等同于isv_code,可以用来跟踪交易订单
     //基础SDK初始化

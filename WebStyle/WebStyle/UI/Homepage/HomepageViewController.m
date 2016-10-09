@@ -9,6 +9,12 @@
 #import "HomepageViewController.h"
 #import "UIBarButtonItem+CustomInit.h"
 #import "HomepageScrollProvider.h"
+#import "PreferPlayerProvider.h"
+#import "NewPlayerVideoProvider.h"
+#import "HotPlayerVideoProvider.h"
+#import "TopVideoProvider.h"
+
+
 #import "GWProviderDelegate.h"
 #import "AFURLRequestSerialization.h"
 #import "AFNetworking.h"
@@ -35,6 +41,11 @@
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) HomepageScrollProvider *topScrollProvider;
+@property (nonatomic, strong) PreferPlayerProvider *preferPlayerProvider;
+@property (nonatomic, strong) HotPlayerVideoProvider *hotPlayerVideoProvider;
+@property (nonatomic, strong) NewPlayerVideoProvider *pNewPlayerVideoProvider;
+@property (nonatomic, strong) TopVideoProvider *topVideoProvider;
+
 @property (nonatomic, strong) NSMutableArray *preferVideoArr;
 @property (nonatomic, strong) NSMutableArray *preferPlayerArr;
 
@@ -46,6 +57,7 @@
 @property (nonatomic, strong) HomeNewPlayerVideoViewController *pNewPlayerVideoVC;
 @property (nonatomic, strong) HomeHotPlayerVideoViewController *pHotPlayerVideoVC;
 @property (nonatomic, strong) HomeTopVideoViewController *pTopVideoVC;
+@property (nonatomic, assign) NSInteger iFinishRequest;
 
 @end
 
@@ -61,36 +73,23 @@ const NSString *topVideo = @"视频排行";
 {
     [super viewDidLoad];
     
-//    [self testProviderRequest];
-//    return;
     [self createSectionArrayData];
-    
     [self setNav];
     [self createTableView];
     
-    
+/*
     [self createTopScrollRequest];
     [self createPreferPlayerRequest];
     [self createNewPlayerVideoRequest];
     [self createHotPlayerVideoRequest];
     [self createTopVideoRequest];
+  */
     
     [self addMJRefresh];
     [self.tableView.header beginRefreshing];
 //    [self scrollViewDidScroll:self.tableView];
 }
 
--(void)testProviderRequest
-{
-    if(!self.topScrollProvider)
-    {
-        self.topScrollProvider = [[HomepageScrollProvider alloc] initWithSender:self];
-    }
-    D_Log(@"%@", [self.topScrollProvider description]);
-    [self.topScrollProvider requestWithCompletionHandler:^(id response, NSError* error){
-        D_Log(@"topScrollProvider %@", response);
-    }];
-}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -113,73 +112,119 @@ const NSString *topVideo = @"视频排行";
 
 -(void)createTopScrollRequest
 {
-    
     WeakObjectDef(self);
-    NSString * urlString = KPreferVideoURL;
-    D_Log(@"______%@",urlString);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    NSString * urlString = KPreferVideoURL;
+//    D_Log(@"______%@",urlString);
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    
+//    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//         NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+//        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+//        weakself.preferVideoArr = arrayM;
+//        [weakself.headView setDataArray:weakself.preferVideoArr];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        D_Log(@"请求失败");
+//    }];
     
-    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-         NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+    if(!self.topScrollProvider)
+    {
+        self.topScrollProvider = [[HomepageScrollProvider alloc] initWithSender:self];
+    }
+    [self.topScrollProvider cancelProvider];
+    D_Log(@"%@", [self.topScrollProvider description]);
+    [self.topScrollProvider requestWithCompletionHandler:^(id response, NSError* error){
+        D_Log(@"topScrollProvider %@", response);
+        NSArray *temArray  = [XYString getObjectFromJsonString:response];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
         weakself.preferVideoArr = arrayM;
         [weakself.headView setDataArray:weakself.preferVideoArr];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        D_Log(@"请求失败");
+        [self obserRequestStatus:error ? NO : YES];
     }];
 }
 
 -(void)createPreferPlayerRequest
 {
     WeakObjectDef(self);
-    NSString * urlString = KPreferPlayer;
-    D_Log(@"______%@",urlString);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+//    NSString * urlString = KPreferPlayer;
+//    D_Log(@"______%@",urlString);
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+//        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:temArray]];
+//        weakself.preferPlayerArr = arrayM;
+//        [weakself.tableView reloadData];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        D_Log(@"请求失败");
+//    }];
+    
+    if(!self.preferPlayerProvider)
+    {
+        self.preferPlayerProvider = [[PreferPlayerProvider alloc] initWithSender:self];
+    }
+    [self.preferPlayerProvider cancelProvider];
+    [self.preferPlayerProvider requestWithCompletionHandler:^(id response, NSError* error){
+        NSArray *temArray  = [XYString getObjectFromJsonString:response];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:temArray]];
         weakself.preferPlayerArr = arrayM;
         [weakself.tableView reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        D_Log(@"请求失败");
+        [self obserRequestStatus:error ? NO : YES];
     }];
 }
 
 -(void)createNewPlayerVideoRequest
 {
     WeakObjectDef(self);
-    NSString * urlString = kNewPlayerVideo;
-    D_Log(@"______%@",urlString);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+//    NSString * urlString = kNewPlayerVideo;
+//    D_Log(@"______%@",urlString);
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSArray *temArray  = [XYString getObjectFromJsonString:operation.responseString];
+//        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+//        D_Log(@"kNewPlayerVideo count %lu", (unsigned long)arrayM.count);
+//        weakself.pNewPlayerVideoVC.dataArray = arrayM;
+//        [weakself.pNewPlayerVideoVC.collectionView reloadData];
+//        [weakself.tableView reloadData];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        D_Log(@"请求失败");
+//        //        [_myRefreshView endRefreshing];
+//    }];
+    
+    if(!self.pNewPlayerVideoProvider)
+    {
+        self.pNewPlayerVideoProvider = [[NewPlayerVideoProvider alloc] initWithSender:self];
+    }
+    [self.pNewPlayerVideoProvider cancelProvider];
+    [self.pNewPlayerVideoProvider requestWithCompletionHandler:^(id response, NSError* error){
+        NSArray *temArray  = [XYString getObjectFromJsonString:response];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
         D_Log(@"kNewPlayerVideo count %lu", (unsigned long)arrayM.count);
         weakself.pNewPlayerVideoVC.dataArray = arrayM;
         [weakself.pNewPlayerVideoVC.collectionView reloadData];
         [weakself.tableView reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        D_Log(@"请求失败");
-        //        [_myRefreshView endRefreshing];
+        [self obserRequestStatus:error ? NO : YES];
     }];
 }
 
 -(void)createHotPlayerVideoRequest
 {
     WeakObjectDef(self);
+/*
     NSString * urlString = kHotPlayerVideo;
     D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -199,11 +244,29 @@ const NSString *topVideo = @"视频排行";
         D_Log(@"请求失败");
         //        [_myRefreshView endRefreshing];
     }];
+ */
+    
+    if(!self.hotPlayerVideoProvider)
+    {
+        self.hotPlayerVideoProvider = [[HotPlayerVideoProvider alloc] initWithSender:self];
+    }
+    [self.hotPlayerVideoProvider cancelProvider];
+    [self.hotPlayerVideoProvider requestWithCompletionHandler:^(id response, NSError* error){
+        NSArray *temArray  = [XYString getObjectFromJsonString:response];
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+        D_Log(@"kHotPlayerVideo count %lu", (unsigned long)arrayM.count);
+        weakself.pHotPlayerVideoVC.dataArray = arrayM;
+        [weakself.pHotPlayerVideoVC.collectionView reloadData];
+        [weakself.tableView reloadData];
+        
+        [self obserRequestStatus:error ? NO : YES];
+    }];
 }
 
 -(void)createTopVideoRequest
 {
     WeakObjectDef(self);
+    /*
     NSString * urlString = kTopVideo;
     D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -220,6 +283,24 @@ const NSString *topVideo = @"视频排行";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         D_Log(@"请求失败");
         //        [_myRefreshView endRefreshing];
+    }];
+    */
+    
+    if(!self.topVideoProvider)
+    {
+        self.topVideoProvider = [[TopVideoProvider alloc] initWithSender:self];
+    }
+    [self.topVideoProvider cancelProvider];
+    [self.topVideoProvider requestWithCompletionHandler:^(id response, NSError* error){
+        NSArray *temArray  = [XYString getObjectFromJsonString:response];
+        NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
+        D_Log(@"kTopVideo count %lu", (unsigned long)arrayM.count);
+        weakself.pTopVideoVC.dataArray = arrayM;
+        [weakself.pTopVideoVC.collectionView reloadData];
+        [weakself.tableView reloadData];
+        
+        [self obserRequestStatus:error ? NO : YES];
+
     }];
 }
 
@@ -349,13 +430,28 @@ const NSString *topVideo = @"视频排行";
 
 -(void) refreshData
 {
-    WeakObjectDef(self);
+//    WeakObjectDef(self);
 
+    self.iFinishRequest = 0;
+    [self createTopScrollRequest];
+    [self createPreferPlayerRequest];
+    [self createNewPlayerVideoRequest];
+    [self createHotPlayerVideoRequest];
+    [self createTopVideoRequest];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        D_Log(@"end Refreshing");
-        [weakself.tableView.header endRefreshing];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        D_Log(@"end Refreshing");
+//        [weakself.tableView.header endRefreshing];
+//    });
+}
+
+-(void) obserRequestStatus:(BOOL)bSuccess
+{
+    self.iFinishRequest++;
+    if(self.iFinishRequest == 5)
+    {
+        [self.tableView.header endRefreshing];
+    }
 }
 #pragma mark UITableViewDelegate
 

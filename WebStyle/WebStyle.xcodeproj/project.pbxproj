@@ -266,6 +266,11 @@
 		C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F611D800D5E007EE026 /* GWMessageView.m */; };
 		C1673F651D800D5E007EE026 /* GWProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C1673F631D800D5E007EE026 /* GWProgressHUD.m */; };
 		C1673F681D8012EB007EE026 /* loadingGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1673F671D8012EB007EE026 /* loadingGIF.gif */; };
+		C178255E1DAA246500BF3249 /* PreferPlayerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C178255D1DAA246500BF3249 /* PreferPlayerProvider.m */; };
+		C17825611DAA250700BF3249 /* NewPlayerVideoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C17825601DAA250700BF3249 /* NewPlayerVideoProvider.m */; };
+		C17825641DAA257A00BF3249 /* HotPlayerVideoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C17825631DAA257A00BF3249 /* HotPlayerVideoProvider.m */; };
+		C17825671DAA2D1700BF3249 /* TopVideoProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C17825661DAA2D1700BF3249 /* TopVideoProvider.m */; };
+		C178256A1DAA49F700BF3249 /* QueryProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C17825691DAA49F700BF3249 /* QueryProvider.m */; };
 		C17F0FEC1D826D7400B89525 /* GWNewUserCenterTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FEB1D826D7400B89525 /* GWNewUserCenterTopCell.m */; };
 		C17F0FEF1D829F7E00B89525 /* WSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FEE1D829F7E00B89525 /* WSUser.m */; };
 		C17F0FF21D82A43100B89525 /* WSAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = C17F0FF11D82A43100B89525 /* WSAppContext.m */; };
@@ -778,6 +783,16 @@
 		C1673F621D800D5E007EE026 /* GWProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProgressHUD.h; sourceTree = "<group>"; };
 		C1673F631D800D5E007EE026 /* GWProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProgressHUD.m; sourceTree = "<group>"; };
 		C1673F671D8012EB007EE026 /* loadingGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGIF.gif; sourceTree = "<group>"; };
+		C178255C1DAA246500BF3249 /* PreferPlayerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferPlayerProvider.h; sourceTree = "<group>"; };
+		C178255D1DAA246500BF3249 /* PreferPlayerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferPlayerProvider.m; sourceTree = "<group>"; };
+		C178255F1DAA250700BF3249 /* NewPlayerVideoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayerVideoProvider.h; sourceTree = "<group>"; };
+		C17825601DAA250700BF3249 /* NewPlayerVideoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayerVideoProvider.m; sourceTree = "<group>"; };
+		C17825621DAA257A00BF3249 /* HotPlayerVideoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotPlayerVideoProvider.h; sourceTree = "<group>"; };
+		C17825631DAA257A00BF3249 /* HotPlayerVideoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotPlayerVideoProvider.m; sourceTree = "<group>"; };
+		C17825651DAA2D1700BF3249 /* TopVideoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopVideoProvider.h; sourceTree = "<group>"; };
+		C17825661DAA2D1700BF3249 /* TopVideoProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopVideoProvider.m; sourceTree = "<group>"; };
+		C17825681DAA49F700BF3249 /* QueryProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryProvider.h; sourceTree = "<group>"; };
+		C17825691DAA49F700BF3249 /* QueryProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProvider.m; sourceTree = "<group>"; };
 		C17F0FEA1D826D7400B89525 /* GWNewUserCenterTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWNewUserCenterTopCell.h; sourceTree = "<group>"; };
 		C17F0FEB1D826D7400B89525 /* GWNewUserCenterTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWNewUserCenterTopCell.m; sourceTree = "<group>"; };
 		C17F0FED1D829F7E00B89525 /* WSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUser.h; sourceTree = "<group>"; };
@@ -1584,6 +1599,16 @@
 				C19A5C961D9D15CA00C4EBB3 /* QueryIsFavoriteProvider.m */,
 				C19A5C981D9D166700C4EBB3 /* DoFavoriteProvider.h */,
 				C19A5C991D9D166700C4EBB3 /* DoFavoriteProvider.m */,
+				C178255C1DAA246500BF3249 /* PreferPlayerProvider.h */,
+				C178255D1DAA246500BF3249 /* PreferPlayerProvider.m */,
+				C178255F1DAA250700BF3249 /* NewPlayerVideoProvider.h */,
+				C17825601DAA250700BF3249 /* NewPlayerVideoProvider.m */,
+				C17825621DAA257A00BF3249 /* HotPlayerVideoProvider.h */,
+				C17825631DAA257A00BF3249 /* HotPlayerVideoProvider.m */,
+				C17825651DAA2D1700BF3249 /* TopVideoProvider.h */,
+				C17825661DAA2D1700BF3249 /* TopVideoProvider.m */,
+				C17825681DAA49F700BF3249 /* QueryProvider.h */,
+				C17825691DAA49F700BF3249 /* QueryProvider.m */,
 			);
 			path = CommonProvider;
 			sourceTree = "<group>";
@@ -2118,6 +2143,7 @@
 				C145F8E51D6EBF1F00346164 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C14046431D6D91190067D66F /* SVChatEmotionSelectView.m in Sources */,
 				C1673F641D800D5E007EE026 /* GWMessageView.m in Sources */,
+				C17825641DAA257A00BF3249 /* HotPlayerVideoProvider.m in Sources */,
 				C1455A021D75C9370021C453 /* HomeTopVideoViewController.m in Sources */,
 				C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */,
 				C1611EE11D70274B00A73FCB /* HomepageHeaderView.m in Sources */,
@@ -2128,6 +2154,7 @@
 				C145F9071D6ED38200346164 /* TAPageControl.m in Sources */,
 				C13711EB1D8AF1DB00635894 /* GWSettingViewController.m in Sources */,
 				C14045671D6D52980067D66F /* MJRefreshNormalHeader.m in Sources */,
+				C17825671DAA2D1700BF3249 /* TopVideoProvider.m in Sources */,
 				C1611EEC1D70326A00A73FCB /* SwipeView.m in Sources */,
 				C140466F1D6D91E80067D66F /* MBProgressHUD.m in Sources */,
 				C145F9081D6ED38200346164 /* SDCollectionViewCell.m in Sources */,
@@ -2191,6 +2218,7 @@
 				C1AF61D11D9280070048983F /* MyPopularColletionViewController.m in Sources */,
 				C14046331D6D91190067D66F /* BudleImageCache.m in Sources */,
 				C14046751D6D91E80067D66F /* NSObject+MJClass.m in Sources */,
+				C17825611DAA250700BF3249 /* NewPlayerVideoProvider.m in Sources */,
 				C140463A1D6D91190067D66F /* NSDateFormatter+Gewara.m in Sources */,
 				C145F9041D6ED38200346164 /* TAAbstractDotView.m in Sources */,
 				C14046501D6D91190067D66F /* GWXMLDeserializer.m in Sources */,
@@ -2296,6 +2324,7 @@
 				C140455F1D6D52980067D66F /* MJRefreshHeader.m in Sources */,
 				C137120F1D8AF4E700635894 /* MASConstraintMaker.m in Sources */,
 				C14045751D6D85000067D66F /* UIBarButtonItem+CustomInit.m in Sources */,
+				C178255E1DAA246500BF3249 /* PreferPlayerProvider.m in Sources */,
 				C1330EFF1D86CD5A0039ED2D /* SFDialogTools.m in Sources */,
 				C140456B1D6D52980067D66F /* UIScrollView+MJExtension.m in Sources */,
 				C14045D91D6D8FFA0067D66F /* GWProviderAppConfig.m in Sources */,
@@ -2325,6 +2354,7 @@
 				C1A2FA991D6C2E75000D09DE /* BasicViewController.m in Sources */,
 				C17F0FF81D82A79300B89525 /* NSString+WSUpload.m in Sources */,
 				C14046701D6D91E80067D66F /* MJExtensionConst.m in Sources */,
+				C178256A1DAA49F700BF3249 /* QueryProvider.m in Sources */,
 				C145F9311D6ED93800346164 /* NSData+ImageContentType.m in Sources */,
 				C14046911D6D96590067D66F /* NSDate+SFAddition.m in Sources */,
 				C145F93E1D6ED93800346164 /* UIImageView+WebCache.m in Sources */,

@@ -1,21 +1,20 @@
 //
-//  HomepageScrollProvider.m
+//  HotPlayerVideoProvider.m
 //  WebStyle
 //
-//  Created by liudan on 8/25/16.
+//  Created by liudan on 10/9/16.
 //  Copyright © 2016 liudan. All rights reserved.
 //
 
-#import "HomepageScrollProvider.h"
+#import "HotPlayerVideoProvider.h"
 #import "UrlDefine.h"
-@implementation HomepageScrollProvider
-
+@implementation HotPlayerVideoProvider
 -(id)init
 {
     if(self = [super init])
     {
-        self.urlString = KGWHostURL;
-        self.cacheUrlString = KGWHostURL;
+        self.urlString = kHotPlayerVideo;
+        self.cacheUrlString = kHotPlayerVideo;
         
         
         [self setResponseHandler:^id(id response, NSError **error) {

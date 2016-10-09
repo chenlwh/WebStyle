@@ -1,21 +1,20 @@
 //
-//  HomepageScrollProvider.m
+//  PreferPlayerProvider.m
 //  WebStyle
 //
-//  Created by liudan on 8/25/16.
+//  Created by liudan on 10/9/16.
 //  Copyright © 2016 liudan. All rights reserved.
 //
 
-#import "HomepageScrollProvider.h"
+#import "PreferPlayerProvider.h"
 #import "UrlDefine.h"
-@implementation HomepageScrollProvider
-
+@implementation PreferPlayerProvider
 -(id)init
 {
     if(self = [super init])
     {
-        self.urlString = KGWHostURL;
-        self.cacheUrlString = KGWHostURL;
+        self.urlString = KPreferPlayer;
+        self.cacheUrlString = KPreferPlayer;
         
         
         [self setResponseHandler:^id(id response, NSError **error) {

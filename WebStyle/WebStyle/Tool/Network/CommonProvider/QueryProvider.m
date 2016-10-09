@@ -1,22 +1,22 @@
 //
-//  HomepageScrollProvider.m
+//  QueryProvider.m
 //  WebStyle
 //
-//  Created by liudan on 8/25/16.
+//  Created by liudan on 10/9/16.
 //  Copyright © 2016 liudan. All rights reserved.
 //
 
-#import "HomepageScrollProvider.h"
+#import "QueryProvider.h"
 #import "UrlDefine.h"
-@implementation HomepageScrollProvider
 
+@implementation QueryProvider
 -(id)init
 {
     if(self = [super init])
     {
-        self.urlString = KGWHostURL;
-        self.cacheUrlString = KGWHostURL;
-        
+        self.urlString = kQueryInfo;
+        self.cacheUrlString = kQueryInfo;
+        self.httpMethod = @"Get";
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

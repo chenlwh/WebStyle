@@ -13,7 +13,6 @@
 {
     if(self = [super init])
     {
-        //        self.method = @"prefervideo";
         self.urlString = kDoFavorite;
         self.cacheUrlString = kDoFavorite;
         

@@ -18,6 +18,7 @@
 #import "GWProgressHUD.h"
 #import "GWMessageView.h"
 #import "PlayVideoViewController.h"
+#import "QueryProvider.h"
 
 #define  kHistoryRecordFileName   @"GWSearchViewController_HistorySearchRecord"
 #define tableViewHeadHeight 45
@@ -43,6 +44,9 @@ enum {
 @property (nonatomic, strong) UIView *hudView;
 
 @property (nonatomic,strong) UIView *currentNavView;
+
+@property (nonatomic, strong) QueryProvider *queryProvider;
+
 @end
 
 @implementation SearchViewController
@@ -306,8 +310,58 @@ enum {
     [GWProgressHUD showHUDAddedTo:self.hudView  animated:NO];
     
     WeakObjectDef(self);
-    NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-//    NSString *transString = [NSString stringWithString:[urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    /*
+    if(!self.queryProvider)
+    {
+        self.queryProvider = [[QueryProvider alloc] init];
+    }
+    [self.queryProvider cancelProvider];
+    self.queryProvider.query = searchName;
+//    [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [self.queryProvider requestWithCompletionHandler:^(id response , NSError *error){
+        [GWProgressHUD hideHUDForView:weakself.hudView animated:YES];
+        [GWMessageView hideMSGForView:weakself.hudView animated:YES];
+        
+        D_Log(@"%@", response);
+        id obj = [XYString getObjectFromJsonString:response];
+        D_Log(@"%@", obj);
+        if([obj isKindOfClass:[NSArray class]])
+        {
+            [weakself.searchedPlayerList removeAllObjects];
+            [weakself.searchedVideoList removeAllObjects];
+            for(id o in obj)
+            {
+                id tag = o[@"tag"];
+                id data = o[@"data"];
+                if([tag isKindOfClass:[NSString class]]
+                   && [data isKindOfClass:[NSArray class]])
+                {
+                    
+                    if([tag isEqualToString:@"player"])
+                    {
+                        weakself.searchedPlayerList = [NSMutableArray arrayWithArray:[PreferPlayer mj_objectArrayWithKeyValuesArray:data]];
+                    }
+                    else if([tag isEqualToString:@"video"])
+                    {
+                        weakself.searchedVideoList = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:data]];
+                    }
+                }
+            }
+        }
+        if(weakself.searchedPlayerList.count || weakself.searchedVideoList.count)
+        {
+            [weakself showSearchMode:NO];
+        }
+        else
+        {
+            //show msg 未找到相关内容
+            [GWMessageView showMSGAddedTo:weakself.hudView text:@"未找到相关内容" animated:YES];
+        }
+    }];
+   // */
+    ///*
+    NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo2, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -359,6 +413,7 @@ enum {
         
         D_Log(@"请求失败");
     }];
+   //  */
 }
 
 - (void)showSearchMode:(BOOL)searchMode

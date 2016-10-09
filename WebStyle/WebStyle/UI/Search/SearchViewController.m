@@ -40,6 +40,8 @@ enum {
 
 @property (nonatomic, strong) UITextField           *searchTF;
 
+@property (nonatomic, strong) UIView *hudView;
+
 @property (nonatomic,strong) UIView *currentNavView;
 @end
 
@@ -208,6 +210,11 @@ enum {
     [self.view addSubview:_historyTableView];
     [self.historyTableView reloadData];
     
+    _hudView = [[UIView alloc] initWithFrame:tableRect];
+    _hudView.backgroundColor = [UIColor clearColor];
+    
+    [self.view insertSubview:_hudView belowSubview:_mainTableView];
+    
     if (true) {
         image.image = [UIImage imageNamed:@"icon_search"];
         image.width=20.0;
@@ -296,7 +303,7 @@ enum {
     
     [self addTextToHistory:searchName];
     
-    [GWProgressHUD showHUDAddedTo:self.view  animated:NO];
+    [GWProgressHUD showHUDAddedTo:self.hudView  animated:NO];
     
     WeakObjectDef(self);
     NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
@@ -308,8 +315,8 @@ enum {
     
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [GWProgressHUD hideHUDForView:weakself.view animated:YES];
-        [GWMessageView hideMSGForView:weakself.view animated:YES];
+        [GWProgressHUD hideHUDForView:weakself.hudView animated:YES];
+        [GWMessageView hideMSGForView:weakself.hudView animated:YES];
         
         D_Log(@"%@", operation.responseString);
         id obj = [XYString getObjectFromJsonString:operation.responseString];
@@ -344,7 +351,7 @@ enum {
         else
         {
             //show msg 未找到相关内容
-            [GWMessageView showMSGAddedTo:weakself.view text:@"未找到相关内容" animated:YES];
+            [GWMessageView showMSGAddedTo:weakself.hudView text:@"未找到相关内容" animated:YES];
         }
         
         
@@ -360,8 +367,8 @@ enum {
         self.historyTableView.hidden = NO;
         self.mainTableView.hidden = YES;
         
-        [GWMessageView hideMSGForView:self.view animated:YES];
-        [GWProgressHUD hideHUDForView:self.view animated:YES];
+        [GWMessageView hideMSGForView:self.hudView animated:YES];
+        [GWProgressHUD hideHUDForView:self.hudView animated:YES];
     }else{
         self.historyTableView.hidden = YES;
         self.mainTableView.hidden = NO;

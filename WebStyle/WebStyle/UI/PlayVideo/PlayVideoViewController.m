@@ -19,6 +19,8 @@
 #import "UIViewController+Alert.h"
 #import "QueryIsFavoriteProvider.h"
 #import "WSAppContext+WSLogin.h"
+#import "NSDate+Gewara.h"
+
 #import <ALBBSDK/ALBBSDK.h>
 #import <ALBBTradeSDK/ALBBTradeSDK.h>
 @interface PlayVideoViewController()<PrePlayViewDelegate, UITableViewDelegate, UITableViewDataSource, BottomBarDelegate>
@@ -342,20 +344,22 @@
     {
         VideoBrowserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoBrowserTableViewCell cellIndentifier]];
         cell.infoLabel.text = [NSString stringWithFormat:@"浏览%@次", _model.browsers];
-        //        cell.contentView.backgroundColor = [UIColor greenColor];
         return cell;
     }
     else if (indexPath.section == 1)
     {
         VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[VideoTitleTableViewCell cellIndentifier]];
-        cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
+//        cell.videoTimeLabel.text = [NSString stringWithFormat:@"今天14:23发布"];
         cell.videoTitleLabel.text = _model.vedioDesc;
-        //        cell.contentView.backgroundColor = [UIColor yellowColor];
-        //        cell.backgroundColor = [UIColor yellowColor];
+        NSString *str = [NSString stringWithFormat:@"%@ 发布", [NSDate dateDescInfoWithDateString:_model.date]];
+        cell.videoTimeLabel.text = str;
+
         return cell;
     }
     return nil;
 }
+
+
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -412,7 +416,7 @@
         [self showToastWithString:@"商品链接为空" hideAfterInterval:2.0f];
         return;
     }
-    __unused TaeWebViewUISettings *viewSettings =[self getWebViewSetting];
+    TaeWebViewUISettings *viewSettings =[self getWebViewSetting];
     NSNumber *realitemId= [[[NSNumberFormatter alloc]init] numberFromString:@"538780610715"];
     
     //tip1

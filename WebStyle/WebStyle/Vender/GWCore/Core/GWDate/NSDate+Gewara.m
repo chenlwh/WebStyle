@@ -141,7 +141,30 @@ static NSCalendar* defaultCalendar = nil;
     }
     else
     {
-        return [NSString stringWithFormat:@"%d年%d月%日", walaParts.year, walaParts.month, walaParts.day];
+        return [NSString stringWithFormat:@"%ld年%ld月%ld日", (long)walaParts.year, (long)walaParts.month, walaParts.day];
+    }
+}
+
++(NSString*)dateDescInfoWithDateString:(NSString*)dateStr
+{
+    NSDate *curDate = [NSDate date];
+    NSDate *timeDate = [[NSDate defaultFormatter] dateFromString:dateStr];
+    NSDateComponents *curParts = [curDate cc_componentsForMonthDayAndYear];
+    NSDateComponents *timeParts  = [timeDate cc_componentsForMonthDayAndYear];
+    if(curParts.year == timeParts.year)
+    {
+        if(curParts.month == timeParts.month && curDate.day == timeParts.day)
+        {
+            return [NSString stringWithFormat:@"今日%ld时%ld分", (long)timeParts.hour, (long)timeParts.minute];
+        }
+        else
+        {
+            return [NSString stringWithFormat:@"%ld月%ld日", timeParts.month, timeParts.day];
+        }
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"%ld年%ld月%ld日", timeParts.year, timeParts.month, timeParts.day];
     }
 }
 

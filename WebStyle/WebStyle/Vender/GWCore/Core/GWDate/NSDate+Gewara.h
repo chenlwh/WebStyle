@@ -65,6 +65,8 @@ typedef NSUInteger GWDateFormat;
 +(NSString*)malawalaDateString:(NSString*)walaDateStr;
 
 
++(NSString*)dateDescInfoWithDateString:(NSString*)dateStr;
+
 - (NSDate*)dateWithAdditionTimeInterval:(NSTimeInterval)seconds;
 - (NSString*)dateSplitByDayChineseString;
 

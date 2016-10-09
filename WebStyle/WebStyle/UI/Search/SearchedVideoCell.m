@@ -10,6 +10,7 @@
 #import "UIView+Gewara.h"
 #import "MsgDefine.h"
 #import "UIImageView+WebCache.h"
+#import "NSDate+Gewara.h"
 @implementation SearchedVideoCell
 
 - (void)awakeFromNib {
@@ -33,9 +34,10 @@
 -(void) setVideoInfo:(PreferVideo*)video
 {
     [_videoImgView sd_setImageWithURL:[NSURL URLWithString:video.vedioimage] completed:nil];
-    [_videoTime setText:[NSString stringWithFormat:@"发布时间：%@", video.date]];
+//    video.date
+    [_videoTime setText:[NSString stringWithFormat:@"发布时间：%@", [NSDate dateDescInfoWithDateString:video.date]]];
     [_videoTitle setText:video.vedioDesc];
-//    _videoAuthor setText:<#(NSString * _Nullable)#>
+    [_videoAuthor setText:(video.userID.length > 0 ? video.userID : @"")];
 }
 
 @end

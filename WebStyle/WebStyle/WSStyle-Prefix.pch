@@ -1,0 +1,33 @@
+//
+//  WSStyle-Prefix.h
+//  WebStyle
+//
+//  Created by liudan on 10/13/16.
+//  Copyright © 2016 liudan. All rights reserved.
+//
+
+#ifndef WSStyle_Prefix_h
+#define WSStyle_Prefix_h
+
+#if ((DEBUG) || (ADHOC))
+#define __TEST__
+#endif
+
+#if defined(__TEST__)
+#define __USE_DEBUGTOOL__
+#endif
+
+
+#ifdef DEBUG
+//#define D_Log(...)   NSLog(@"\nfuction name: %s (%@第%d行)  \n%@", __func__,\
+//[[NSString stringWithUTF8String:__FILE__]lastPathComponent],\
+//__LINE__,\
+//[NSString stringWithFormat:__VA_ARGS__])
+
+#define D_Log(...) NSLog(__VA_ARGS__)
+
+#else
+#define D_Log(...)
+#endif
+
+#endif /* WSStyle_Prefix_h */

@@ -22,11 +22,11 @@
 #endif
 
 
-#ifdef DEBUG
-#define D_Log(...) NSLog(__VA_ARGS__)
-#else
-#define D_Log(...)
-#endif
+//#ifdef DEBUG
+//#define D_Log(...) NSLog(__VA_ARGS__)
+//#else
+//#define D_Log(...)
+//#endif
 
 #define DefaultFloatComparisonEpsilon    0.0001
 #define EqualFloats(f1, f2, epsilon)    ( fabs( (f1) - (f2) ) < epsilon )
@@ -39,7 +39,7 @@
 #define IsRightSlideGesture(translation)  (translation.x > 0)
 
 #define WeakObjectDef(obj) __weak typeof(obj) weak##obj = obj
-
+#define StrongObjectDef(obj) __strong typeof(obj) strong##obj = obj
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)

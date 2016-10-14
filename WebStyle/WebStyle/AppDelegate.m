@@ -12,6 +12,8 @@
 #import "WSAppcontext.h"
 #import "WSAppContext+WSLogin.h"
 #import <ALBBSDK/ALBBSDK.h>
+#import "WSDebugManager.h"
+#import "MsgDefine.h"
 
 @interface AppDelegate ()
 
@@ -29,7 +31,14 @@
     //处理自动登录
     [[WSAppContext appContext] autoLogin];
     
-    
+#ifdef __USE_DEBUGTOOL__
+     WeakObjectDef(self);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[WSDebugManager shareInstance] displayDebugView];
+        [WSDebugManager shareInstance].notificationWindow.appKeyWindow = weakself.window;
+        [weakself.window makeKeyAndVisible];
+    });
+#endif
     return YES;
 }
 

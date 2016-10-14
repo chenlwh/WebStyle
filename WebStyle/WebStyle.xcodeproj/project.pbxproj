@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C10A90BF1D990411008D8B3E /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A90BE1D990411008D8B3E /* VideoListViewController.m */; };
 		C10A90C21D9904AA008D8B3E /* THVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A90C11D9904AA008D8B3E /* THVideoCell.m */; };
+		C11DE9081DAF815900D0D33F /* WSDebugManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C11DE9071DAF815900D0D33F /* WSDebugManager.m */; };
+		C11DE90B1DAF836F00D0D33F /* WSDebugWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C11DE90A1DAF836F00D0D33F /* WSDebugWindow.m */; };
 		C1247EE21D93DD8600F7A7D0 /* video_play_btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */; };
 		C1268F3B1D9518BB00845370 /* VideoBrowserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F391D9518BB00845370 /* VideoBrowserTableViewCell.m */; };
 		C1268F3C1D9518BB00845370 /* VideoBrowserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1268F3A1D9518BB00845370 /* VideoBrowserTableViewCell.xib */; };
@@ -16,6 +18,22 @@
 		C1268F411D951A9C00845370 /* VideoTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1268F3F1D951A9C00845370 /* VideoTitleTableViewCell.xib */; };
 		C1268F441D953FCA00845370 /* BottomToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F431D953FCA00845370 /* BottomToolBar.m */; };
 		C1268F471D95487900845370 /* GWProtocolInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C1268F461D95487900845370 /* GWProtocolInterceptor.m */; };
+		C126FE261DB082CB001DA480 /* WSDebugThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE251DB082CB001DA480 /* WSDebugThumbnailView.m */; };
+		C126FE291DB08C3E001DA480 /* GWDebugSettingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE281DB08C3E001DA480 /* GWDebugSettingInfo.m */; };
+		C126FE2C1DB0B373001DA480 /* GWDebugDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE2B1DB0B373001DA480 /* GWDebugDBManager.m */; };
+		C126FE2F1DB0B6A5001DA480 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE2E1DB0B6A5001DA480 /* YYWeakProxy.m */; };
+		C126FE321DB0B868001DA480 /* GWDebugRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE311DB0B868001DA480 /* GWDebugRootViewController.m */; };
+		C126FE351DB0C30E001DA480 /* GWRequestDurationDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE341DB0C30E001DA480 /* GWRequestDurationDAO.m */; };
+		C126FE3F1DB0C4D9001DA480 /* GWBaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE381DB0C4D9001DA480 /* GWBaseDAO.m */; };
+		C126FE401DB0C4D9001DA480 /* GWDBCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE3A1DB0C4D9001DA480 /* GWDBCondition.m */; };
+		C126FE411DB0C4D9001DA480 /* GWDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE3C1DB0C4D9001DA480 /* GWDBManager.m */; };
+		C126FE421DB0C4D9001DA480 /* GWDBProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE3E1DB0C4D9001DA480 /* GWDBProperty.m */; };
+		C126FE4F1DB0C5B5001DA480 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE451DB0C5B5001DA480 /* FMDatabase.m */; };
+		C126FE501DB0C5B5001DA480 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE471DB0C5B5001DA480 /* FMDatabaseAdditions.m */; };
+		C126FE511DB0C5B5001DA480 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE491DB0C5B5001DA480 /* FMDatabasePool.m */; };
+		C126FE521DB0C5B5001DA480 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE4B1DB0C5B5001DA480 /* FMDatabaseQueue.m */; };
+		C126FE531DB0C5B5001DA480 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C126FE4E1DB0C5B5001DA480 /* FMResultSet.m */; };
+		C126FE551DB0CA4E001DA480 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C126FE541DB0CA4E001DA480 /* libsqlite3.tbd */; };
 		C1330EDF1D86C8E60039ED2D /* LogingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EDE1D86C8E60039ED2D /* LogingViewController.m */; };
 		C1330EE31D86CB9E0039ED2D /* UIViewController+GWFindSubController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE21D86CB9E0039ED2D /* UIViewController+GWFindSubController.m */; };
 		C1330EF01D86CCC80039ED2D /* GWDoubleFadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1330EE61D86CCC80039ED2D /* GWDoubleFadeView.m */; };
@@ -306,6 +324,11 @@
 		C10A90BE1D990411008D8B3E /* VideoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListViewController.m; sourceTree = "<group>"; };
 		C10A90C01D9904AA008D8B3E /* THVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THVideoCell.h; sourceTree = "<group>"; };
 		C10A90C11D9904AA008D8B3E /* THVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THVideoCell.m; sourceTree = "<group>"; };
+		C11DE9061DAF815900D0D33F /* WSDebugManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDebugManager.h; sourceTree = "<group>"; };
+		C11DE9071DAF815900D0D33F /* WSDebugManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDebugManager.m; sourceTree = "<group>"; };
+		C11DE9091DAF836F00D0D33F /* WSDebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDebugWindow.h; sourceTree = "<group>"; };
+		C11DE90A1DAF836F00D0D33F /* WSDebugWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDebugWindow.m; sourceTree = "<group>"; };
+		C11DE90C1DAF8A6600D0D33F /* WSStyle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WSStyle-Prefix.pch"; sourceTree = "<group>"; };
 		C1247EE11D93DD8600F7A7D0 /* video_play_btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_play_btn_bg@2x.png"; sourceTree = "<group>"; };
 		C1268F381D9518BB00845370 /* VideoBrowserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoBrowserTableViewCell.h; sourceTree = "<group>"; };
 		C1268F391D9518BB00845370 /* VideoBrowserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoBrowserTableViewCell.m; sourceTree = "<group>"; };
@@ -317,6 +340,38 @@
 		C1268F431D953FCA00845370 /* BottomToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BottomToolBar.m; path = ../Homepage/BottomToolBar.m; sourceTree = "<group>"; };
 		C1268F451D95487900845370 /* GWProtocolInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWProtocolInterceptor.h; sourceTree = "<group>"; };
 		C1268F461D95487900845370 /* GWProtocolInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWProtocolInterceptor.m; sourceTree = "<group>"; };
+		C126FE241DB082CB001DA480 /* WSDebugThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSDebugThumbnailView.h; sourceTree = "<group>"; };
+		C126FE251DB082CB001DA480 /* WSDebugThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSDebugThumbnailView.m; sourceTree = "<group>"; };
+		C126FE271DB08C3E001DA480 /* GWDebugSettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDebugSettingInfo.h; sourceTree = "<group>"; };
+		C126FE281DB08C3E001DA480 /* GWDebugSettingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDebugSettingInfo.m; sourceTree = "<group>"; };
+		C126FE2A1DB0B373001DA480 /* GWDebugDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDebugDBManager.h; sourceTree = "<group>"; };
+		C126FE2B1DB0B373001DA480 /* GWDebugDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDebugDBManager.m; sourceTree = "<group>"; };
+		C126FE2D1DB0B6A5001DA480 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
+		C126FE2E1DB0B6A5001DA480 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
+		C126FE301DB0B868001DA480 /* GWDebugRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDebugRootViewController.h; sourceTree = "<group>"; };
+		C126FE311DB0B868001DA480 /* GWDebugRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDebugRootViewController.m; sourceTree = "<group>"; };
+		C126FE331DB0C30E001DA480 /* GWRequestDurationDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWRequestDurationDAO.h; sourceTree = "<group>"; };
+		C126FE341DB0C30E001DA480 /* GWRequestDurationDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWRequestDurationDAO.m; sourceTree = "<group>"; };
+		C126FE371DB0C4D9001DA480 /* GWBaseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWBaseDAO.h; sourceTree = "<group>"; };
+		C126FE381DB0C4D9001DA480 /* GWBaseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWBaseDAO.m; sourceTree = "<group>"; };
+		C126FE391DB0C4D9001DA480 /* GWDBCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDBCondition.h; sourceTree = "<group>"; };
+		C126FE3A1DB0C4D9001DA480 /* GWDBCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDBCondition.m; sourceTree = "<group>"; };
+		C126FE3B1DB0C4D9001DA480 /* GWDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDBManager.h; sourceTree = "<group>"; };
+		C126FE3C1DB0C4D9001DA480 /* GWDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDBManager.m; sourceTree = "<group>"; };
+		C126FE3D1DB0C4D9001DA480 /* GWDBProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GWDBProperty.h; sourceTree = "<group>"; };
+		C126FE3E1DB0C4D9001DA480 /* GWDBProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GWDBProperty.m; sourceTree = "<group>"; };
+		C126FE441DB0C5B5001DA480 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C126FE451DB0C5B5001DA480 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C126FE461DB0C5B5001DA480 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C126FE471DB0C5B5001DA480 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C126FE481DB0C5B5001DA480 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C126FE491DB0C5B5001DA480 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C126FE4A1DB0C5B5001DA480 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C126FE4B1DB0C5B5001DA480 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C126FE4C1DB0C5B5001DA480 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		C126FE4D1DB0C5B5001DA480 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C126FE4E1DB0C5B5001DA480 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C126FE541DB0CA4E001DA480 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C1330EDD1D86C8E60039ED2D /* LogingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogingViewController.h; sourceTree = "<group>"; };
 		C1330EDE1D86C8E60039ED2D /* LogingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogingViewController.m; sourceTree = "<group>"; };
 		C1330EE11D86CB9E0039ED2D /* UIViewController+GWFindSubController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GWFindSubController.h"; sourceTree = "<group>"; };
@@ -854,6 +909,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C126FE551DB0CA4E001DA480 /* libsqlite3.tbd in Frameworks */,
 				C14046C61D6DB3040067D66F /* Foundation.framework in Frameworks */,
 				C145F8AC1D6E8E9E00346164 /* libz.tbd in Frameworks */,
 				C143B5441DA902F100797412 /* libstdc++.6.0.9.tbd in Frameworks */,
@@ -883,6 +939,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C11DE9051DAF814000D0D33F /* WSDebugManager */ = {
+			isa = PBXGroup;
+			children = (
+				C126FE331DB0C30E001DA480 /* GWRequestDurationDAO.h */,
+				C126FE341DB0C30E001DA480 /* GWRequestDurationDAO.m */,
+				C126FE301DB0B868001DA480 /* GWDebugRootViewController.h */,
+				C126FE311DB0B868001DA480 /* GWDebugRootViewController.m */,
+				C126FE2D1DB0B6A5001DA480 /* YYWeakProxy.h */,
+				C126FE2E1DB0B6A5001DA480 /* YYWeakProxy.m */,
+				C126FE2A1DB0B373001DA480 /* GWDebugDBManager.h */,
+				C126FE2B1DB0B373001DA480 /* GWDebugDBManager.m */,
+				C11DE9061DAF815900D0D33F /* WSDebugManager.h */,
+				C11DE9071DAF815900D0D33F /* WSDebugManager.m */,
+				C11DE9091DAF836F00D0D33F /* WSDebugWindow.h */,
+				C11DE90A1DAF836F00D0D33F /* WSDebugWindow.m */,
+				C126FE241DB082CB001DA480 /* WSDebugThumbnailView.h */,
+				C126FE251DB082CB001DA480 /* WSDebugThumbnailView.m */,
+				C126FE271DB08C3E001DA480 /* GWDebugSettingInfo.h */,
+				C126FE281DB08C3E001DA480 /* GWDebugSettingInfo.m */,
+			);
+			path = WSDebugManager;
+			sourceTree = "<group>";
+		};
+		C126FE361DB0C4D9001DA480 /* GWDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				C126FE371DB0C4D9001DA480 /* GWBaseDAO.h */,
+				C126FE381DB0C4D9001DA480 /* GWBaseDAO.m */,
+				C126FE391DB0C4D9001DA480 /* GWDBCondition.h */,
+				C126FE3A1DB0C4D9001DA480 /* GWDBCondition.m */,
+				C126FE3B1DB0C4D9001DA480 /* GWDBManager.h */,
+				C126FE3C1DB0C4D9001DA480 /* GWDBManager.m */,
+				C126FE3D1DB0C4D9001DA480 /* GWDBProperty.h */,
+				C126FE3E1DB0C4D9001DA480 /* GWDBProperty.m */,
+			);
+			path = GWDataBase;
+			sourceTree = "<group>";
+		};
+		C126FE431DB0C5B5001DA480 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				C126FE441DB0C5B5001DA480 /* FMDatabase.h */,
+				C126FE451DB0C5B5001DA480 /* FMDatabase.m */,
+				C126FE461DB0C5B5001DA480 /* FMDatabaseAdditions.h */,
+				C126FE471DB0C5B5001DA480 /* FMDatabaseAdditions.m */,
+				C126FE481DB0C5B5001DA480 /* FMDatabasePool.h */,
+				C126FE491DB0C5B5001DA480 /* FMDatabasePool.m */,
+				C126FE4A1DB0C5B5001DA480 /* FMDatabaseQueue.h */,
+				C126FE4B1DB0C5B5001DA480 /* FMDatabaseQueue.m */,
+				C126FE4C1DB0C5B5001DA480 /* FMDB.h */,
+				C126FE4D1DB0C5B5001DA480 /* FMResultSet.h */,
+				C126FE4E1DB0C5B5001DA480 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		C1330EDC1D86C8990039ED2D /* Login&Register (注册&登录) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1112,7 @@
 		C140451B1D6D4F740067D66F /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				C126FE431DB0C5B5001DA480 /* FMDB */,
 				C13711F51D8AF4E700635894 /* Masonry */,
 				C17F0FF91D82A88200B89525 /* SSKeychain */,
 				C1611EE91D70326A00A73FCB /* SwipeView */,
@@ -1898,6 +2011,7 @@
 		C1A2FA6A1D6C2A65000D09DE = {
 			isa = PBXGroup;
 			children = (
+				C126FE541DB0CA4E001DA480 /* libsqlite3.tbd */,
 				C143B5431DA902F100797412 /* libstdc++.6.0.9.tbd */,
 				C143B5411DA902E200797412 /* AssetsLibrary.framework */,
 				C143B53F1DA902DA00797412 /* ImageIO.framework */,
@@ -1946,6 +2060,7 @@
 			children = (
 				C1673F661D8012EB007EE026 /* Resources */,
 				C1A2FA771D6C2A65000D09DE /* main.m */,
+				C11DE90C1DAF8A6600D0D33F /* WSStyle-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1977,6 +2092,8 @@
 		C1A2FA8E1D6C2CC1000D09DE /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C126FE361DB0C4D9001DA480 /* GWDataBase */,
+				C11DE9051DAF814000D0D33F /* WSDebugManager */,
 				C14046B51D6D9B7A0067D66F /* Config */,
 				C14046AE1D6D9A660067D66F /* Kits */,
 				C14045A91D6D8FFA0067D66F /* Network */,
@@ -2167,17 +2284,21 @@
 				C14046721D6D91E80067D66F /* MJProperty.m in Sources */,
 				C1611EEF1D70329F00A73FCB /* PlayerScrollView.m in Sources */,
 				C17F0FEF1D829F7E00B89525 /* WSUser.m in Sources */,
+				C126FE521DB0C5B5001DA480 /* FMDatabaseQueue.m in Sources */,
 				C1330EF11D86CCC80039ED2D /* GWLoginView.m in Sources */,
 				C14046511D6D91190067D66F /* GWXMLDeserializerParserDelegates.m in Sources */,
 				C1F6E7FD1D7F0E6700781DB6 /* SearchedVideoCell.m in Sources */,
 				C145F8E21D6EBF1F00346164 /* AFURLRequestSerialization.m in Sources */,
 				C13BF3F51D8E7BE6004C12FA /* Color+Hex.m in Sources */,
 				C140463B1D6D91190067D66F /* YDate.m in Sources */,
+				C11DE90B1DAF836F00D0D33F /* WSDebugWindow.m in Sources */,
 				C10A90C21D9904AA008D8B3E /* THVideoCell.m in Sources */,
 				C14046481D6D91190067D66F /* MBProgressHUD+GWHud.m in Sources */,
 				C1611EE31D70274B00A73FCB /* HomepageViewController.m in Sources */,
+				C126FE511DB0C5B5001DA480 /* FMDatabasePool.m in Sources */,
 				C1A6C8B71D816A280067F5E7 /* UserCenterHeader.m in Sources */,
 				C14046AD1D6D9A060067D66F /* MAZeroingWeakRef.m in Sources */,
+				C126FE421DB0C4D9001DA480 /* GWDBProperty.m in Sources */,
 				C140456C1D6D52980067D66F /* UIScrollView+MJRefresh.m in Sources */,
 				C14045721D6D82E10067D66F /* UIView+Gewara.m in Sources */,
 				C140463E1D6D91190067D66F /* GWEmotionSelectView.m in Sources */,
@@ -2187,9 +2308,11 @@
 				C145F93B1D6ED93800346164 /* UIImage+MultiFormat.m in Sources */,
 				C14046421D6D91190067D66F /* SVChatEmotionItemView.m in Sources */,
 				C1A2FAA51D6C450A000D09DE /* MyProfieViewController.m in Sources */,
+				C126FE321DB0B868001DA480 /* GWDebugRootViewController.m in Sources */,
 				C13712141D8AF4E700635894 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C14046781D6D91E80067D66F /* NSObject+MJProperty.m in Sources */,
 				C140456D1D6D52980067D66F /* UIView+MJExtension.m in Sources */,
+				C126FE291DB08C3E001DA480 /* GWDebugSettingInfo.m in Sources */,
 				C14045DE1D6D8FFA0067D66F /* GWAppDotNetAPIClient.m in Sources */,
 				C14045611D6D52980067D66F /* MJRefreshAutoNormalFooter.m in Sources */,
 				C13711F21D8AF45300635894 /* GWBaseCell.m in Sources */,
@@ -2204,6 +2327,7 @@
 				C19A5C9A1D9D166700C4EBB3 /* DoFavoriteProvider.m in Sources */,
 				C14046491D6D91190067D66F /* BasicAnnotation.m in Sources */,
 				C1455A051D75D40D0021C453 /* HomepageViewController+GradientNaviBar.m in Sources */,
+				C126FE2F1DB0B6A5001DA480 /* YYWeakProxy.m in Sources */,
 				C145F9301D6ED93800346164 /* MKAnnotationView+WebCache.m in Sources */,
 				C1611EF21D7038B700A73FCB /* UIScrollView+GWWebDragBackAnimation.m in Sources */,
 				C14045681D6D52980067D66F /* MJRefreshStateHeader.m in Sources */,
@@ -2247,6 +2371,7 @@
 				C14045DB1D6D8FFA0067D66F /* GWErrorInterceptor.m in Sources */,
 				C140468B1D6D95630067D66F /* JSONKit.m in Sources */,
 				C140466E1D6D91E80067D66F /* iCarousel.m in Sources */,
+				C126FE531DB0C5B5001DA480 /* FMResultSet.m in Sources */,
 				C145F8E91D6EBF1F00346164 /* UIImageView+AFNetworking.m in Sources */,
 				C14046411D6D91190067D66F /* SVChatEmotion.m in Sources */,
 				C14045661D6D52980067D66F /* MJRefreshGifHeader.m in Sources */,
@@ -2310,12 +2435,16 @@
 				C140464E1D6D91190067D66F /* SFObjectProperty.m in Sources */,
 				C14046391D6D91190067D66F /* NSDateAdditions.m in Sources */,
 				C145F9341D6ED93800346164 /* SDWebImageDecoder.m in Sources */,
+				C126FE4F1DB0C5B5001DA480 /* FMDatabase.m in Sources */,
 				C10A90BF1D990411008D8B3E /* VideoListViewController.m in Sources */,
 				C14045631D6D52980067D66F /* MJRefreshBackGifFooter.m in Sources */,
 				C1611ED01D6FE9A100A73FCB /* TestViewController.m in Sources */,
 				C140463D1D6D91190067D66F /* GWEmotionManager.m in Sources */,
 				C1268F471D95487900845370 /* GWProtocolInterceptor.m in Sources */,
+				C126FE3F1DB0C4D9001DA480 /* GWBaseDAO.m in Sources */,
+				C11DE9081DAF815900D0D33F /* WSDebugManager.m in Sources */,
 				C145F8EB1D6EBF1F00346164 /* UIRefreshControl+AFNetworking.m in Sources */,
+				C126FE2C1DB0B373001DA480 /* GWDebugDBManager.m in Sources */,
 				C140452A1D6D4F740067D66F /* FTAnimation+UIView.m in Sources */,
 				C14045E21D6D8FFA0067D66F /* GWProviderManager.m in Sources */,
 				C145F9331D6ED93800346164 /* SDWebImageCompat.m in Sources */,
@@ -2325,6 +2454,7 @@
 				C137120F1D8AF4E700635894 /* MASConstraintMaker.m in Sources */,
 				C14045751D6D85000067D66F /* UIBarButtonItem+CustomInit.m in Sources */,
 				C178255E1DAA246500BF3249 /* PreferPlayerProvider.m in Sources */,
+				C126FE261DB082CB001DA480 /* WSDebugThumbnailView.m in Sources */,
 				C1330EFF1D86CD5A0039ED2D /* SFDialogTools.m in Sources */,
 				C140456B1D6D52980067D66F /* UIScrollView+MJExtension.m in Sources */,
 				C14045D91D6D8FFA0067D66F /* GWProviderAppConfig.m in Sources */,
@@ -2332,6 +2462,7 @@
 				C145F8F01D6ECBC500346164 /* XYString.m in Sources */,
 				C1330F021D86CE0D0039ED2D /* Toast.m in Sources */,
 				C145F8F31D6ECE5100346164 /* PreferVideo.m in Sources */,
+				C126FE401DB0C4D9001DA480 /* GWDBCondition.m in Sources */,
 				C14045E11D6D8FFA0067D66F /* GWProgressObject.m in Sources */,
 				C14045E91D6D90800067D66F /* GWUserDefaults.m in Sources */,
 				C145F93A1D6ED93800346164 /* UIImage+GIF.m in Sources */,
@@ -2344,6 +2475,7 @@
 				C14046371D6D91190067D66F /* GWSimpleLocalCache.m in Sources */,
 				C14045621D6D52980067D66F /* MJRefreshAutoStateFooter.m in Sources */,
 				C13BF3ED1D8E7ABF004C12FA /* PlayVideoViewController.m in Sources */,
+				C126FE501DB0C5B5001DA480 /* FMDatabaseAdditions.m in Sources */,
 				C140464C1D6D91190067D66F /* LocalizedCurrentLocation.m in Sources */,
 				C14045D31D6D8FFA0067D66F /* GWBaseProvider.m in Sources */,
 				C17F0FFE1D82A88200B89525 /* SSKeychain.m in Sources */,
@@ -2357,6 +2489,7 @@
 				C178256A1DAA49F700BF3249 /* QueryProvider.m in Sources */,
 				C145F9311D6ED93800346164 /* NSData+ImageContentType.m in Sources */,
 				C14046911D6D96590067D66F /* NSDate+SFAddition.m in Sources */,
+				C126FE351DB0C30E001DA480 /* GWRequestDurationDAO.m in Sources */,
 				C145F93E1D6ED93800346164 /* UIImageView+WebCache.m in Sources */,
 				C14046791D6D91E80067D66F /* NSString+MJExtension.m in Sources */,
 				C14045DC1D6D8FFA0067D66F /* GWErrorInterceptorHandler.m in Sources */,
@@ -2375,6 +2508,7 @@
 				C145F9321D6ED93800346164 /* SDImageCache.m in Sources */,
 				C1611EDF1D70274B00A73FCB /* GWDramaHomeSearchView.m in Sources */,
 				C145F9091D6ED38200346164 /* SDCycleScrollView.m in Sources */,
+				C126FE411DB0C4D9001DA480 /* GWDBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2487,6 +2621,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WebStyle/OneSDK",
 				);
+				GCC_PREFIX_HEADER = "WebStyle/WSStyle-Prefix.pch";
 				INFOPLIST_FILE = WebStyle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -2510,6 +2645,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WebStyle/OneSDK",
 				);
+				GCC_PREFIX_HEADER = "WebStyle/WSStyle-Prefix.pch";
 				INFOPLIST_FILE = WebStyle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

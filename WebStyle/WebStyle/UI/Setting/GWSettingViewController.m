@@ -390,9 +390,9 @@
         weakself.cacheFileSize = [weakself getCacheFileSize];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-#ifdef __TEST__
-            [[GWPartnerDataSourceHandler instance] cancelAllLocalNotification];
-#endif
+//#ifdef __TEST__
+//            [[GWPartnerDataSourceHandler instance] cancelAllLocalNotification];
+//#endif
             [UIApplication sharedApplication].keyWindow.rootViewController.view.userInteractionEnabled = YES;
             [weakself stopLoading];
             [weakself showAutoHideToastWithString:@"清除成功"];

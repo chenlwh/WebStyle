@@ -138,7 +138,7 @@
     [params addEntriesFromDictionary:[self dictionaryOfAddedParameterAndValues]];
     
     //签名
-    [self signToParams:params];
+//    [self signToParams:params];
     
     NSMutableString* urlStr = [NSMutableString stringWithFormat:@"%@%@", useCacheUrl ? self.cacheUrlString : self.urlString, self.interfaceName];
     

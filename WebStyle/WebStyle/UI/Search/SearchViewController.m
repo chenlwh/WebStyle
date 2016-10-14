@@ -311,7 +311,7 @@ enum {
     
     WeakObjectDef(self);
     
-    /*
+    ///*
     if(!self.queryProvider)
     {
         self.queryProvider = [[QueryProvider alloc] init];
@@ -360,7 +360,7 @@ enum {
         }
     }];
    // */
-    ///*
+    /*
     NSString * urlString = [NSString stringWithFormat:@"%@%@", kQueryInfo2, [searchName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     D_Log(@"______%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

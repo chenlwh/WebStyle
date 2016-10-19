@@ -16,6 +16,9 @@
         self.urlString = kHotPlayerVideo;
         self.cacheUrlString = kHotPlayerVideo;
         
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

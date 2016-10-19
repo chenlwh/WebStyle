@@ -16,6 +16,9 @@
         self.urlString = kDoFavorite;
         self.cacheUrlString = kDoFavorite;
         
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

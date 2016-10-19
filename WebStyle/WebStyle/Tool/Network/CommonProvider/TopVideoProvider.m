@@ -17,6 +17,9 @@
         self.urlString = kTopVideo;
         self.cacheUrlString = kTopVideo;
         
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

@@ -16,6 +16,9 @@
         self.urlString = KPreferPlayer;
         self.cacheUrlString = KPreferPlayer;
         
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

@@ -9,6 +9,7 @@
 #import "GWBaseProvider.h"
 //#import "GWConstants.h"
 #import <UIKit/UIKit.h>
+#import "GWSimpleLocalCache.h"
 
 extern NSString *const GWFormatXML;
 extern NSString *const GWFormatJASON;

@@ -18,6 +18,9 @@
         self.cacheUrlString = kQueryInfo;
         self.httpMethod = @"Get";
         
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         [self setResponseHandler:^id(id response, NSError **error) {
             
             NSLog(@"response %@", response);

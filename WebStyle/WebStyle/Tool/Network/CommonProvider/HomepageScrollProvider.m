@@ -16,7 +16,9 @@
     {
         self.urlString = KPreferVideoURL;
         self.cacheUrlString = KPreferVideoURL;
-        
+        [self useDownloadCache:[GWSimpleLocalCache sharedCache]
+                   cacheSecond:10
+                   cachePolicy:EGWCachePolicyNetworkFirst];
         
         [self setResponseHandler:^id(id response, NSError **error) {
             

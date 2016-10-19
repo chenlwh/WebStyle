@@ -138,7 +138,7 @@ const NSString *topVideo = @"视频排行";
     [self.topScrollProvider cancelProvider];
     D_Log(@"%@", [self.topScrollProvider description]);
     [self.topScrollProvider requestWithCompletionHandler:^(id response, NSError* error){
-        D_Log(@"topScrollProvider %@", response);
+//        D_Log(@"topScrollProvider %@", response);
         NSArray *temArray  = [XYString getObjectFromJsonString:response];
         NSMutableArray *arrayM = [NSMutableArray arrayWithArray:[PreferVideo mj_objectArrayWithKeyValuesArray:temArray]];
         weakself.preferVideoArr = arrayM;

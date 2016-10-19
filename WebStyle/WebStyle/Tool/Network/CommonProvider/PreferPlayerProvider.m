@@ -19,7 +19,7 @@
         
         [self setResponseHandler:^id(id response, NSError **error) {
             
-            NSLog(@"response %@", response);
+//            NSLog(@"response %@", response);
             
             return response;
         }];

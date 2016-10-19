@@ -14,13 +14,13 @@
 {
     if(self = [super init])
     {
-        self.urlString = KGWHostURL;
-        self.cacheUrlString = KGWHostURL;
+        self.urlString = KPreferVideoURL;
+        self.cacheUrlString = KPreferVideoURL;
         
         
         [self setResponseHandler:^id(id response, NSError **error) {
             
-            NSLog(@"response %@", response);
+//            NSLog(@"response %@", response);
             
             return response;
         }];

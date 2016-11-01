@@ -8,7 +8,7 @@
 
 #import "GWDebugRootViewController.h"
 
-#ifdef __USE_DEBUGTOOL__
+
 
 //#import "GWDebugSettingViewController.h"
 
@@ -156,4 +156,3 @@
 }
 @end
 
-#endif

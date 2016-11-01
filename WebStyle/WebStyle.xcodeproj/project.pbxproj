@@ -2187,6 +2187,7 @@
 				TargetAttributes = {
 					C1A2FA721D6C2A65000D09DE = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6CK7T77L24;
 					};
 				};
 			};
@@ -2616,6 +2617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6CK7T77L24;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2623,6 +2625,7 @@
 				);
 				GCC_PREFIX_HEADER = "WebStyle/WSStyle-Prefix.pch";
 				INFOPLIST_FILE = WebStyle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2640,6 +2643,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6CK7T77L24;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2647,6 +2651,7 @@
 				);
 				GCC_PREFIX_HEADER = "WebStyle/WSStyle-Prefix.pch";
 				INFOPLIST_FILE = WebStyle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",

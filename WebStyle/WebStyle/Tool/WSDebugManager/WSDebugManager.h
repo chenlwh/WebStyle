@@ -10,6 +10,8 @@
 #import "WSDebugWindow.h"
 #import "GWDebugSettingInfo.h"
 
+
+
 @interface WSDebugManager : NSObject
 @property (nonatomic, readonly) WSDebugWindow* notificationWindow;
 @property (nonatomic, readonly) GWDebugSettingInfo* debugSettingInfo;

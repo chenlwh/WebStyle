@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#ifdef __USE_DEBUGTOOL__
 
 @interface GWDebugRootViewController : UIViewController
 @property (nonatomic, copy) NSArray* imageOperations;
 - (void)reloadDisplay;
 @end
 
-#endif
